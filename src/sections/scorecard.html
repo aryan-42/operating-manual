@@ -1,0 +1,31 @@
+<section id="scorecard" aria-labelledby="h-scorecard">
+  <h2 id="h-scorecard"><span class="n">03</span>Scorecard</h2>
+  <p class="lede">Score each domain from 1 to 10. Save a snapshot every quarter. The lowest score chooses your next focus.</p>
+  <p class="note">Calibration: 3 = neglected. 5 = Floor standards mostly met. 7 = Strong tier met. 9 = Elite tier met and held for a year. Score from your ticked standards and your Baseline tests, not from how the week felt.</p>
+  <div class="panel">
+    <div id="scores">
+      <div class="score"><label for="s-body">Body</label><input type="range" min="1" max="10" value="5" id="s-body" data-k><output for="s-body">–</output></div>
+      <div class="score"><label for="s-mind">Mind</label><input type="range" min="1" max="10" value="5" id="s-mind" data-k><output for="s-mind">–</output></div>
+      <div class="score"><label for="s-craft">Craft</label><input type="range" min="1" max="10" value="5" id="s-craft" data-k><output for="s-craft">–</output></div>
+      <div class="score"><label for="s-money">Money</label><input type="range" min="1" max="10" value="5" id="s-money" data-k><output for="s-money">–</output></div>
+      <div class="score"><label for="s-presence">Presence</label><input type="range" min="1" max="10" value="5" id="s-presence" data-k><output for="s-presence">–</output></div>
+      <div class="score"><label for="s-people">People</label><input type="range" min="1" max="10" value="5" id="s-people" data-k><output for="s-people">–</output></div>
+      <div class="score"><label for="s-character">Character</label><input type="range" min="1" max="10" value="5" id="s-character" data-k><output for="s-character">–</output></div>
+    </div>
+    <div class="sum">
+      <span><b id="avg">–</b>average</span>
+      <span><b id="low">–</b>your constraint</span>
+      <span><b id="gap">–</b>gap, highest minus lowest</span>
+    </div>
+    <div class="fld"><label for="f-snapnote">One line on this quarter</label><input type="text" id="f-snapnote" data-k placeholder="What changed since the last snapshot"></div>
+    <div class="row"><button type="button" id="snapBtn">Save snapshot for today</button><span class="note" id="snapMsg">Move a slider to score a domain. Unscored domains show a dash.</span></div>
+  </div>
+  <h3>History</h3>
+  <div class="scroll"><table id="snapTable">
+    <thead><tr><th>Date</th><th class="num">Bo</th><th class="num">Mi</th><th class="num">Cr</th><th class="num">Mo</th><th class="num">Pr</th><th class="num">Pe</th><th class="num">Ch</th><th class="num">Avg</th><th>Note</th><th></th></tr></thead>
+    <tbody><tr><td colspan="11" class="note">No snapshots yet. Your first one is the baseline every later one is measured against.</td></tr></tbody>
+  </table></div>
+  <h3>Trends</h3>
+  <div class="sparks" id="sparks"></div>
+  <p class="note" style="margin-top:12px">Watch the gap as closely as the average. A widening gap means one domain is being fed by starving another.</p>
+</section>

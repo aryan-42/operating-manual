@@ -1,0 +1,49 @@
+<section id="baseline" aria-labelledby="h-baseline">
+  <h2 id="h-baseline"><span class="n">00</span>Baseline tests</h2>
+  <p class="lede">Measured starting points. Fill the first column once and never change it. Update the second column every month or quarter.</p>
+  <p>A 1 to 10 self-rating drifts with mood. These numbers do not. The gap between the two columns, a year from now, is the most honest progress report you will have.</p>
+  <h3>Body</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Test</th><th>How</th><th>Baseline</th><th>Latest</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Height, cm</td><td>Once.</td><td><input type="text" id="bt-height-a" data-k inputmode="decimal" aria-label="Height"></td><td></td></tr>
+      <tr><td class="lab">Weight, kg</td><td>Morning, after the toilet, before food. Average of 3 days.</td><td><input type="text" id="bt-weight-a" data-k inputmode="decimal" aria-label="Weight baseline"></td><td><input type="text" id="bt-weight-b" data-k inputmode="decimal" aria-label="Weight latest"></td></tr>
+      <tr><td class="lab">Waist, cm</td><td>Tape at navel height, standing relaxed, after a normal breath out.</td><td><input type="text" id="bt-waist-a" data-k inputmode="decimal" aria-label="Waist baseline"></td><td><input type="text" id="bt-waist-b" data-k inputmode="decimal" aria-label="Waist latest"></td></tr>
+      <tr><td class="lab">Resting heart rate</td><td>On waking, lying down, 60 seconds. Average of 3 mornings.</td><td><input type="text" id="bt-rhr-a" data-k inputmode="numeric" aria-label="Resting heart rate baseline"></td><td><input type="text" id="bt-rhr-b" data-k inputmode="numeric" aria-label="Resting heart rate latest"></td></tr>
+      <tr><td class="lab">Push-ups</td><td>Most strict reps in one set. Chest to a fist's height, body straight.</td><td><input type="text" id="bt-push-a" data-k inputmode="numeric" aria-label="Push-ups baseline"></td><td><input type="text" id="bt-push-b" data-k inputmode="numeric" aria-label="Push-ups latest"></td></tr>
+      <tr><td class="lab">Pull-ups</td><td>Most strict reps from a dead hang. If zero, record dead-hang seconds.</td><td><input type="text" id="bt-pull-a" data-k aria-label="Pull-ups baseline"></td><td><input type="text" id="bt-pull-b" data-k aria-label="Pull-ups latest"></td></tr>
+      <tr><td class="lab">Plank, seconds</td><td>Forearms, straight line, stop when hips sag.</td><td><input type="text" id="bt-plank-a" data-k inputmode="numeric" aria-label="Plank baseline"></td><td><input type="text" id="bt-plank-b" data-k inputmode="numeric" aria-label="Plank latest"></td></tr>
+      <tr><td class="lab">2.4 km time</td><td>Flat route or track, run or run-walk, as fast as you can sustain.</td><td><input type="text" id="bt-run-a" data-k aria-label="2.4 km baseline"></td><td><input type="text" id="bt-run-b" data-k aria-label="2.4 km latest"></td></tr>
+      <tr><td class="lab">Sleep, hours</td><td>Average over 7 nights, from a written log.</td><td><input type="text" id="bt-sleep-a" data-k inputmode="decimal" aria-label="Sleep baseline"></td><td><input type="text" id="bt-sleep-b" data-k inputmode="decimal" aria-label="Sleep latest"></td></tr>
+      <tr><td class="lab">Wake-time spread</td><td>Latest wake time minus earliest across the same 7 days.</td><td><input type="text" id="bt-spread-a" data-k aria-label="Wake spread baseline"></td><td><input type="text" id="bt-spread-b" data-k aria-label="Wake spread latest"></td></tr>
+    </tbody>
+  </table></div>
+  <div class="calc">
+    <span><b id="whtr">–</b>waist ÷ height <span class="note" id="whtrNote"></span></span>
+    <span><b id="protein">–</b>g protein a day at 1.6 g per kg</span>
+  </div>
+  <h3>Mind</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Test</th><th>How</th><th>Baseline</th><th>Latest</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Deep work, hours a week</td><td>Single-task, phone away, on work that matters. Tally for 7 days.</td><td><input type="text" id="bt-deep-a" data-k inputmode="decimal" aria-label="Deep work baseline"></td><td><input type="text" id="bt-deep-b" data-k inputmode="decimal" aria-label="Deep work latest"></td></tr>
+      <tr><td class="lab">Phone screen time, daily</td><td>7-day average from the phone's own report.</td><td><input type="text" id="bt-screen-a" data-k aria-label="Screen time baseline"></td><td><input type="text" id="bt-screen-b" data-k aria-label="Screen time latest"></td></tr>
+      <tr><td class="lab">Phone pickups, daily</td><td>Same report.</td><td><input type="text" id="bt-pick-a" data-k inputmode="numeric" aria-label="Pickups baseline"></td><td><input type="text" id="bt-pick-b" data-k inputmode="numeric" aria-label="Pickups latest"></td></tr>
+      <tr><td class="lab">Books finished, last 12 months</td><td>Cover to cover only.</td><td><input type="text" id="bt-books-a" data-k inputmode="numeric" aria-label="Books baseline"></td><td><input type="text" id="bt-books-b" data-k inputmode="numeric" aria-label="Books latest"></td></tr>
+    </tbody>
+  </table></div>
+  <h3>The other five domains</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Test</th><th>How</th><th>Baseline</th><th>Latest</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Craft: measurable wins, last 3 months</td><td>Things you shipped that have a number attached.</td><td><input type="text" id="bt-wins-a" data-k inputmode="numeric" aria-label="Wins baseline"></td><td><input type="text" id="bt-wins-b" data-k inputmode="numeric" aria-label="Wins latest"></td></tr>
+      <tr><td class="lab">Money: savings rate, %</td><td>Saved or invested, divided by money received, over the last 3 months.</td><td><input type="text" id="bt-save-a" data-k inputmode="decimal" aria-label="Savings rate baseline"></td><td><input type="text" id="bt-save-b" data-k inputmode="decimal" aria-label="Savings rate latest"></td></tr>
+      <tr><td class="lab">Money: months of expenses held</td><td>Liquid savings divided by monthly spend.</td><td><input type="text" id="bt-runway-a" data-k inputmode="decimal" aria-label="Runway baseline"></td><td><input type="text" id="bt-runway-b" data-k inputmode="decimal" aria-label="Runway latest"></td></tr>
+      <tr><td class="lab">Presence: filler words in 2 minutes</td><td>Record yourself explaining any topic unscripted. Count every "um", "like", "basically", "you know".</td><td><input type="text" id="bt-filler-a" data-k inputmode="numeric" aria-label="Filler words baseline"></td><td><input type="text" id="bt-filler-b" data-k inputmode="numeric" aria-label="Filler words latest"></td></tr>
+      <tr><td class="lab">People: real conversations, last 14 days</td><td>Unhurried, one to one, with someone who matters. Calls count. Texts do not.</td><td><input type="text" id="bt-conv-a" data-k inputmode="numeric" aria-label="Conversations baseline"></td><td><input type="text" id="bt-conv-b" data-k inputmode="numeric" aria-label="Conversations latest"></td></tr>
+      <tr><td class="lab">Character: promises late or broken, last 30 days</td><td>Honest count, including small ones.</td><td><input type="text" id="bt-prom-a" data-k inputmode="numeric" aria-label="Broken promises baseline"></td><td><input type="text" id="bt-prom-b" data-k inputmode="numeric" aria-label="Broken promises latest"></td></tr>
+    </tbody>
+  </table></div>
+  <div class="fld"><label for="f-bt-dates">Test dates</label><small>Date of the baseline, then the date of each retest.</small><input type="text" id="f-bt-dates" data-k></div>
+  <p class="note">If a number is embarrassing, good. It is the number you will be proudest to have recorded in two years.</p>
+</section>

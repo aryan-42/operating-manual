@@ -1,0 +1,34 @@
+<section id="time" aria-labelledby="h-time">
+  <h2 id="h-time"><span class="n">00</span>Time audit</h2>
+  <p class="lede">Every week has 168 hours. Find out where yours go before deciding where they should.</p>
+  <h3>Method</h3>
+  <ol>
+    <li>For 7 consecutive days, note what you did in each waking hour. A note on your phone at each meal and before bed is enough.</li>
+    <li>Add the hours into the categories below.</li>
+    <li>Set a target for each category, using the Ideal week as a reference.</li>
+    <li>Repeat once a year, and after any change of city or job.</li>
+  </ol>
+  <div class="panel wb">
+    <h4>Workbook · the 168-hour budget</h4>
+    <div class="scroll"><table>
+      <thead><tr><th>Category</th><th>Includes</th><th>Hours now</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Sleep</td><td>Time asleep, from your log</td><td><input type="text" id="ta-sleep-a" data-k data-sum="ta" inputmode="decimal" aria-label="Sleep now"></td><td><input type="text" id="ta-sleep-b" data-k data-sum="tb" inputmode="decimal" aria-label="Sleep target"></td></tr>
+        <tr><td class="lab">Class or job</td><td>Scheduled hours, including meetings</td><td><input type="text" id="ta-work-a" data-k data-sum="ta" inputmode="decimal" aria-label="Work now"></td><td><input type="text" id="ta-work-b" data-k data-sum="tb" inputmode="decimal" aria-label="Work target"></td></tr>
+        <tr><td class="lab">Deep work and study</td><td>Self-directed, single-task</td><td><input type="text" id="ta-deep-a" data-k data-sum="ta" inputmode="decimal" aria-label="Deep work now"></td><td><input type="text" id="ta-deep-b" data-k data-sum="tb" inputmode="decimal" aria-label="Deep work target"></td></tr>
+        <tr><td class="lab">Training and movement</td><td>Strength, cardio, sport, walking on purpose</td><td><input type="text" id="ta-train-a" data-k data-sum="ta" inputmode="decimal" aria-label="Training now"></td><td><input type="text" id="ta-train-b" data-k data-sum="tb" inputmode="decimal" aria-label="Training target"></td></tr>
+        <tr><td class="lab">People</td><td>Family, friends, partner, mentors</td><td><input type="text" id="ta-people-a" data-k data-sum="ta" inputmode="decimal" aria-label="People now"></td><td><input type="text" id="ta-people-b" data-k data-sum="tb" inputmode="decimal" aria-label="People target"></td></tr>
+        <tr><td class="lab">Life admin</td><td>Meals, hygiene, commute, chores, errands</td><td><input type="text" id="ta-admin-a" data-k data-sum="ta" inputmode="decimal" aria-label="Admin now"></td><td><input type="text" id="ta-admin-b" data-k data-sum="tb" inputmode="decimal" aria-label="Admin target"></td></tr>
+        <tr><td class="lab">Screens for leisure</td><td>Social apps, video, games, scrolling</td><td><input type="text" id="ta-screen-a" data-k data-sum="ta" inputmode="decimal" aria-label="Screens now"></td><td><input type="text" id="ta-screen-b" data-k data-sum="tb" inputmode="decimal" aria-label="Screens target"></td></tr>
+        <tr><td class="lab">Real rest and play</td><td>Hobbies, reading for pleasure, sport for fun, doing nothing</td><td><input type="text" id="ta-rest-a" data-k data-sum="ta" inputmode="decimal" aria-label="Rest now"></td><td><input type="text" id="ta-rest-b" data-k data-sum="tb" inputmode="decimal" aria-label="Rest target"></td></tr>
+      </tbody>
+    </table></div>
+    <div class="calc">
+      <span><b id="taSum">0</b>of 168 hours accounted for now</span>
+      <span><b id="tbSum">0</b>of 168 hours in the target</span>
+    </div>
+    <div class="fld"><label for="f-ta-find">What surprised me</label><small>The category that was much bigger or smaller than you believed.</small><textarea id="f-ta-find" data-k></textarea></div>
+    <div class="fld"><label for="f-ta-move">The one reallocation I am making</label><small>Hours taken from one named category and given to another.</small><textarea id="f-ta-move" data-k></textarea></div>
+  </div>
+  <p class="note">Hours unaccounted for are usually phone time in fragments. Check them against the screen-time number in Baseline tests.</p>
+</section>

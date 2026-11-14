@@ -1,0 +1,37 @@
+<section id="sprint" aria-labelledby="h-sprint">
+  <h2 id="h-sprint"><span class="n">00</span>Sprint board</h2>
+  <p class="lede">One focus for twelve weeks. Three lead measures. A tick for every week you hit them.</p>
+  <p>This is where "one focus per quarter" becomes concrete. Choose the domain, write one measurable outcome, and name up to three weekly actions that produce it. At the end of each week, tick the measures you fully hit. Review at week 6. Retest and archive at week 12.</p>
+  <div class="panel wb">
+    <h4>Current sprint</h4>
+    <div class="two">
+      <div class="fld"><label for="f-q-focus">Focus domain</label><input type="text" id="f-q-focus" data-k placeholder="Body"></div>
+      <div class="fld"><label for="f-sp-start">Start date</label><input type="text" id="f-sp-start" data-k placeholder="16 Nov 2026"></div>
+    </div>
+    <div class="fld"><label for="f-q-out">The one measurable outcome by week 12</label><input type="text" id="f-q-out" data-k placeholder="36 strength sessions logged, first strict pull-up, 2.4 km retested"></div>
+    <div class="scroll"><table class="sprint" id="sprintGrid">
+      <thead><tr><th>Lead measure, weekly</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead>
+      <tbody>
+        <tr data-row="1"><td><input type="text" id="f-sp-m1" data-k placeholder="3 strength sessions" aria-label="Lead measure 1"></td></tr>
+        <tr data-row="2"><td><input type="text" id="f-sp-m2" data-k placeholder="Protein target 6 days of 7" aria-label="Lead measure 2"></td></tr>
+        <tr data-row="3"><td><input type="text" id="f-sp-m3" data-k placeholder="7 hours of sleep, 6 nights of 7" aria-label="Lead measure 3"></td></tr>
+      </tbody>
+    </table></div>
+    <div class="calc">
+      <span><b id="spHit">0 of 36</b>weekly targets hit</span>
+      <span><b id="spRate">–</b>hit rate so far</span>
+    </div>
+    <div class="fld"><label for="f-q-woop">WOOP for this sprint</label><small>Wish. Best outcome. The inner obstacle most likely to stop me. If that obstacle shows up, then I will ...</small><textarea id="f-q-woop" data-k></textarea></div>
+    <div class="fld"><label for="f-sp-mid">Week 6 check</label><small>Hit rate so far. What is working. The one change for the second half.</small><textarea id="f-sp-mid" data-k></textarea></div>
+    <div class="row"><button type="button" id="spArchive">Archive this sprint and clear the board</button><span class="note" id="spMsg"></span></div>
+  </div>
+  <div class="panel">
+    <h4>Reading the hit rate</h4>
+    <ul style="margin-bottom:0">
+      <li><b>Above 85%.</b> The targets are right. Raise them slightly next sprint.</li>
+      <li><b>60 to 85%.</b> Normal. Keep the targets and fix the one cue or slot that keeps failing.</li>
+      <li><b>Below 60%.</b> The plan is too big for your current life. Halve it. A small plan kept beats a large one abandoned.</li>
+    </ul>
+  </div>
+  <div class="fld"><label for="f-sp-log">Sprint archive</label><small>Finished sprints are added here automatically. One line each.</small><textarea id="f-sp-log" data-k style="min-height:90px"></textarea></div>
+</section>

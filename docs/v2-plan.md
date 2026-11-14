@@ -200,11 +200,17 @@ Alternative: build all of it in one pass as 2.0. This is faster to reach "comple
 
 ---
 
-## 8. Open questions for Aryan
+## 8. Decisions taken, 14 November 2026
 
-These change what gets written.
+- Three staged releases.
+- Diet: vegetarian plus fish and eggs.
+- Training: starting from none.
+- Equipment: dumbbells, curl rod, resistance bands, pull-up bar, push-up board.
 
-1. Diet: vegetarian, eggs, or non-vegetarian?
-2. Training today: none, on and off, or consistent? Gym access or home only?
-3. One release with everything, or three staged releases?
-4. Expected joining month, if known.
+Still open: expected joining month, for the roadmap dates in release 1.2.
+
+## 9. Status
+
+- **1.1.0 shipped 14 November 2026.** Parts A and B, Body, Mind, Ideal week, Sprint board. Deferred from 1.1 to 2.0: search, and a separate milestone log (dates are recorded on each standard).
+- 1.2 next: Craft, Money, Presence, year-one plan, decision frameworks.
+- 2.0 after: People, Character, Competence, Base, seasons, risk register, curriculum, glossary.
