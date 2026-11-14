@@ -169,12 +169,35 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   .sumry dl{grid-template-columns:minmax(0,1fr);gap:2px 0}
   .sumry dd{margin-bottom:8px}
 }
+/* 2.0 additions */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.find{position:relative}
+.find input{width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 10px}
+#qOut{display:flex;flex-direction:column;gap:3px;margin-top:6px;max-height:46vh;overflow-y:auto}
+#qOut:empty{display:none}
+#qOut button{display:block;width:100%;text-align:left;background:var(--panel);color:var(--ink);border:1px solid var(--line);font-weight:400;font-size:13px;line-height:1.35;padding:6px 8px}
+#qOut button:hover{border-color:var(--accent)}
+#qOut button b{display:block;font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--brass)}
+#qOut .none{font-size:13px;color:var(--muted);margin:4px 2px}
+.hit{outline:2px solid var(--brass);outline-offset:3px;border-radius:3px}
+dl.gl{display:grid;grid-template-columns:190px minmax(0,1fr);gap:8px 16px;margin:0 0 12px;max-width:68ch}
+dl.gl dt{font-weight:600}
+dl.gl dd{margin:0}
+td small{margin-top:2px}
+@media (max-width:900px){
+  #qOut{position:absolute;left:0;right:0;top:100%;z-index:6;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:6px;max-height:60vh;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+  html{scroll-padding-top:150px}
+  dl.gl{grid-template-columns:minmax(0,1fr);gap:2px 0}
+  dl.gl dd{margin-bottom:8px}
+  .score{grid-template-columns:90px minmax(0,1fr) 28px}
+}
 </style>
 </head>
 <body>
 <div class="shell">
 <nav class="index" aria-label="Sections">
-  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v1.2.0</small></div>
+  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v2.0.0</small></div>
+  <div class="find"><label class="sr" for="q">Search the manual</label><input type="search" id="q" placeholder="Search the manual" autocomplete="off"><div id="qOut" aria-live="polite"></div></div>
   <ol>
     <li class="part">A · Foundation</li>
     <li><a href="#start"><span>01</span>Start here</a></li>
@@ -197,18 +220,26 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li><a href="#presence"><span>16</span>Presence<em data-count="presence"></em></a></li>
     <li><a href="#people"><span>17</span>People<em data-count="people"></em></a></li>
     <li><a href="#character"><span>18</span>Character<em data-count="character"></em></a></li>
+    <li><a href="#competence"><span>19</span>Competence<em data-count="competence"></em></a></li>
+    <li><a href="#base"><span>20</span>Base<em data-count="base"></em></a></li>
     <li class="part">D · Run it</li>
-    <li><a href="#week"><span>19</span>Ideal week</a></li>
-    <li><a href="#sprint"><span>20</span>Sprint board</a></li>
-    <li><a href="#rhythm"><span>21</span>Rhythm</a></li>
-    <li><a href="#breaks"><span>22</span>When it breaks</a></li>
+    <li><a href="#week"><span>21</span>Ideal week</a></li>
+    <li><a href="#sprint"><span>22</span>Sprint board</a></li>
+    <li><a href="#rhythm"><span>23</span>Rhythm</a></li>
+    <li><a href="#seasons"><span>24</span>Seasons</a></li>
+    <li><a href="#account"><span>25</span>Accountability</a></li>
+    <li><a href="#breaks"><span>26</span>When it breaks</a></li>
     <li class="part">E · The long game</li>
-    <li><a href="#roadmap"><span>23</span>Roadmap</a></li>
-    <li><a href="#yearone"><span>24</span>Year one</a></li>
-    <li><a href="#decisions"><span>25</span>Decisions</a></li>
+    <li><a href="#roadmap"><span>27</span>Roadmap</a></li>
+    <li><a href="#yearone"><span>28</span>Year one</a></li>
+    <li><a href="#decisions"><span>29</span>Decisions</a></li>
+    <li><a href="#risks"><span>30</span>Risk register</a></li>
+    <li><a href="#milestones"><span>31</span>Milestone log</a></li>
     <li class="part">F · Reference</li>
-    <li><a href="#library"><span>26</span>Library</a></li>
-    <li><a href="#sources"><span>27</span>Sources</a></li>
+    <li><a href="#curriculum"><span>32</span>Curriculum</a></li>
+    <li><a href="#library"><span>33</span>Library</a></li>
+    <li><a href="#glossary"><span>34</span>Glossary</a></li>
+    <li><a href="#sources"><span>35</span>Sources</a></li>
   </ol>
   <div class="sync">
     <div><span class="dot" id="syncDot"></span><b id="syncText">Saving in this browser</b></div>
@@ -221,7 +252,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 
 <header class="top">
   <h1>The Operating Manual</h1>
-  <p>One system for body, mind, craft, money, presence, people and character. Built to be reopened every quarter for ten years.</p>
+  <p>One system for body, mind, craft, money, presence, people, character, competence and base. Built to be reopened every quarter for ten years.</p>
   <div class="meta">
     <span>Started <input type="date" id="f-start" data-k value="2026-11-14" aria-label="Start date"></span>
     <span><b id="weekNo">Week 1</b> of 520</span>
@@ -240,6 +271,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li><b>Day 2 to 7.</b> Run the time audit and the 7-night sleep log from Baseline tests. Start Body, Stage 1, Week 1. It needs only the kit you already own.</li>
       <li><b>End of week 1, 60 minutes.</b> Fill in Direction. This decides what the next ten years are for.</li>
       <li><b>Week 2.</b> Set up your first 12-week sprint on the Sprint board, with Body as the focus. Put the weekly review in your calendar.</li>
+      <li><b>Week 2, one weekend.</b> Do the Base setup: two-step sign-in, documents scanned, room arranged. Book a first-aid class from Competence.</li>
       <li><b>Every quarter.</b> Retest, rescore, archive the sprint, choose the next focus.</li>
     </ol>
   </div>
@@ -253,10 +285,10 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   </div>
   <div class="panel warnp">
     <h4>Two rules that protect the system</h4>
-    <p><b>One focus per quarter.</b> Every other domain runs at its Floor. Overhauling seven areas at once is the most reliable way to quit by week three.</p>
+    <p><b>One focus per quarter.</b> Every other domain runs at its Floor. Overhauling nine areas at once is the most reliable way to quit by week three.</p>
     <p style="margin-bottom:0"><b>Reading is not doing.</b> Adding content to this manual, rebuilding it as an app, or studying a domain you are not working on all feel like progress. Only ticked standards and retested numbers count.</p>
   </div>
-  <p class="note">Everything you type or tick is saved automatically, and each standard records the date you first met it. Use the backup at the bottom of Rhythm once a year. Body, Mind, Craft, Money and Presence are complete in this version. People and Character, and two new domains, get the same depth in the next release.</p>
+  <p class="note">Everything you type or tick is saved automatically, and each standard records the date you first met it. Use the backup at the bottom of Rhythm once a year. All nine domains are now at full depth. Competence and Base are built to run in the background: one skill a quarter and one admin hour a month. Use the search box in the index to find anything by keyword.</p>
 </section>
 
 <section id="standard" aria-labelledby="h-standard">
@@ -269,7 +301,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   <div class="panel">
     <h4>The definition this manual uses</h4>
     <ul style="margin-bottom:0">
-      <li><b>No domain below Strong.</b> All seven domains at the Strong tier or better.</li>
+      <li><b>No domain below Strong.</b> All nine domains at the Strong tier or better.</li>
       <li><b>Two spikes at Elite.</b> For you the natural spikes are Craft and one of Body or Presence.</li>
       <li><b>Held for years.</b> A standard you hold for one quarter is a stunt. The target is to still be there at 34.</li>
     </ul>
@@ -343,6 +375,12 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><td class="lab">You need heavy barbells to build muscle</td><td><span class="verdict part">Half true</span></td><td>Across 21 studies, light and heavy loads built similar muscle when sets were taken to failure. Heavy loads were better for maximal strength.<sup><a href="#s22">22</a></sup></td><td>Train hard with what you own now. Add heavy loading when you have access.</td></tr>
       <tr><td class="lab">A drink a day is good for you</td><td><span class="verdict no">Not at your age</span></td><td>For men aged 15 to 39 the intake that minimises health risk is about a tenth of a standard drink a day, which is effectively none.<sup><a href="#s26">26</a></sup></td><td>Treat alcohol as an occasional cost, never a health habit.</td></tr>
       <tr><td class="lab">More money will not make you happier past a threshold</td><td><span class="verdict part">Outdated</span></td><td>Happiness keeps rising with income for most people. It plateaus only for the least happy group.<sup><a href="#s20">20</a></sup></td><td>Earn more, and fix unhappiness at its real source.</td></tr>
+      <tr><td class="lab">Let the anger out: hit a bag, go for a hard run</td><td><span class="verdict no">Failed</span></td><td>Across 154 studies and 10,189 people, activities that raise arousal did not reduce anger. Activities that calm the body did.<sup><a href="#s45">45</a></sup></td><td>Slow the breath, wait, then decide. The steps are in Character.</td></tr>
+      <tr><td class="lab">Multitasking gets more done</td><td><span class="verdict no">Failed</span></td><td>In controlled experiments, switching between tasks cost time on every switch, and more as the tasks became more complex.<sup><a href="#s59">59</a></sup></td><td>Single-task blocks. They are a core part of Mind.</td></tr>
+      <tr><td class="lab">93% of communication is body language and tone</td><td><span class="verdict no">Misread</span></td><td>The figures come from two small 1960s experiments on mixed messages about feelings. The researcher himself says they do not apply outside that situation.<sup><a href="#s58">58</a></sup></td><td>Prepare what you will say. Words carry the content.</td></tr>
+      <tr><td class="lab">Alpha males lead, and status is won by dominance</td><td><span class="verdict no">Wrong model</span></td><td>The idea came from captive wolves. The researcher who popularised it later showed that wild packs are families, and the "alpha" pair are simply the parents.<sup><a href="#s57">57</a></sup> Applying it to people is a further leap with no support here.</td><td>Earn standing through competence and generosity. That part is judgement.</td></tr>
+      <tr><td class="lab">An expert can predict which couples will last</td><td><span class="verdict part">Overstated</span></td><td>The famous accuracy figures came from equations fitted to the same couples they described, and such equations lose much of their accuracy on new data.<sup><a href="#s40">40</a></sup> In 43 datasets, change in relationship quality over time was largely unpredictable.<sup><a href="#s39">39</a></sup></td><td>Judge how the two of you treat each other now, over a full year.</td></tr>
+      <tr><td class="lab">Find the right type of person and the relationship will work</td><td><span class="verdict part">Overstated</span></td><td>Across 11,196 couples, the traits of either partner added little once you knew how each person experienced the relationship itself.<sup><a href="#s39">39</a></sup></td><td>Use the five things to watch in People.</td></tr>
     </tbody>
   </table></div>
   <h3>Not yet sourced</h3>
@@ -351,9 +389,6 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li><b>Dopamine detox.</b> The name misdescribes how dopamine works. What helps is the ordinary part: fewer compulsive inputs.</li>
     <li><b>Waking at 5 a.m.</b> A regular wake time matters. The hour does not. Sleeping less to wake earlier is a net loss.</li>
     <li><b>Cold showers, semen retention and "testosterone-boosting" supplements.</b> No convincing evidence that any of these changes hormones or performance in healthy young men. Sleep, training, body fat and alcohol are what move the needle.</li>
-    <li><b>Alpha and beta males.</b> Borrowed from early wolf research that its own author later corrected. It is a poor model of human status, which rests on competence and generosity as much as dominance.</li>
-    <li><b>"93% of communication is body language."</b> A misreading of two small 1960s experiments about conflicting signals. Words carry most of the content in almost every real exchange.</li>
-    <li><b>Multitasking.</b> Switching between tasks costs time and accuracy on both. Single-task blocks are a core part of Mind.</li>
   </ul>
   <div class="panel">
     <h4>The filter for anything new</h4>
@@ -430,7 +465,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><td class="lab">Books finished, last 12 months</td><td>Cover to cover only.</td><td><input type="text" id="bt-books-a" data-k inputmode="numeric" aria-label="Books baseline"></td><td><input type="text" id="bt-books-b" data-k inputmode="numeric" aria-label="Books latest"></td></tr>
     </tbody>
   </table></div>
-  <h3>The other five domains</h3>
+  <h3>The other seven domains</h3>
   <div class="scroll"><table>
     <thead><tr><th>Test</th><th>How</th><th>Baseline</th><th>Latest</th></tr></thead>
     <tbody>
@@ -440,6 +475,10 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><td class="lab">Presence: filler words in 2 minutes</td><td>Record yourself explaining any topic unscripted. Count every "um", "like", "basically", "you know".</td><td><input type="text" id="bt-filler-a" data-k inputmode="numeric" aria-label="Filler words baseline"></td><td><input type="text" id="bt-filler-b" data-k inputmode="numeric" aria-label="Filler words latest"></td></tr>
       <tr><td class="lab">People: real conversations, last 14 days</td><td>Unhurried, one to one, with someone who matters. Calls count. Texts do not.</td><td><input type="text" id="bt-conv-a" data-k inputmode="numeric" aria-label="Conversations baseline"></td><td><input type="text" id="bt-conv-b" data-k inputmode="numeric" aria-label="Conversations latest"></td></tr>
       <tr><td class="lab">Character: promises late or broken, last 30 days</td><td>Honest count, including small ones.</td><td><input type="text" id="bt-prom-a" data-k inputmode="numeric" aria-label="Broken promises baseline"></td><td><input type="text" id="bt-prom-b" data-k inputmode="numeric" aria-label="Broken promises latest"></td></tr>
+      <tr><td class="lab">Competence: meals I can cook from memory</td><td>Count only those you have cooked twice without a recipe.</td><td><input type="text" id="bt-meals-a" data-k inputmode="numeric" aria-label="Meals baseline"></td><td><input type="text" id="bt-meals-b" data-k inputmode="numeric" aria-label="Meals latest"></td></tr>
+      <tr><td class="lab">Competence: metres swum without stopping</td><td>Any stroke, in a pool. Zero is a valid answer.</td><td><input type="text" id="bt-swim-a" data-k inputmode="numeric" aria-label="Swim baseline"></td><td><input type="text" id="bt-swim-b" data-k inputmode="numeric" aria-label="Swim latest"></td></tr>
+      <tr><td class="lab">Base: accounts with two-step sign-in, out of 5</td><td>Main mail, bank, payments app, messaging, main social account.</td><td><input type="text" id="bt-2fa-a" data-k inputmode="numeric" aria-label="Two-step baseline"></td><td><input type="text" id="bt-2fa-b" data-k inputmode="numeric" aria-label="Two-step latest"></td></tr>
+      <tr><td class="lab">Base: key documents backed up, out of 10</td><td>Pick your ten most important papers. Count those scanned and stored in two places.</td><td><input type="text" id="bt-docs-a" data-k inputmode="numeric" aria-label="Documents baseline"></td><td><input type="text" id="bt-docs-b" data-k inputmode="numeric" aria-label="Documents latest"></td></tr>
     </tbody>
   </table></div>
   <div class="fld"><label for="f-bt-dates">Test dates</label><small>Date of the baseline, then the date of each retest.</small><input type="text" id="f-bt-dates" data-k></div>
@@ -449,7 +488,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 <section id="scorecard" aria-labelledby="h-scorecard">
   <h2 id="h-scorecard"><span class="n">07</span>Scorecard</h2>
   <p class="lede">Score each domain from 1 to 10. Save a snapshot every quarter. The lowest score chooses your next focus.</p>
-  <p class="note">Calibration: 3 = neglected. 5 = Floor standards mostly met. 7 = Strong tier met. 9 = Elite tier met and held for a year. Score from your ticked standards and your Baseline tests, not from how the week felt.</p>
+  <p class="note">Calibration: 3 = neglected. 5 = Floor standards mostly met. 7 = Strong tier met. 9 = Elite tier met and held for a year. Score from your ticked standards and your Baseline tests, not from how the week felt. Competence and Base were added in version 2, so snapshots saved before it show a dash for them. When either is your lowest score, raise it through its background routine first, and make it the focus only if it stays lowest for two quarters.</p>
   <div class="panel">
     <div id="scores">
       <div class="score"><label for="s-body">Body</label><input type="range" min="1" max="10" value="5" id="s-body" data-k><output for="s-body">–</output></div>
@@ -459,6 +498,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <div class="score"><label for="s-presence">Presence</label><input type="range" min="1" max="10" value="5" id="s-presence" data-k><output for="s-presence">–</output></div>
       <div class="score"><label for="s-people">People</label><input type="range" min="1" max="10" value="5" id="s-people" data-k><output for="s-people">–</output></div>
       <div class="score"><label for="s-character">Character</label><input type="range" min="1" max="10" value="5" id="s-character" data-k><output for="s-character">–</output></div>
+      <div class="score"><label for="s-competence">Competence</label><input type="range" min="1" max="10" value="5" id="s-competence" data-k><output for="s-competence">–</output></div>
+      <div class="score"><label for="s-base">Base</label><input type="range" min="1" max="10" value="5" id="s-base" data-k><output for="s-base">–</output></div>
     </div>
     <div class="sum">
       <span><b id="avg">–</b>average</span>
@@ -470,8 +511,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   </div>
   <h3>History</h3>
   <div class="scroll"><table id="snapTable">
-    <thead><tr><th>Date</th><th class="num">Bo</th><th class="num">Mi</th><th class="num">Cr</th><th class="num">Mo</th><th class="num">Pr</th><th class="num">Pe</th><th class="num">Ch</th><th class="num">Avg</th><th>Note</th><th></th></tr></thead>
-    <tbody><tr><td colspan="11" class="note">No snapshots yet. Your first one is the baseline every later one is measured against.</td></tr></tbody>
+    <thead><tr><th>Date</th><th class="num">Bo</th><th class="num">Mi</th><th class="num">Cr</th><th class="num">Mo</th><th class="num">Pr</th><th class="num">Pe</th><th class="num">Ch</th><th class="num">Co</th><th class="num">Ba</th><th class="num">Avg</th><th>Note</th><th></th></tr></thead>
+    <tbody><tr><td colspan="13" class="note">No snapshots yet. Your first one is the baseline every later one is measured against.</td></tr></tbody>
   </table></div>
   <h3>Trends</h3>
   <div class="sparks" id="sparks"></div>
@@ -1048,7 +1089,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>One fixed window a day for feeds and video, after the work is done.</li>
       <li>Check the weekly screen report in the weekly review. It is your lead measure.</li>
     </ul>
-    <p class="note">For compulsive use of any kind, including pornography and gambling apps, the same approach applies: remove access and cues first, and talk to a professional if it does not shift. A vices playbook comes with the Character release.</p>
+    <p class="note">For compulsive use of any kind, including pornography and gambling apps, the same approach applies: remove access and cues first, and talk to a professional if it does not shift. The vices playbook in Character has the full method.</p>
   </div></details>
 
   <details class="pb"><summary>Decisions <small>for anything costly or hard to reverse</small></summary><div class="in">
@@ -1752,92 +1793,856 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   <p class="note"><b>Resources.</b> On Writing Well by William Zinsser. The Pyramid Principle by Barbara Minto for structure. Getting to Yes by Fisher and Ury. A local or campus speaking club for repetitions.</p>
 </section>
 
-<section id="people" aria-labelledby="h-people">
+<section id="people" class="dom" aria-labelledby="h-people">
   <h2 id="h-people"><span class="n">17</span>People</h2>
   <p class="lede">The domain both of your models neglected, and the one the long-term research ranks first.</p>
-  <div class="panel ev">
-    <h4>What the evidence says</h4>
-    <ul style="margin-bottom:0">
-      <li>Harvard's study of adult life has followed people since 1938. Its director's central finding is that the quality of close relationships shapes both happiness and physical health across a lifetime.<sup><a href="#s19">19</a></sup></li>
-      <li>Pooling 148 studies and 308,849 people, those with stronger social relationships had 50% greater odds of survival over the follow-up period, an effect comparable with well-established mortality risk factors.<sup><a href="#s21">21</a></sup></li>
-    </ul>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>A small circle that gets real time every week, a family that hears from you, people ahead of you who are invested in you, and a partnership chosen and built on purpose.</dd>
+      <dt>Three actions</dt><dd>1. Name the inner five and schedule them like training. 2. One proper call home every week. 3. Two unprompted messages a week to people you have lost touch with.</dd>
+      <dt>Watch one number</dt><dd>Real conversations in the last 14 days. Unhurried, one to one, with someone who matters.</dd>
+      <dt>This quarter</dt><dd>Stage 1 runs alongside Body. It costs about three hours a week, and most of that is time you already spend.</dd>
+    </dl>
   </div>
+
+  <h3>Standards</h3>
   <div class="tiers">
-    <div class="tier"><h4>Floor</h4>
-      <label class="ck"><input type="checkbox" id="c-r1" data-k>A proper call home every week</label>
+    <div class="tier"><h4>Floor <i>month 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-r1" data-k>A proper call home every week. Check: 8 weeks running.</label>
+      <label class="ck"><input type="checkbox" id="c-r14" data-k>Inner five named, and each given real time in the last 14 days. Check: the contact log.</label>
       <label class="ck"><input type="checkbox" id="c-r2" data-k>Two friends I could call at 3 a.m.</label>
       <label class="ck"><input type="checkbox" id="c-r3" data-k>I reply within a day to people who matter</label>
       <label class="ck"><input type="checkbox" id="c-r4" data-k>Birthdays and big days remembered without an app prompting me that morning</label>
     </div>
-    <div class="tier t2"><h4>Strong</h4>
-      <label class="ck"><input type="checkbox" id="c-r5" data-k>One unhurried meal or call with a close friend every week</label>
+    <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-r5" data-k>One unhurried meal or call with a close friend every week. Check: 12 weeks of the log.</label>
       <label class="ck"><input type="checkbox" id="c-r6" data-k>I host or organise something every month</label>
+      <label class="ck"><input type="checkbox" id="c-r15" data-k>One new real friend made in the last 12 months, past the 50-hour mark</label>
       <label class="ck"><input type="checkbox" id="c-r7" data-k>Five relationships with people 10 years ahead of me</label>
       <label class="ck"><input type="checkbox" id="c-r8" data-k>I help before I ask, and keep no score</label>
       <label class="ck"><input type="checkbox" id="c-r9" data-k>I have written what I want in a life partner and what I offer</label>
     </div>
-    <div class="tier t3"><h4>Elite</h4>
+    <div class="tier t3"><h4>Elite <i>year 3 onward</i></h4>
       <label class="ck"><input type="checkbox" id="c-r10" data-k>Friendships that have lasted 10 years, still active</label>
       <label class="ck"><input type="checkbox" id="c-r11" data-k>Mentoring at least two people younger than me</label>
       <label class="ck"><input type="checkbox" id="c-r12" data-k>A partnership I invest in as deliberately as my career</label>
       <label class="ck"><input type="checkbox" id="c-r13" data-k>People say they are better for knowing me</label>
     </div>
   </div>
-  <h3>Protocol</h3>
-  <ul>
-    <li><b>The inner five.</b> Name the five people who matter most. Each gets real time every week or fortnight, scheduled like training.</li>
-    <li><b>The move plan.</b> Each time you change city, list who you are leaving and set a recurring call before you go. Friendships fade through logistics more than through conflict.</li>
-    <li><b>Mentors.</b> Ask for one specific piece of advice, act on it, report back. That loop is how a senior person becomes invested in you.</li>
-    <li><b>Partner.</b> Who you build a life with is likely the highest-leverage decision in this manual. Choose for character, shared direction and how you handle conflict together.</li>
-    <li><b>Repair fast.</b> Apologise the same day when you are wrong. Say the appreciative thing out loud when you think it.</li>
-  </ul>
+
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>It decides the long run.</b> Harvard's study of adult life has followed people since 1938. Its director's central finding is that the quality of close relationships shapes both happiness and physical health across a lifetime.<sup><a href="#s19">19</a></sup> Pooling 148 studies and 308,849 people, those with stronger social relationships had 50% greater odds of survival over the follow-up period.<sup><a href="#s21">21</a></sup></li>
+      <li><b>Isolation is a health risk.</b> A later pooled analysis of 70 studies put the added likelihood of death at 26% for loneliness, 29% for social isolation and 32% for living alone, after adjusting for other factors.<sup><a href="#s38">38</a></sup> These are observational figures. They show a link, not a guaranteed cause.</li>
+      <li><b>Friendship is counted in hours.</b> In two studies of people who had recently moved, it took about 50 hours together to go from acquaintance to casual friend, about 90 to become friends and more than 200 to become close friends. Hours spent only working side by side counted for less.<sup><a href="#s37">37</a></sup></li>
+      <li><b>People want to hear from you.</b> Across a series of preregistered experiments with more than 5,900 participants, people consistently underestimated how much a message out of the blue was appreciated, and the more unexpected it was, the more it was valued.<sup><a href="#s42">42</a></sup></li>
+      <li><b>Questions build liking.</b> In three studies of live conversations, people who asked more questions, and especially follow-up questions, were liked more by the person they were talking to.<sup><a href="#s41">41</a></sup></li>
+      <li><b>Good news is a test.</b> People who felt their partner responded with real interest when they shared something good reported better relationships than those who got a flat or deflating response.<sup><a href="#s43">43</a></sup></li>
+      <li><b>In a partnership, the dynamic outweighs the profile.</b> Across 43 datasets and 11,196 couples, what best predicted relationship quality was how each person experienced the relationship itself: a partner seen as committed, feeling appreciated, sexual satisfaction, a partner seen as satisfied, and low conflict. Individual traits of either person added little once those were known.<sup><a href="#s39">39</a></sup></li>
+      <li><b>Nobody can predict your relationship from a formula.</b> The well-known claims of forecasting divorce with around 90% accuracy came from equations fitted to the same couples they described. Tested on fresh data, such equations lose much of their accuracy.<sup><a href="#s40">40</a></sup></li>
+      <li><b>Loose ties open doors.</b> In an experiment across 20 million LinkedIn members, moderately weak ties produced more job moves than strong ones.<sup><a href="#s36">36</a></sup></li>
+    </ul>
+  </div>
+
+  <h3>Protocol by stage</h3>
+  <div class="phase"><div class="when"><b>Stage 1</b>Weeks 1 to 12</div><div><ul>
+    <li>Name the inner five. Start the contact log.</li>
+    <li>One proper call home each week, in a fixed slot.</li>
+    <li>One unhurried meal or call with one of the five each week.</li>
+    <li>Two messages a week to people you have drifted from. No agenda.</li>
+    <li>Before the MBA ends: list who you will stop seeing by default, and set a recurring call with the ones who matter.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 2</b>First year at work</div><div><ul>
+    <li>In the new city, join two things that repeat weekly with the same people. That is where the 200 hours come from.</li>
+    <li>Host or organise once a month.</li>
+    <li>Run the mentor loop with two people ahead of you.</li>
+    <li>Keep the inner five alive through the move. This is the year most friendships are lost.</li>
+    <li>Write what you want in a partner and what you offer.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 3</b>Year 2 onward</div><div><ul>
+    <li>If you are choosing a partner, choose with the playbook below and the framework in Decisions.</li>
+    <li>If you have one, the weekly check-in and the appreciation habit are standing appointments.</li>
+    <li>Begin mentoring one person younger than you.</li>
+    <li>One trip or reunion a year with the oldest friends.</li>
+  </ul></div></div>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>The inner five and the contact log <small>the whole system in one page</small></summary><div class="in">
+    <ol>
+      <li><b>Name five.</b> The people whose absence would change your life. Family counts. A partner counts. Five is a working number, not a rule.</li>
+      <li><b>Give each a rhythm.</b> Weekly for those nearby, fortnightly for those far away. Put it in the calendar as a repeating event.</li>
+      <li><b>Keep one log.</b> A single note with a line per person: last real contact, what is going on in their life, what you said you would do.</li>
+      <li><b>Read it in the weekly review.</b> Anyone untouched for a month gets a message that day.</li>
+      <li><b>Add an outer ring.</b> Fifteen to twenty people you want to keep: old friends, cousins, former colleagues, mentors. Each gets a message every two or three months.</li>
+    </ol>
+    <p class="note">This feels mechanical for about three weeks. After that it is simply how you stay close to people while your schedule fills.</p>
+  </div></details>
+
+  <details class="pb"><summary>Making friends in a new city <small>where 200 hours actually come from</small></summary><div class="in">
+    <ol>
+      <li><b>Choose repeating settings.</b> A sports group, a class, a quiz league, a volunteer shift, a running club. Same people, same time, every week. One-off events almost never produce friends.</li>
+      <li><b>Go six times before judging.</b> The first three visits are awkward for everyone.</li>
+      <li><b>Move it outside the setting.</b> After a few weeks, invite one or two people to something else: food after the session, a match, a short trip. A change of context is the step from acquaintance to friend.</li>
+      <li><b>Be the one who organises.</b> Most people are waiting to be asked. A standing plan, such as the same dinner on the first Saturday, does the inviting for you.</li>
+      <li><b>Count hours, not meetings.</b> A full day out is worth six coffees.</li>
+      <li><b>Expect most to fade.</b> You need two or three to stick. That is a normal yield.</li>
+    </ol>
+    <p>Colleagues can become friends, but hours at the desk count for less than hours chosen freely.<sup><a href="#s37">37</a></sup> Eat lunch with them, and see them at least once outside work.</p>
+  </div></details>
+
+  <details class="pb"><summary>Conversation <small>four habits that make people glad they talked to you</small></summary><div class="in">
+    <ol>
+      <li><b>Ask the second question.</b> The follow-up shows you heard the first answer. "How did that go?" then "What made it hard?"<sup><a href="#s41">41</a></sup></li>
+      <li><b>Meet good news with interest.</b> When someone tells you something went well, stop what you are doing, ask for the details and let them enjoy telling it. A distracted "nice" is remembered.<sup><a href="#s43">43</a></sup></li>
+      <li><b>Remember one thing.</b> After a conversation, add one line to the log: the interview next week, the parent in hospital, the name of the child. Ask about it next time.</li>
+      <li><b>Say the appreciative thing out loud.</b> If you think it, say it, with the specific reason.</li>
+    </ol>
+    <p>The listening drill is in Presence. With strangers, the reliable openers are the setting you share and a real question about what they are working on.</p>
+    <p class="note">Habits 3 and 4 are judgement, not research findings.</p>
+  </div></details>
+
+  <details class="pb"><summary>Keeping friendships across distance <small>the move plan</small></summary><div class="in">
+    <ul>
+      <li><b>Before you leave,</b> list the people you see only because you share a campus or an office. Decide who you are keeping. Tell them.</li>
+      <li><b>Set the rhythm before the move,</b> while it is still easy: a fixed call, a running game, a shared reading list, a yearly trip with a date already chosen.</li>
+      <li><b>Send the small message.</b> A photo, an article, "this reminded me of you". It will be valued more than you expect.<sup><a href="#s42">42</a></sup></li>
+      <li><b>Show up for the big days.</b> Weddings, funerals, a parent's illness. Travel for these when you can. They are remembered for decades.</li>
+      <li><b>Let some go without guilt.</b> A friendship that needs you to do all the work for a year has told you something.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Family <small>duties that are easy to postpone and expensive to miss</small></summary><div class="in">
+    <ul>
+      <li><b>The weekly call</b> is a conversation, not a status report. Ask about their week, their health, the people around them. Tell them one real thing about yours.</li>
+      <li><b>Know the facts.</b> Each parent's health, medicines, doctor and cover. Where the documents are. The Parents playbook in Money has the financial side.</li>
+      <li><b>Visit on a schedule.</b> Decide how many times a year and book the first one now.</li>
+      <li><b>Siblings and cousins.</b> If you are a few years ahead on the same road, be the person they can ask. One call a fortnight, more listening than advice.</li>
+      <li><b>Disagree as an adult.</b> On career, marriage and money you will sometimes choose differently from what they want. Explain your reasons once, calmly, and keep showing up.</li>
+      <li><b>Record them.</b> Ask your parents and grandparents about their lives and keep the recordings. You will not regret having them.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Mentors, sponsors and the wider network <small>giving first, without keeping score</small></summary><div class="in">
+    <ol>
+      <li><b>The mentor loop.</b> Ask for one specific piece of advice. Act on it. Report back with what happened. That report is what turns a senior person into someone invested in you.</li>
+      <li><b>Find them where you already are.</b> Alumni two to ten years ahead, former managers, professors, people whose work you have used. One clear, short message beats a vague request to "pick your brain".</li>
+      <li><b>Be useful first.</b> Send the article, make the introduction, fix the spreadsheet. Ask for nothing in the same message.</li>
+      <li><b>Keep loose ties warm.</b> Batchmates, former interns, quiz-circuit friends. A short message twice a year is enough. These are the ties jobs travel along.<sup><a href="#s36">36</a></sup></li>
+      <li><b>One log.</b> The outer ring in your contact log is your network. You do not need a separate tool.</li>
+    </ol>
+    <p>Sponsors, who speak for you in rooms you are not in, are covered in the visibility playbook in Craft.</p>
+  </div></details>
+
+  <details class="pb"><summary>Choosing a partner <small>what to look at, and what to stop looking at</small></summary><div class="in">
+    <p>The largest study of its kind found that who each person is on paper tells you little about how good the relationship will be. How the two of you treat each other tells you most of it.<sup><a href="#s39">39</a></sup> So judge the relationship you are actually in, over time, and give less weight to the checklist.</p>
+    <ol>
+      <li><b>Write it down first.</b> What you want and what you offer, before you are choosing anyone. Keep it short: character, direction, how conflict is handled.</li>
+      <li><b>Watch five things.</b> Do they act committed? Do you feel appreciated, and do they? Is conflict rare and repaired quickly? Are you both satisfied, including physically? These are the predictors that held across the research.</li>
+      <li><b>See them across situations.</b> Under stress, with their family, with people who serve them, when they lose, when plans collapse. A bad stretch tells you more than a good holiday.</li>
+      <li><b>Have the plain conversations early.</b> City, careers, money and debts, children, parents and who lives with whom, faith and food. Out loud, not assumed.</li>
+      <li><b>Ask two people who know you.</b> "Am I better or worse around this person?" Listen to the answer.</li>
+      <li><b>Take the time.</b> A decision that will run for fifty years can wait until you have seen a full year.</li>
+    </ol>
+    <p>If your family is involved in the choice, the same tests apply. Ask for enough time and enough private conversation to run them. The commitment framework is in Decisions.</p>
+    <p class="note">Steps 3 to 6 are judgement. No one can forecast a specific couple's future with the confidence popular books claim.<sup><a href="#s40">40</a></sup></p>
+  </div></details>
+
+  <details class="pb"><summary>Being a good partner <small>maintenance, done weekly</small></summary><div class="in">
+    <ul>
+      <li><b>Appreciation, daily and specific.</b> "Thank you for handling the landlord" beats "thanks for everything".</li>
+      <li><b>Turn toward small bids.</b> When they point something out or start a story, give it your attention. Most of a relationship is made of these moments.</li>
+      <li><b>A weekly check-in.</b> Twenty minutes: what went well between us, what is coming up, anything unsaid. Small things raised early do not become large ones.</li>
+      <li><b>Carry your share of the home</b> without being asked or thanked. The Competence section exists partly for this.</li>
+      <li><b>Keep your own life.</b> Friends, training and work that are yours. Two whole people make a better pair.</li>
+      <li><b>Protect time.</b> One evening a week that is not moved for work.</li>
+    </ul>
+    <p class="note">These are judgement and common practice in couples work, consistent with the predictors above.</p>
+  </div></details>
+
+  <details class="pb"><summary>Conflict and repair <small>with anyone who matters to you</small></summary><div class="in">
+    <ol>
+      <li><b>Cool down first.</b> If your pulse is up, say "I want to get this right, give me twenty minutes" and go and calm down. Venting does not reduce anger. Slowing down does.<sup><a href="#s45">45</a></sup></li>
+      <li><b>One issue.</b> The thing that happened today. No history, no "you always".</li>
+      <li><b>Describe, feel, ask.</b> "When the plan changed without a message, I felt dropped. Next time, tell me before."</li>
+      <li><b>Say their side back</b> until they agree you have it. Then make your point.</li>
+      <li><b>Apologise properly.</b> What you did, the effect it had, what you will do differently. No "if" and no "but".</li>
+      <li><b>Close it.</b> Agree the next step and do not reopen it the following week.</li>
+    </ol>
+    <p>Repair within a day when you can. An unrepaired small thing is how distance starts.</p>
+  </div></details>
+
+  <details class="pb"><summary>Boundaries and endings <small>saying no, and leaving well</small></summary><div class="in">
+    <ul>
+      <li><b>Say no early and plainly.</b> "I can't take that on" needs no long reason. A late no costs more than an early one.</li>
+      <li><b>Separate the person from the pattern.</b> Name the behaviour, once and clearly, before you pull back.</li>
+      <li><b>Reduce before you cut.</b> Most draining relationships need less time, not a dramatic ending.</li>
+      <li><b>End a romantic relationship in person,</b> clearly and kindly, without leaving a door half open to be kind. Then give it distance.</li>
+      <li><b>Leave at once and get help</b> if anyone threatens you, controls your money or movement, or makes you afraid. That is not a rough patch.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>When you are lonely <small>a signal, treated like hunger</small></summary><div class="in">
+    <p>Loneliness after a move, a breakup or a change of job is ordinary and it is information. It means the hours have dropped, not that something is wrong with you.</p>
+    <ol>
+      <li>Message two people from the outer ring today.</li>
+      <li>Book one call with an inner-five person this week.</li>
+      <li>Add one repeating setting, and give it six visits.</li>
+      <li>Keep training and sleep steady. Both make contact easier.</li>
+    </ol>
+    <p>If it lasts more than a few weeks alongside low mood, use the "When to get help" playbook in Mind.</p>
+  </div></details>
+
+  <h3>Metrics</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Lead measures, weekly</th><th>Lag measures, quarterly</th></tr></thead>
+    <tbody>
+      <tr><td>Real conversations</td><td>Inner-five people seen or called every fortnight</td></tr>
+      <tr><td>Call home done</td><td>New people past 50 hours</td></tr>
+      <tr><td>Messages sent with no agenda</td><td>Times you hosted or organised</td></tr>
+      <tr><td>Contact log read in the weekly review</td><td>What your inner five would say about how you have been to be around</td></tr>
+    </tbody>
+  </table></div>
+
   <div class="panel wb">
     <h4>Workbook · people</h4>
     <div class="fld"><label for="f-r-five">My inner five and when I last gave each real time</label><textarea id="f-r-five" data-k></textarea></div>
+    <div class="fld"><label for="f-r-log">Outer ring and contact log</label><small>Name, last contact, what is going on with them, what I said I would do.</small><textarea id="f-r-log" data-k style="min-height:100px"></textarea></div>
     <div class="fld"><label for="f-r-owe">People I owe a call, a thank-you or an apology</label><textarea id="f-r-owe" data-k></textarea></div>
+    <div class="fld"><label for="f-r-new">New people, and the hours so far</label><small>Where I meet them and what I will invite them to next.</small><textarea id="f-r-new" data-k></textarea></div>
+    <div class="fld"><label for="f-r-ment">People ahead of me: last advice asked, what I did with it, when I reported back</label><textarea id="f-r-ment" data-k></textarea></div>
+    <div class="fld"><label for="f-r-part">What I want in a partner, and what I offer</label><textarea id="f-r-part" data-k></textarea></div>
   </div>
+
+  <div class="panel warnp">
+    <h4>How this domain fails, and what to ignore</h4>
+    <ul style="margin-bottom:0">
+      <li>Letting logistics end friendships. Almost none end in a fight. They end in a move and a missed month.</li>
+      <li>Treating people as a network to be worked. It shows, and it repels the people worth knowing.</li>
+      <li>Giving the best hours to work for years and expecting the relationships to be there afterwards.</li>
+      <li>Choosing a partner by profile, then ignoring how the two of you actually treat each other.</li>
+      <li><b>Ignore:</b> pickup scripts, "high-value man" content, rules about how long to wait before replying, tests to "keep someone interested", and any system that claims to read a person or predict a relationship from a type, a sign or one conversation. Skill and honesty are the whole of this section.</li>
+    </ul>
+  </div>
+
+  <p class="note"><b>Resources.</b> The Good Life by Waldinger and Schulz. How to Win Friends and Influence People by Dale Carnegie for the basics. Nonviolent Communication by Marshall Rosenberg for the conflict steps. Platonic by Marisa Franco on adult friendship.</p>
 </section>
 
-<section id="character" aria-labelledby="h-character">
+<section id="character" class="dom" aria-labelledby="h-character">
   <h2 id="h-character"><span class="n">18</span>Character</h2>
   <p class="lede">What you do when it costs you and nobody is checking. Everything else in this manual amplifies whatever is here.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>Your word holds, you say true things, your temper and appetites do not make your decisions, and part of your time and money goes to someone else.</dd>
+      <dt>Three actions</dt><dd>1. Write the code, ten lines or fewer. 2. Keep a promise ledger for 30 days. 3. One courage rep a week, logged.</dd>
+      <dt>Watch one number</dt><dd>Promises late or broken in the last 30 days.</dd>
+      <dt>This quarter</dt><dd>Stage 1 takes one evening to set up and five minutes in each weekly review.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
   <div class="tiers">
-    <div class="tier"><h4>Floor</h4>
-      <label class="ck"><input type="checkbox" id="c-h1" data-k>I do not lie, including the convenient small ones</label>
-      <label class="ck"><input type="checkbox" id="c-h2" data-k>I keep promises, or renegotiate before the deadline</label>
+    <div class="tier"><h4>Floor <i>month 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-h1" data-k>I do not lie, including the convenient small ones. Check: 30 days with none I can name.</label>
+      <label class="ck"><input type="checkbox" id="c-h2" data-k>I keep promises, or renegotiate before the deadline. Check: 30 days of the ledger.</label>
       <label class="ck"><input type="checkbox" id="c-h3" data-k>I own mistakes within a day, without excuses</label>
       <label class="ck"><input type="checkbox" id="c-h4" data-k>I do not talk about people who are not in the room in ways I would not repeat to them</label>
+      <label class="ck"><input type="checkbox" id="c-h12" data-k>No habit I would be ashamed for my inner five to see in full. Check: the vice audit, done honestly.</label>
     </div>
-    <div class="tier t2"><h4>Strong</h4>
-      <label class="ck"><input type="checkbox" id="c-h5" data-k>A written personal code of ten lines or fewer</label>
+    <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-h5" data-k>A written personal code of ten lines or fewer, reread every quarter</label>
       <label class="ck"><input type="checkbox" id="c-h6" data-k>I have done the right thing when it cost me money or status</label>
-      <label class="ck"><input type="checkbox" id="c-h7" data-k>Anger no longer makes my decisions</label>
+      <label class="ck"><input type="checkbox" id="c-h7" data-k>Anger no longer makes my decisions. Check: nothing sent or said in anger for 6 months.</label>
       <label class="ck"><input type="checkbox" id="c-h8" data-k>5% of my time or income goes to someone else's benefit</label>
+      <label class="ck"><input type="checkbox" id="c-h13" data-k>One year of the courage log, with at least 40 entries</label>
     </div>
-    <div class="tier t3"><h4>Elite</h4>
+    <div class="tier t3"><h4>Elite <i>year 4 onward</i></h4>
       <label class="ck"><input type="checkbox" id="c-h9" data-k>My word is accepted without a contract by people who know me</label>
       <label class="ck"><input type="checkbox" id="c-h10" data-k>I have been trusted with power and did not abuse it</label>
       <label class="ck"><input type="checkbox" id="c-h11" data-k>My mission in Direction serves people beyond me, and my calendar proves it</label>
     </div>
   </div>
-  <h3>Protocol</h3>
-  <ul>
-    <li><b>Write the code.</b> Ten lines you will not cross. Read it at every quarterly review.</li>
-    <li><b>Small promises first.</b> Stop saying "I'll try" and "let's catch up soon". Say yes with a date, or say no.</li>
-    <li><b>One courage rep a week.</b> The honest feedback, the unpopular position, the admission. Log it.</li>
-    <li><b>The power rule.</b> As you gain money, rank and strength, the test becomes how you treat people who can do nothing for you. That is the difference between Wayne and the men he fights.</li>
-    <li><b>Stay teachable.</b> Ask one person a year, "What is the thing about me that nobody tells me?" Listen without defending.</li>
-  </ul>
+  <p class="note">Character has few numbers to measure. These standards are judgement. The checks are there so that a tick means something happened, and is more than a feeling about yourself.</p>
+
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>Self-control compounds for decades.</b> In a study that followed 1,000 children from birth to age 32, childhood self-control predicted adult health, finances and criminal convictions, separately from intelligence and family background. Those whose self-control improved as they grew up did better than their early scores predicted.<sup><a href="#s44">44</a></sup></li>
+      <li><b>It is built from the outside in.</b> Willpower as a tank that drains did not hold up across 36 labs.<sup><a href="#s12">12</a></sup> The practical reading: arrange your life so that the temptation is not in the room.</li>
+      <li><b>Venting anger does not work.</b> Across 154 studies and 10,189 people, activities that calm the body, such as slow breathing, relaxation and meditation, reduced anger and aggression. Activities that raise arousal, including hitting a bag and going for a run, had no reliable effect.<sup><a href="#s45">45</a></sup></li>
+      <li><b>Purpose is linked to a longer life.</b> A pooled analysis of prospective studies found that people with a strong sense of purpose had a lower risk of death and of cardiovascular events. This is observational, so it shows a link, not a cause.<sup><a href="#s46">46</a></sup></li>
+      <li><b>Giving lifts the giver, a little.</b> A registered replication found that people who spent money on others ended up happier than those who spent it on themselves. Treat the effect as small.<sup><a href="#s47">47</a></sup></li>
+      <li><b>Gratitude exercises are modest.</b> A meta-analysis found small effects on symptoms of depression and anxiety. Worth doing, not a cure.<sup><a href="#s48">48</a></sup></li>
+      <li><b>Two substances with clear numbers.</b> For men aged 15 to 39, the alcohol intake that minimises health risk is close to zero.<sup><a href="#s26">26</a></sup> Smokers lose at least a decade of life on average, and stopping before 40 avoids about 90% of the extra risk.<sup><a href="#s49">49</a></sup></li>
+    </ul>
+  </div>
+
+  <h3>Protocol by stage</h3>
+  <div class="phase"><div class="when"><b>Stage 1</b>Weeks 1 to 12</div><div><ul>
+    <li>Write the code. Read it in each weekly review for the first month.</li>
+    <li>Keep the promise ledger for 30 days.</li>
+    <li>Do the vice audit once, honestly, and act on the top line.</li>
+    <li>One courage rep a week, logged.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 2</b>First year at work</div><div><ul>
+    <li>Use the anger steps until they are automatic. Nothing sent while angry.</li>
+    <li>Set the giving: a fixed monthly amount or a fixed monthly slot.</li>
+    <li>Ask the yearly question: "What is the thing about me that nobody tells me?"</li>
+    <li>Decide your lines on expenses, credit and data before the first time they are tested.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 3</b>Year 3 onward</div><div><ul>
+    <li>As you gain rank, run the power checks every quarter.</li>
+    <li>Mentor. Teach what you were taught.</li>
+    <li>Reread the mission in Direction against your calendar. Change one of them.</li>
+  </ul></div></div>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>Writing the code <small>ten lines you will not cross</small></summary><div class="in">
+    <ol>
+      <li><b>Start from costs.</b> List five times you acted in a way you respect and five you do not. The code is what separates the two lists.</li>
+      <li><b>Write lines you can fail.</b> "I am a good person" cannot be broken. "I do not take credit for work I did not do" can.</li>
+      <li><b>Test each line with a price.</b> Would you hold it if it cost you a month's pay, a promotion or a friendship? If not, rewrite it until it is true.</li>
+      <li><b>Ten lines or fewer.</b> You must be able to recall it in a hard moment.</li>
+      <li><b>Review it quarterly</b> and after any decision you are not proud of. Change a line only when you have outgrown it, never to excuse something.</li>
+    </ol>
+    <p class="note">Examples of the form, not a template: "I say the true thing, kindly, the first time I am asked." "I do not make a promise I have not written down." "I treat the person who can do nothing for me as I treat the person who can."</p>
+  </div></details>
+
+  <details class="pb"><summary>Honesty in practice <small>four levels, in order</small></summary><div class="in">
+    <ol>
+      <li><b>No false statements.</b> Including the easy ones: "on my way", "I never got the mail", the rounded-up number, the extra year on a skill.</li>
+      <li><b>No engineered false impressions.</b> A technically true sentence built to mislead is a lie with better grammar.</li>
+      <li><b>Say the hard true thing, kindly and early.</b> The honest feedback, the "I disagree", the "I cannot deliver that by Friday".</li>
+      <li><b>Be honest with yourself.</b> The scorecard, the money numbers and the vice audit are only useful if they are true.</li>
+    </ol>
+    <p><b>Privacy is not lying.</b> "I would rather not say" is honest. So is declining to share an opinion that would only hurt.</p>
+    <p><b>On a CV and in an interview,</b> every number should survive a phone call to the person who was there.</p>
+  </div></details>
+
+  <details class="pb"><summary>The promise ledger <small>why your word starts to mean something</small></summary><div class="in">
+    <ol>
+      <li>For 30 days, write down every commitment as you make it, however small: the callback, the file, the "let's catch up".</li>
+      <li>Mark each one kept, renegotiated before the deadline, or late or broken.</li>
+      <li>Count the third column at the end. That is your baseline in Baseline tests.</li>
+      <li>Then make fewer promises. Replace "I'll try" and "soon" with a date or a no.</li>
+      <li>When you will miss one, say so before the deadline and offer a new one.</li>
+    </ol>
+    <p>Most people find they break small promises daily without noticing. Fixing that is the fastest change in how others rate your reliability.</p>
+  </div></details>
+
+  <details class="pb"><summary>The courage ladder <small>one rep a week</small></summary><div class="in">
+    <p>Courage is trained in steps, the same way as the pressure drill in Mind. They share one log.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Rung</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Low</td><td>Ask the question you think is stupid. Admit you do not know. Return a wrong order politely.</td></tr>
+        <tr><td class="lab">Middle</td><td>Give honest feedback to a peer. Say no to a senior's unreasonable ask. Apologise first. State an unpopular view in a meeting.</td></tr>
+        <tr><td class="lab">High</td><td>Report something wrong. Walk away from a deal or a job on principle. Tell someone close a truth they do not want.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Pick one a week from the lowest rung you still avoid. Write the date, what you did and what happened. The feared result rarely arrives, and the log is the proof.</p>
+  </div></details>
+
+  <details class="pb"><summary>Anger and ego <small>what to do in the first ten minutes</small></summary><div class="in">
+    <ol>
+      <li><b>Lower the heat.</b> Slow breathing with a long out-breath, cold water on the face, a slow walk. Punching something or going for a hard run to "burn it off" does not reduce anger.<sup><a href="#s45">45</a></sup></li>
+      <li><b>Say nothing and send nothing</b> until your pulse is normal. Write the reply if you must, and leave it unsent overnight.</li>
+      <li><b>Name what was threatened.</b> It is nearly always status, control or fairness. Naming it shrinks it.</li>
+      <li><b>Ask what outcome you want</b> a week from now, and act for that.</li>
+      <li><b>Go back and repair</b> anything you said before you caught it.</li>
+    </ol>
+    <p><b>Ego checks, quarterly.</b> When did I last say "I was wrong" without adding a reason? Do I need to win small arguments? Do I mention my own results before I am asked? Can I be the least capable person in a room and stay curious?</p>
+    <p class="note">Steps 2 to 5 and the ego checks are judgement.</p>
+  </div></details>
+
+  <details class="pb"><summary>Vices and compulsions <small>an audit, then bright lines</small></summary><div class="in">
+    <p><b>The audit.</b> For each of these, write how often, what it costs in money, hours, sleep and self-respect, and what sets it off: alcohol, nicotine, other drugs, gambling and trading for the thrill, pornography, endless video and feeds, gaming, junk food, impulse buying.</p>
+    <ol>
+      <li><b>Sort into two lists.</b> Things you can take or leave, and things you repeatedly do more of than you meant to. Be honest about which list each belongs on.</li>
+      <li><b>For the second list, use a bright line.</b> "None" is easier to hold than "a little". Moderation rules fail at exactly the moment they are needed.</li>
+      <li><b>Remove access and cues.</b> Delete the app, block the site, do not keep it at home, change the route, leave the group chat. Design beats resolve.<sup><a href="#s12">12</a></sup></li>
+      <li><b>Fill the slot.</b> Decide in advance what you do at the time and in the mood where it used to happen.</li>
+      <li><b>Tell one person.</b> Secrecy is what keeps a compulsion alive.</li>
+      <li><b>A slip is data.</b> Write what set it off, close that door, continue. Do not turn one slip into a week.</li>
+    </ol>
+    <div class="scroll"><table>
+      <thead><tr><th>Thing</th><th>Where the evidence stands</th><th>A workable rule</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Alcohol</td><td>No health benefit at your age. Risk is lowest near zero.<sup><a href="#s26">26</a></sup></td><td>None, or a fixed small number on chosen occasions. Never to cope, never before driving.</td></tr>
+        <tr><td class="lab">Nicotine</td><td>About a decade of life lost for smokers. Quitting before 40 avoids about 90% of the added risk.<sup><a href="#s49">49</a></sup></td><td>None. If you already use it, see a doctor about cessation support.</td></tr>
+        <tr><td class="lab">Betting and derivatives for excitement</td><td>93% of individual futures and options traders lost money over three years.<sup><a href="#s33">33</a></sup></td><td>None. Uninstall the apps.</td></tr>
+        <tr><td class="lab">Pornography, feeds, gaming</td><td>The research on harm is mixed and argued over. The practical test is whether it takes hours, sleep or attention you wanted for something else.</td><td>Judgement: set a limit, remove easy access, and treat repeated failure to keep the limit as the signal to get help.</td></tr>
+      </tbody>
+    </table></div>
+    <p>If you cannot hold a line you have set three times, that is the point to see a professional. The "When to get help" playbook in Mind lists where to start.</p>
+  </div></details>
+
+  <details class="pb"><summary>Integrity at work <small>decide your lines before they are tested</small></summary><div class="in">
+    <ul>
+      <li><b>Credit.</b> Name the people who did the work, in writing, every time.</li>
+      <li><b>Numbers.</b> Never present a figure you would not defend line by line. If a result is weak, say so first.</li>
+      <li><b>Expenses and time.</b> Claim what you spent and worked. Small padding is how larger habits begin.</li>
+      <li><b>Data.</b> In HR you will hold pay, health and performance records. Open only what the task needs, and never use it to satisfy curiosity.</li>
+      <li><b>Conflicts of interest.</b> Disclose them before anyone asks.</li>
+      <li><b>When asked to do something wrong,</b> ask for it in writing, state your concern once to the person, then to their manager or the proper channel. Know in advance what you would resign over.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Handling power <small>checks for when you lead</small></summary><div class="in">
+    <p>As you gain money, rank and strength, the test becomes how you treat people who can do nothing for you. That is the difference between Wayne and the men he fights.</p>
+    <ul>
+      <li>Do the most junior people on my team disagree with me in meetings? If not, I have made it unsafe.</li>
+      <li>Do I keep one person close whose job is to tell me I am wrong?</li>
+      <li>Do I treat drivers, guards, cleaners and vendors as I treat directors?</li>
+      <li>Have I used my position for a personal favour this quarter?</li>
+      <li>Do I take the blame upward and pass the credit down?</li>
+      <li>Would I be comfortable if my decisions about people were read out to them?</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Service <small>turning 5% into a habit</small></summary><div class="in">
+    <ol>
+      <li><b>Pick one cause,</b> close to something you have lived: education, a hometown, a skill you can teach.</li>
+      <li><b>Choose time or money by what you have.</b> As a student, time and skill. Once earning, a fixed amount on salary day, automated like an investment.</li>
+      <li><b>Give skill where you can.</b> An hour of building a tool for a small organisation is often worth more than the same hour of general help.</li>
+      <li><b>Keep it regular and quiet.</b> A fixed slot each month. No announcement.</li>
+      <li><b>Start in your own circle.</b> Teach a junior, help a batchmate prepare, look after a relative. That counts.</li>
+    </ol>
+  </div></details>
+
+  <details class="pb"><summary>Meaning and inner life <small>the part that holds the rest up</small></summary><div class="in">
+    <ul>
+      <li><b>Know what the work is for.</b> The mission line in Direction. Reread it when a week feels pointless.</li>
+      <li><b>Keep a practice.</b> Prayer, sitting, a text you return to, time in nature, a journal. Use the tradition you were raised in or one you choose. What matters is that it is regular and yours.</li>
+      <li><b>Three lines at night, a few times a week.</b> What went well, who helped, what I would do again. The measured benefit is small and real.<sup><a href="#s48">48</a></sup></li>
+      <li><b>Think about the end, once a year.</b> At the annual review, write what you would want said about you by the people who knew you best. Then look at last month's calendar.</li>
+      <li><b>Do something with no payoff.</b> Rest, play and adventure are in Base. A capable, joyless man has failed the standard.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>When you break your own code <small>you will</small></summary><div class="in">
+    <ol>
+      <li><b>Admit it to the person affected,</b> the same day, without a defence.</li>
+      <li><b>Make it right</b> in the currency it cost them: money, time, reputation.</li>
+      <li><b>Find the setup.</b> What made it easy? Tiredness, a deadline, drink, wanting to be liked. Change that.</li>
+      <li><b>Keep the line.</b> One breach is a reason to hold the code more carefully, never a reason to delete the line.</li>
+      <li><b>Then stop punishing yourself.</b> "I did a bad thing" leads to repair. "I am bad" leads to hiding.</li>
+    </ol>
+  </div></details>
+
+  <h3>Metrics</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Lead measures, weekly</th><th>Lag measures, quarterly</th></tr></thead>
+    <tbody>
+      <tr><td>Promises kept or renegotiated in time</td><td>Promises late or broken in 30 days</td></tr>
+      <tr><td>Courage rep done and logged</td><td>Entries in the courage log</td></tr>
+      <tr><td>Days inside every bright line</td><td>Share of time or income given</td></tr>
+      <tr><td>Code read in the review</td><td>What the people closest to you say when asked the yearly question</td></tr>
+    </tbody>
+  </table></div>
+
   <div class="panel wb">
     <h4>Workbook · character</h4>
-    <div class="fld"><label for="f-h-code">My code</label><textarea id="f-h-code" data-k></textarea></div>
+    <div class="fld"><label for="f-h-code">My code</label><textarea id="f-h-code" data-k style="min-height:100px"></textarea></div>
+    <div class="fld"><label for="f-h-ledger">Promise ledger</label><small>Date, what I promised, to whom, kept or renegotiated or broken.</small><textarea id="f-h-ledger" data-k></textarea></div>
     <div class="fld"><label for="f-h-reps">Courage log</label><textarea id="f-h-reps" data-k></textarea></div>
+    <div class="fld"><label for="f-h-vice">Vice audit and my bright lines</label><small>What, how often, what it costs, what sets it off, the rule.</small><textarea id="f-h-vice" data-k></textarea></div>
+    <div class="fld"><label for="f-h-serve">Who I give time or money to, and how much</label><textarea id="f-h-serve" data-k></textarea></div>
+    <div class="fld"><label for="f-h-fb">What nobody tells me</label><small>Answers to the yearly question, with the date and who said it.</small><textarea id="f-h-fb" data-k></textarea></div>
   </div>
+
+  <div class="panel warnp">
+    <h4>How this domain fails, and what to ignore</h4>
+    <ul style="margin-bottom:0">
+      <li>Treating character as a self-image. It is a record of what you did when it cost something.</li>
+      <li>Small exceptions under pressure. Every large breach was preceded by ten small ones that seemed reasonable.</li>
+      <li>Discipline that turns into contempt for people who have less of it.</li>
+      <li>Hiding a habit. What you conceal grows.</li>
+      <li><b>Ignore:</b> "alpha" and dominance advice, cold-shower and abstinence challenges sold as character, stoicism used as a reason to feel nothing, and anyone who teaches that honesty is for people without leverage.</li>
+    </ul>
+  </div>
+
+  <p class="note"><b>Resources.</b> Man's Search for Meaning by Viktor Frankl. Meditations by Marcus Aurelius. The Bhagavad Gita in a respected translation. Mistakes Were Made (But Not by Me) by Tavris and Aronson on self-justification.</p>
+</section>
+
+<section id="competence" class="dom" aria-labelledby="h-competence">
+  <h2 id="h-competence"><span class="n">19</span>Competence</h2>
+  <p class="lede">The practical skills a capable man has. Each is learned once and kept for life, and several of them are the difference between helping and standing by.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>You can feed yourself and others, get yourself anywhere safely, keep someone alive until help arrives, fix what breaks at home, and be at ease in a place you have never been.</dd>
+      <dt>How it runs</dt><dd>One skill per quarter, in the background. It is rarely the quarter's focus. It uses two or three hours a week from the life-admin and rest budgets.</dd>
+      <dt>Three actions</dt><dd>1. Helmet or seat belt on every trip, starting today. 2. Book a hands-on CPR and first-aid class. 3. Learn one new meal a week until you have ten.</dd>
+      <dt>Watch one number</dt><dd>Skills finished, out of the list below.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
+  <div class="tiers">
+    <div class="tier"><h4>Floor <i>year 1</i></h4>
+      <label class="ck"><input type="checkbox" id="c-k1" data-k>Helmet strapped or seat belt on, every trip, including short ones and back seats. Check: 8 weeks with no exception.</label>
+      <label class="ck"><input type="checkbox" id="c-k2" data-k>Ten meals I can cook without a recipe. Check: each cooked twice.</label>
+      <label class="ck"><input type="checkbox" id="c-k3" data-k>CPR and choking response practised hands-on, in the last two years</label>
+      <label class="ck"><input type="checkbox" id="c-k4" data-k>A first-aid kit at home, and I know how to use what is in it</label>
+      <label class="ck"><input type="checkbox" id="c-k5" data-k>I have run a home alone for a month: food, cleaning, laundry, bills</label>
+      <label class="ck"><input type="checkbox" id="c-k6" data-k>A valid licence for what I ride or drive</label>
+    </div>
+    <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-k7" data-k>Swim 200 metres without stopping and tread water for 5 minutes</label>
+      <label class="ck"><input type="checkbox" id="c-k8" data-k>Drive a car confidently in city traffic and on a highway, and change a wheel</label>
+      <label class="ck"><input type="checkbox" id="c-k9" data-k>A certified first-aid course completed</label>
+      <label class="ck"><input type="checkbox" id="c-k10" data-k>Six people hosted for a meal I planned and cooked</label>
+      <label class="ck"><input type="checkbox" id="c-k11" data-k>A week of solo travel that I planned and paid for</label>
+      <label class="ck"><input type="checkbox" id="c-k12" data-k>Five home repairs done with my own hands</label>
+      <label class="ck"><input type="checkbox" id="c-k13" data-k>Six months in a striking or grappling class</label>
+    </div>
+    <div class="tier t3"><h4>Elite <i>year 3 onward</i></h4>
+      <label class="ck"><input type="checkbox" id="c-k14" data-k>One art practised to the point of performing or showing it: an instrument, cooking, photography, drawing</label>
+      <label class="ck"><input type="checkbox" id="c-k15" data-k>A multi-day trek or journey done self-supported</label>
+      <label class="ck"><input type="checkbox" id="c-k16" data-k>First-aid certification kept current for five years</label>
+      <label class="ck"><input type="checkbox" id="c-k17" data-k>I have taught three of these skills to someone else</label>
+    </div>
+  </div>
+  <p class="note">This list is judgement about what a capable adult should be able to do. A second language is in Mind and long-term training in a physical skill is in Body, so neither is repeated here.</p>
+
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>The road is the largest risk at your age.</b> India recorded more than 4.8 lakh road accidents in 2023. Among those killed, 54,568 were riders or passengers on two-wheelers who were not wearing a helmet.<sup><a href="#s53">53</a></sup> A review of the trials and studies found that helmets cut the risk of death by about 42% and of head injury by about 69%.<sup><a href="#s54">54</a></sup></li>
+      <li><b>CPR before the ambulance more than doubles survival.</b> Across 30,381 witnessed cardiac arrests in Sweden, 10.5% of people who received CPR before the ambulance arrived were alive after 30 days, against 4.0% of those who did not.<sup><a href="#s51">51</a></sup> The figures are observational, and the link held after adjusting for other factors.</li>
+      <li><b>Drowning is common and preventable.</b> The WHO counted about 300,000 drowning deaths worldwide in 2021.<sup><a href="#s52">52</a></sup> Being able to swim and to stay afloat is a safety skill before it is a sport.</li>
+    </ul>
+  </div>
+
+  <h3>Protocol</h3>
+  <p>The order is by how much risk each skill removes and how often you will use it.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Quarter</th><th>Skill</th><th>Done when</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Now, one day</td><td>Road habits</td><td>Helmet that fits, strap always fastened. Belt in every seat. Phone out of reach while moving.</td></tr>
+      <tr><td class="lab">1</td><td>CPR and first aid</td><td>A hands-on class attended. Kit bought.</td></tr>
+      <tr><td class="lab">1 to 2</td><td>Cooking</td><td>Ten meals, each cooked twice from memory.</td></tr>
+      <tr><td class="lab">3</td><td>Running a home</td><td>One month fully self-run, or the first month in the new city.</td></tr>
+      <tr><td class="lab">4 to 5</td><td>Swimming</td><td>200 metres and 5 minutes of treading water.</td></tr>
+      <tr><td class="lab">6 to 7</td><td>Driving</td><td>Licence, then 20 hours of supervised practice, then a highway trip.</td></tr>
+      <tr><td class="lab">8 onward</td><td>Travel, hosting, repairs, a fighting art, an art</td><td>One at a time, in the order that fits your life.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Adjust the order to what you can already do. Tick those and move on.</p>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>On the road <small>the habits that matter most</small></summary><div class="in">
+    <ul>
+      <li><b>Helmet:</b> a certified full-face helmet that fits snugly, strap fastened every time. An unfastened helmet comes off in a crash. Carry a second one if you give lifts.</li>
+      <li><b>Seat belt:</b> front and back, including in cabs.</li>
+      <li><b>Phone:</b> in a pocket or a mount, never in the hand. Set navigation before you move.</li>
+      <li><b>Speed and space:</b> leave a gap you could stop in. Slow down at night, in rain and near junctions.</li>
+      <li><b>Never after drinking,</b> and do not ride with anyone who has been.</li>
+      <li><b>Tired is impaired.</b> On a long drive, stop every two hours.</li>
+      <li><b>As a pedestrian,</b> assume you have not been seen.</li>
+    </ul>
+    <p class="note">The helmet figures are research.<sup><a href="#s54">54</a></sup> The rest is standard road-safety practice.</p>
+  </div></details>
+
+  <details class="pb"><summary>First response <small>a reminder of the steps, not a substitute for a class</small></summary><div class="in">
+    <p>Take a hands-on course. Skills like these are learned on a manikin, not from a page. Use the list below to refresh what the class taught you.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Situation</th><th>Steps</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Collapsed, not responding, not breathing normally</td><td>Shout for help. Call 112 or have someone call. Start chest compressions: heel of the hand on the centre of the chest, arms straight, push hard and fast, about two a second, without stopping. If a defibrillator is nearby, send someone for it and follow its spoken instructions. Continue until help takes over.</td></tr>
+        <tr><td class="lab">Choking, cannot speak or cough</td><td>Firm blows between the shoulder blades, then abdominal thrusts, alternating, until it clears. If they collapse, start CPR.</td></tr>
+        <tr><td class="lab">Heavy bleeding</td><td>Press hard on the wound with a cloth and do not lift it to look. Add more cloth on top. Keep pressing until help arrives.</td></tr>
+        <tr><td class="lab">Burn</td><td>Cool under running water for 20 minutes. Remove rings and watches. Cover loosely. No ice, butter or toothpaste.</td></tr>
+        <tr><td class="lab">Unconscious but breathing</td><td>Roll them onto their side with the head tilted back, and stay with them.</td></tr>
+        <tr><td class="lab">Road crash</td><td>Make the scene safe first. Call 112. Do not move someone who may have a neck or back injury unless they are in immediate danger.</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Kit at home:</b> sterile gauze, crepe bandage, adhesive dressings, antiseptic, medical tape, scissors, gloves, oral rehydration salts, a thermometer, and your own regular medicines.</p>
+    <p class="note">These steps follow standard first-aid teaching and are listed as a reminder. Guidelines are revised every few years, which is one more reason to retake the class.</p>
+  </div></details>
+
+  <details class="pb"><summary>Cooking <small>ten meals that fit your diet</small></summary><div class="in">
+    <ol>
+      <li><b>Start with five techniques,</b> since most meals are built from them: boil and simmer, pressure-cook, sauté, shallow-fry, and temper spices.</li>
+      <li><b>Build the ten around protein.</b> For a diet of vegetables, fish and eggs, a workable set is: a dal, a rajma or chana, an egg curry, an omelette or bhurji, a fish curry, a pan-fried fish, a paneer or tofu dish, a mixed vegetable sabzi, a khichdi or pulao, and one breakfast you can make in ten minutes.</li>
+      <li><b>One new meal a week.</b> Cook it once with the recipe, once without, and write your version in the workbook.</li>
+      <li><b>Stock the basics</b> so a meal is always possible: rice, atta, two dals, eggs, onions, tomatoes, ginger, garlic, oil, salt, and the six spices you use most.</li>
+      <li><b>Cook double</b> and eat it twice.</li>
+      <li><b>Clean as you go.</b> A meal is finished when the kitchen is.</li>
+    </ol>
+    <p>The protein targets and sample days are in the nutrition playbook in Body.</p>
+  </div></details>
+
+  <details class="pb"><summary>Running a home <small>the weekly minimum</small></summary><div class="in">
+    <ul>
+      <li><b>Daily, ten minutes:</b> bed made, dishes done, surfaces clear, tomorrow's clothes out.</li>
+      <li><b>Weekly, ninety minutes:</b> laundry washed and put away, floor and bathroom cleaned, sheets changed, groceries bought from a standing list, bin out.</li>
+      <li><b>Monthly:</b> bills checked, the fridge and cupboards cleared, anything broken fixed or booked.</li>
+      <li><b>Skills to pick up once:</b> iron a shirt, sew on a button, remove a stain, descale a kettle, read a meter.</li>
+    </ul>
+    <p>Paying for help with cleaning or cooking is a fair use of money once you earn. Knowing how to do it yourself first is the point.</p>
+  </div></details>
+
+  <details class="pb"><summary>Swimming and water <small>from non-swimmer to safe</small></summary><div class="in">
+    <ol>
+      <li>Take lessons from a coach, two or three times a week for eight to twelve weeks. Adults learn quickly with instruction and slowly without it.</li>
+      <li>Learn in this order: breathing out under water, floating on your back, treading water, then a stroke.</li>
+      <li>The safety test comes before the distance test: fall in, surface, float, and get to the side.</li>
+      <li>Then build to 200 metres at any pace.</li>
+    </ol>
+    <p><b>Rules that do not bend.</b> Never swim alone or after drinking. Do not enter rivers, canals or the sea where locals do not. If someone is in trouble, reach or throw something to them before you consider going in.</p>
+  </div></details>
+
+  <details class="pb"><summary>Driving and vehicles <small>licence, then real practice</small></summary><div class="in">
+    <ul>
+      <li>Get the licence properly. Then log 20 hours with an experienced driver beside you before driving alone.</li>
+      <li>Practise the hard parts on purpose: reversing, parallel parking, hill starts, night, rain, a highway merge.</li>
+      <li>Know your vehicle: tyre pressure, changing a wheel, jump-starting, topping up fluids, what each warning light means.</li>
+      <li>Keep documents current and in one place: licence, registration, insurance, pollution certificate.</li>
+      <li>After any crash: stop, make it safe, help the injured, call 112, take photographs, exchange details. Do not argue fault at the roadside.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Home repairs and tools <small>five jobs and a small kit</small></summary><div class="in">
+    <p><b>Kit:</b> screwdriver set, adjustable spanner, pliers, hammer, tape measure, utility knife, tester, insulation and thread-seal tape, a drill when you have your own place, and a torch.</p>
+    <p><b>Jobs to learn:</b> reset a tripped breaker and find what tripped it, replace a tap washer, hang a shelf with wall plugs, unblock a drain, fix a puncture, replace a switch or a plug with the mains off, assemble flat-pack furniture.</p>
+    <p class="note">Know where the main water valve and the main switch are in any home you live in. Leave gas and anything inside the distribution board to a professional.</p>
+  </div></details>
+
+  <details class="pb"><summary>Travelling alone <small>one week, planned by you</small></summary><div class="in">
+    <ol>
+      <li><b>Pick a place a little outside your comfort.</b> A different state, a different language.</li>
+      <li><b>Book the first and last nights only.</b> Leave the middle open.</li>
+      <li><b>Split your money and documents:</b> one card and some cash on you, one card and copies in the bag, digital copies in your phone and your mail.</li>
+      <li><b>Share the outline</b> with one person at home, and check in daily.</li>
+      <li><b>Pack for one bag</b> you can carry for an hour.</li>
+      <li><b>Talk to people.</b> Eat where it is busy. Walk more than you ride.</li>
+      <li><b>Write a page a day.</b> What you noticed, what went wrong, what you handled.</li>
+    </ol>
+  </div></details>
+
+  <details class="pb"><summary>Hosting <small>a dinner for six</small></summary><div class="in">
+    <ul>
+      <li>Invite a week ahead, with a time. Ask about food restrictions.</li>
+      <li>Cook what you have made before. One main, two sides, something sweet you bought.</li>
+      <li>Do everything possible before people arrive, so you are in the room and out of the kitchen.</li>
+      <li>Introduce people to each other with one thing they have in common.</li>
+      <li>Keep glasses and plates full, and let the conversation run.</li>
+      <li>Message a thank-you the next day.</li>
+    </ul>
+    <p>Hosting monthly is a People standard. Table manners are in the etiquette playbook in Presence.</p>
+  </div></details>
+
+  <details class="pb"><summary>Self-defence <small>what it is really for</small></summary><div class="in">
+    <ol>
+      <li><b>Awareness.</b> Head up, phone away, know the exits. Most trouble is avoided by noticing it early.</li>
+      <li><b>Leave.</b> Pride is the usual reason fights happen. Walking away is the win.</li>
+      <li><b>De-escalate.</b> Hands open, voice low, give the other person a way out.</li>
+      <li><b>Hand over property.</b> A phone and a wallet are replaceable.</li>
+      <li><b>Train anyway.</b> Six months of boxing, judo, wrestling or jiu-jitsu gives you fitness, calm under physical pressure, and an accurate sense of what a fight costs. That accuracy is what keeps trained people out of fights.</li>
+    </ol>
+    <p class="note">This is judgement. Force is a last resort for getting away from immediate danger.</p>
+  </div></details>
+
+  <div class="panel wb">
+    <h4>Workbook · competence</h4>
+    <div class="fld"><label for="f-k-meals">My ten meals</label><small>Tick each when cooked twice from memory.</small><textarea id="f-k-meals" data-k style="min-height:100px"></textarea></div>
+    <div class="fld"><label for="f-k-queue">Skill queue</label><small>One per quarter: the skill, how I will learn it, done when.</small><textarea id="f-k-queue" data-k></textarea></div>
+    <div class="fld"><label for="f-k-cert">Classes and certificates</label><small>Course, date, when it needs renewing.</small><textarea id="f-k-cert" data-k></textarea></div>
+    <div class="fld"><label for="f-k-emerg">In an emergency where I live</label><small>Nearest hospital with a casualty department, how long it takes to reach, who I call first.</small><textarea id="f-k-emerg" data-k></textarea></div>
+  </div>
+
+  <div class="panel warnp">
+    <h4>How this domain fails, and what to ignore</h4>
+    <ul style="margin-bottom:0">
+      <li>Watching videos about a skill in place of doing it. A skill is done when your hands have done it twice.</li>
+      <li>Starting four at once. One per quarter finishes. Four do not.</li>
+      <li>Skipping the dull, high-value ones (the helmet strap, the CPR class) for the impressive ones.</li>
+      <li><b>Ignore:</b> survivalist shopping lists, self-defence "moves" learned from clips, and the idea that paying someone means you never need to know how.</li>
+    </ul>
+  </div>
+
+  <p class="note"><b>Resources.</b> A certified first-aid and CPR course from a recognised provider in your city, such as the Indian Red Cross or St John Ambulance. A swimming coach at a local pool. Salt, Fat, Acid, Heat by Samin Nosrat for how cooking works.</p>
+</section>
+
+<section id="base" class="dom" aria-labelledby="h-base">
+  <h2 id="h-base"><span class="n">20</span>Base</h2>
+  <p class="lede">The ground the rest stands on: where you live, your papers, your digital security, your tools, and the rest and play that keep you human.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>Nothing important can be lost to one stolen phone, one missed renewal or one bad month. Your room helps you do the right thing. You rest properly and do some things only because you enjoy them.</dd>
+      <dt>How it runs</dt><dd>One setup weekend, then one admin hour a month and one audit a year. Like Competence, it is rarely the quarter's focus.</dd>
+      <dt>Three actions</dt><dd>1. Two-step sign-in on mail, bank and messaging today. 2. Scan and back up every key document. 3. One full day each week with no work.</dd>
+      <dt>Watch one number</dt><dd>Months in a row the admin hour was kept.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
+  <div class="tiers">
+    <div class="tier"><h4>Floor <i>month 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-e1" data-k>Every key document scanned and stored in two places. Check: the list in the workbook.</label>
+      <label class="ck"><input type="checkbox" id="c-e2" data-k>A password manager in use, with a unique password on mail, bank and phone account</label>
+      <label class="ck"><input type="checkbox" id="c-e3" data-k>Two-step sign-in on mail, banking, messaging and social accounts</label>
+      <label class="ck"><input type="checkbox" id="c-e4" data-k>Phone and laptop locked, updating automatically and backed up. Check: restore one file.</label>
+      <label class="ck"><input type="checkbox" id="c-e5" data-k>Room reset every week for 8 weeks: bed, desk, floor, laundry</label>
+      <label class="ck"><input type="checkbox" id="c-e6" data-k>Monthly admin hour kept for 6 months</label>
+      <label class="ck"><input type="checkbox" id="c-e7" data-k>One day a week with no work, and one thing done purely for fun, for 8 weeks</label>
+    </div>
+    <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-e8" data-k>A home set up for the life I want: training kit in sight, a desk for deep work, a stocked kitchen</label>
+      <label class="ck"><input type="checkbox" id="c-e9" data-k>A nominee recorded on every account, policy and investment</label>
+      <label class="ck"><input type="checkbox" id="c-e10" data-k>An "if something happens to me" page given to one family member</label>
+      <label class="ck"><input type="checkbox" id="c-e11" data-k>Annual digital audit done two years running</label>
+      <label class="ck"><input type="checkbox" id="c-e12" data-k>A hobby with no career value, practised weekly for a year</label>
+      <label class="ck"><input type="checkbox" id="c-e13" data-k>Two trips in a year, one of them somewhere new</label>
+    </div>
+    <div class="tier t3"><h4>Elite <i>year 4 onward</i></h4>
+      <label class="ck"><input type="checkbox" id="c-e14" data-k>My systems run without me for two weeks: bills, investments and backups all automatic</label>
+      <label class="ck"><input type="checkbox" id="c-e15" data-k>A will written, and my parents' papers in order as well as my own</label>
+      <label class="ck"><input type="checkbox" id="c-e16" data-k>Five items done from the adventure list</label>
+    </div>
+  </div>
+  <p class="note">These standards are judgement, apart from the security and recovery points cited below.</p>
+
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>A second step stops most account takeovers.</b> In Google's year-long study, a prompt on the user's own phone blocked 100% of automated attacks, 99% of bulk phishing and 90% of targeted attacks. Codes sent by SMS did worse against targeted attacks, and physical security keys did best.<sup><a href="#s55">55</a></sup></li>
+      <li><b>Switching off from work is recovery.</b> A meta-analysis of recovery research found that people who mentally detach from work in their off hours report less fatigue.<sup><a href="#s56">56</a></sup> An evening spent half-working is neither work nor rest.</li>
+    </ul>
+  </div>
+
+  <h3>Protocol</h3>
+  <div class="phase"><div class="when"><b>Setup</b>One weekend</div><div><ul>
+    <li><b>Saturday morning, digital:</b> password manager, new passwords on the five accounts that matter, two-step sign-in, SIM lock, backups on.</li>
+    <li><b>Saturday afternoon, papers:</b> gather, scan, name, store in two places, fill in the document list.</li>
+    <li><b>Sunday morning, space:</b> clear the room, set up the desk and the training corner, throw out what you do not use.</li>
+    <li><b>Sunday afternoon, calendar:</b> the monthly admin hour, the weekly day off and the annual audit entered as repeating events.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Monthly</b>One hour</div><div><ul>
+    <li>Bills, subscriptions and bank statements checked line by line.</li>
+    <li>Anything expiring in the next 90 days renewed or booked.</li>
+    <li>Photos and files from the phone backed up and the inbox cleared.</li>
+    <li>One thing fixed that has been broken for more than a month.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Yearly</b>With the annual review</div><div><ul>
+    <li>Digital audit: close unused accounts, review app permissions and logged-in devices, change any reused password.</li>
+    <li>Nominees and the "if something happens" page updated.</li>
+    <li>Document list checked against the originals.</li>
+    <li>Adventure list reread, and one item given a date.</li>
+  </ul></div></div>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>Documents and admin <small>one folder, two copies, a list</small></summary><div class="in">
+    <ol>
+      <li><b>Gather the originals</b> into one physical folder: identity papers, passport, driving licence, degree certificates and mark sheets, offer and relieving letters, payslips and tax statements, bank and investment records, insurance policies, rent agreement, medical records, vehicle papers.</li>
+      <li><b>Scan each one</b> as a PDF with a clear name: type, your name, year.</li>
+      <li><b>Store in two places:</b> an encrypted cloud folder and an offline drive. DigiLocker holds government-issued copies of many Indian documents and is worth setting up.</li>
+      <li><b>Fill in the document list</b> in the workbook, with expiry and renewal dates. Put the dates in your calendar 90 days ahead.</li>
+      <li><b>Set a nominee</b> on every bank account, policy, provident fund and investment. It takes minutes and saves your family months.</li>
+      <li><b>Write the "if something happens" page:</b> who to call, where the folder is, which institutions hold your money and cover, and who has the password manager's emergency access. Give it to one person you trust.</li>
+    </ol>
+    <p class="note">Do not type passwords, PINs, card numbers, account numbers or identity numbers into this manual or into the page above. List where things are, not the secrets themselves.</p>
+  </div></details>
+
+  <details class="pb"><summary>Digital security <small>an afternoon that removes most of the risk</small></summary><div class="in">
+    <ol>
+      <li><b>Password manager.</b> One long passphrase you memorise. Every other password generated and unique.</li>
+      <li><b>Start with mail.</b> Whoever controls your mail can reset everything else. Longest password, strongest second step.</li>
+      <li><b>Second step everywhere it is offered.</b> Prefer a passkey, an authenticator app or a prompt on your phone. Use SMS only where nothing else is available.<sup><a href="#s55">55</a></sup> Save the backup codes in the password manager.</li>
+      <li><b>Lock the SIM</b> with a PIN, since your number receives the codes.</li>
+      <li><b>Devices:</b> screen lock, automatic updates, disk encryption, remote-wipe switched on.</li>
+      <li><b>Backups:</b> automatic, to the cloud and to a drive. Test by restoring a file.</li>
+      <li><b>Payments.</b> You enter a UPI PIN only to send money, never to receive it. Never share a one-time code or install a screen-sharing app because a caller asks. Keep a low daily limit on the account linked to your phone.</li>
+      <li><b>Links and calls.</b> Do not sign in through a link in a message. Open the app or type the address. Banks, police and courier companies do not ask for codes, and nobody is "arrested" over a video call.</li>
+      <li><b>What you post.</b> No documents, boarding passes, home address or live location. Assume an employer will read all of it.</li>
+    </ol>
+    <p><b>If money has been taken,</b> act within the hour: call your bank to block the account or card, then report it on the national cybercrime helpline, 1930, or at cybercrime.gov.in. Speed is what gets money frozen.</p>
+    <p class="note">Steps other than the second-step finding are standard security practice.</p>
+  </div></details>
+
+  <details class="pb"><summary>Your room <small>arranged so the right thing is the easy thing</small></summary><div class="in">
+    <ul>
+      <li><b>Make the good action visible.</b> Dumbbells and mat where you can see them. The book on the pillow. A water bottle on the desk.</li>
+      <li><b>Make the bad action awkward.</b> Phone charger outside the bedroom. No food at the desk. The television, if there is one, not facing the bed.</li>
+      <li><b>One clear surface</b> for deep work, used for nothing else.</li>
+      <li><b>A place for everything you use daily.</b> Keys, wallet, bag, shoes. You should be able to leave in two minutes.</li>
+      <li><b>Spend on what you touch for hours:</b> mattress, pillow, chair, shoes. Save on the rest.</li>
+      <li><b>Own less.</b> Each term, remove what you have not used.</li>
+      <li><b>The weekly reset</b> is in the Competence home playbook. Do it the same day every week.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Relocation <small>the checklist for moving city</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>When</th><th>Do</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">A month before</td><td>Choose the area by commute first: under 40 minutes each way if you can. Visit or video-call before paying anything. Read the rent agreement, the deposit terms and the notice period. Run the move plan in People.</td></tr>
+        <tr><td class="lab">The week before</td><td>Pack one bag you could live from for a fortnight. Carry originals of documents yourself. Tell your bank and update the address where it matters.</td></tr>
+        <tr><td class="lab">Week 1</td><td>Find, in this order: a place to train, a grocery shop, a doctor and a pharmacy, the nearest hospital. Fix your wake time and first training session before the job starts.</td></tr>
+        <tr><td class="lab">Month 1</td><td>Join two things that repeat weekly. Set up the room with the playbook above. Resume the weekly review on the same day as before.</td></tr>
+        <tr><td class="lab">Month 3</td><td>Check the three things that usually slip in a move: training, sleep and the call home.</td></tr>
+      </tbody>
+    </table></div>
+    <p>A move is a season. The Seasons section says what to hold and what to drop while it lasts.</p>
+  </div></details>
+
+  <details class="pb"><summary>Tools and systems <small>four, and no more</small></summary><div class="in">
+    <ul>
+      <li><b>One calendar.</b> Everything with a time goes in it, including training and the people slots.</li>
+      <li><b>One task list.</b> Everything you have agreed to do. Emptied into the week at the weekly review.</li>
+      <li><b>One notes home.</b> Your commonplace book, for what you read and think.</li>
+      <li><b>This manual.</b> For standards, scores and reviews.</li>
+    </ul>
+    <p>Each new app is something else to maintain. Add one only when a real problem has stayed unsolved for a month, and remove one when you do.</p>
+  </div></details>
+
+  <details class="pb"><summary>Rest, play and adventure <small>the part ambitious people cut first</small></summary><div class="in">
+    <ul>
+      <li><b>A weekly day off.</b> No work, no coursework, no manual. Guard it as you guard training.</li>
+      <li><b>An evening boundary.</b> A fixed time after which work is closed. Detaching is what makes the rest count.<sup><a href="#s56">56</a></sup></li>
+      <li><b>One thing with no payoff.</b> A sport, an instrument, quizzing, cooking, a game with friends. If you catch yourself trying to make it productive, pick another.</li>
+      <li><b>Leave the city</b> a few times a year. One night away resets more than a week of evenings.</li>
+      <li><b>Keep an adventure list.</b> Twenty things you want to have done: a trek, a long train route, a country, a skill, a race. Date one each year.</li>
+      <li><b>Take your leave.</b> All of it.</li>
+    </ul>
+    <p>The check from "When it breaks" belongs here: did I enjoy anything this quarter that had no payoff? If not, that is the constraint to fix next.</p>
+  </div></details>
+
+  <div class="panel wb">
+    <h4>Workbook · base</h4>
+    <div class="fld"><label for="f-e-docs">Document list</label><small>Document, where the original is, where the copies are, expiry or renewal date. No numbers.</small><textarea id="f-e-docs" data-k style="min-height:100px"></textarea></div>
+    <div class="fld"><label for="f-e-admin">Admin hour log</label><small>Month, what was done, what is due next.</small><textarea id="f-e-admin" data-k></textarea></div>
+    <div class="fld"><label for="f-e-fun">What I do for no reason</label><textarea id="f-e-fun" data-k></textarea></div>
+    <div class="fld"><label for="f-e-adv">Adventure list</label><small>Mark the one with a date this year.</small><textarea id="f-e-adv" data-k style="min-height:100px"></textarea></div>
+    <div class="fld"><label for="f-e-move">Relocation notes</label><textarea id="f-e-move" data-k></textarea></div>
+  </div>
+
+  <div class="panel warnp">
+    <h4>How this domain fails, and what to ignore</h4>
+    <ul style="margin-bottom:0">
+      <li>Treating admin as something to do "when free". It is done in the monthly hour or it is done in a crisis.</li>
+      <li>Rebuilding your tools in place of using them. A new notes app is not progress.</li>
+      <li>Rest that is half work. It produces neither.</li>
+      <li>One password, reused. It fails all at once.</li>
+      <li><b>Ignore:</b> productivity setups with a dozen apps, minimalism as an identity, and anyone who says rest must be earned.</li>
+    </ul>
+  </div>
+
+  <p class="note"><b>Resources.</b> Your phone and mail provider's own security check-up pages. Getting Things Done by David Allen for the task-list habit. Rest by Alex Soojung-Kim Pang on why deliberate rest supports work.</p>
 </section>
 
 <section id="week" aria-labelledby="h-week">
-  <h2 id="h-week"><span class="n">19</span>Ideal week</h2>
-  <p class="lede">How seven domains fit into 168 hours. Two templates: the months left as a student, and life after you start work.</p>
+  <h2 id="h-week"><span class="n">21</span>Ideal week</h2>
+  <p class="lede">How nine domains fit into 168 hours. Two templates: the months left as a student, and life after you start work.</p>
   <p>These are reference designs. Copy the one that matches your phase into your calendar, then adjust it to your real timetable. A plan that lives only in your head loses to whatever is urgent.</p>
 
   <h3>The budget</h3>
@@ -1849,9 +2654,9 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><td class="lab">Deep work and study</td><td class="num">14</td><td class="num">7</td><td>Once working, most deep work happens inside the job.</td></tr>
       <tr><td class="lab">Training and movement</td><td class="num">7</td><td class="num">6</td><td>Three or four strength sessions, two cardio, mobility.</td></tr>
       <tr><td class="lab">People</td><td class="num">12</td><td class="num">10</td><td>Calls home, the inner five, mentors.</td></tr>
-      <tr><td class="lab">Life admin</td><td class="num">21</td><td class="num">21</td><td>Meals, hygiene, chores, errands.</td></tr>
+      <tr><td class="lab">Life admin</td><td class="num">21</td><td class="num">21</td><td>Meals, hygiene, chores, errands, cooking practice and the monthly admin hour from Base.</td></tr>
       <tr><td class="lab">Reading and review</td><td class="num">5</td><td class="num">4</td><td>20 pages a day and the weekly review.</td></tr>
-      <tr><td class="lab">Rest and play</td><td class="num">23</td><td class="num">17</td><td>Unplanned on purpose. Leisure screens come out of this.</td></tr>
+      <tr><td class="lab">Rest and play</td><td class="num">23</td><td class="num">17</td><td>Unplanned on purpose. Leisure screens come out of this. So does the Competence skill of the quarter, two to three hours a week.</td></tr>
       <tr><td class="lab">Total</td><td class="num">168</td><td class="num">168</td><td></td></tr>
     </tbody>
   </table></div>
@@ -1898,7 +2703,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="sprint" aria-labelledby="h-sprint">
-  <h2 id="h-sprint"><span class="n">20</span>Sprint board</h2>
+  <h2 id="h-sprint"><span class="n">22</span>Sprint board</h2>
   <p class="lede">One focus for twelve weeks. Three lead measures. A tick for every week you hit them.</p>
   <p>This is where "one focus per quarter" becomes concrete. Choose the domain, write one measurable outcome, and name up to three weekly actions that produce it. At the end of each week, tick the measures you fully hit. Review at week 6. Retest and archive at week 12.</p>
   <div class="panel wb">
@@ -1936,7 +2741,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="rhythm" aria-labelledby="h-rhythm">
-  <h2 id="h-rhythm"><span class="n">21</span>Rhythm</h2>
+  <h2 id="h-rhythm"><span class="n">23</span>Rhythm</h2>
   <p class="lede">The small set of recurring actions that keeps all of this alive. Miss everything else before you miss the weekly review.</p>
   <h3>Daily · three non-negotiables</h3>
   <p>Choose three actions so small you can do them on your worst day. They are the Floor of your Floor.</p>
@@ -1952,6 +2757,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li>What is the one adjustment for next week?</li>
     <li>Training sessions, deep work blocks and inner-five time: scheduled for next week?</li>
     <li>Wins log and money: updated?</li>
+    <li>Contact log read, and the weekly message sent to your accountability partner?</li>
   </ol>
   <div class="panel wb">
     <h4>Workbook · weekly</h4>
@@ -1964,6 +2770,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li>Savings rate into Baseline tests and Money.</li>
     <li>One feedback conversation at work.</li>
     <li>Tick any standards you have newly met.</li>
+    <li>The admin hour from Base.</li>
   </ul>
   <h3>Quarterly · 90 minutes</h3>
   <ul>
@@ -1971,9 +2778,10 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li>Pick one focus domain for the next 90 days, usually the lowest score.</li>
     <li>Archive the finished sprint and set up the next one on the Sprint board.</li>
     <li>Reread your code and your anti-vision.</li>
+    <li>Start the next Competence skill.</li>
   </ul>
   <h3>Annual · every 14 November</h3>
-  <p>Half a day, alone, away from your desk. Read the whole manual. Rewrite Direction if you have changed. Answer the four questions below and keep every year's answers.</p>
+  <p>Half a day, alone, away from your desk. Read the whole manual. Rewrite Direction if you have changed. Reread the Risk register and run the yearly audit in Base. Answer the four questions below and keep every year's answers.</p>
   <div class="panel wb">
     <h4>Workbook · annual reviews</h4>
     <div class="fld"><label for="f-a-log">Year by year</label><small>For each year: what I am proud of, what I avoided, what I learned about myself, what I am changing.</small><textarea id="f-a-log" data-k style="min-height:140px"></textarea></div>
@@ -1986,9 +2794,161 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   </div>
 </section>
 
+<section id="seasons" aria-labelledby="h-seasons">
+  <h2 id="h-seasons"><span class="n">24</span>Seasons</h2>
+  <p class="lede">Some weeks are not normal weeks. Each kind has a plan, so that a hard stretch pauses the system without ending it.</p>
+  <div class="panel">
+    <h4>The rule for every season</h4>
+    <ol style="margin-bottom:0">
+      <li><b>Name it.</b> "This is an exam fortnight." A named season is a decision. An unnamed one is a slide.</li>
+      <li><b>Give it an end date.</b> Write the day normal service resumes.</li>
+      <li><b>Hold the floor of the floor:</b> sleep, the three non-negotiables from Rhythm, and one message to someone in the inner five.</li>
+      <li><b>Drop the rest on purpose,</b> without guilt. The sprint board pauses. It does not reset.</li>
+      <li><b>Restart on the named day,</b> at half volume for the first week.</li>
+    </ol>
+  </div>
+
+  <details class="pb"><summary>Exam weeks <small>one to three weeks</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> wake time, 7 hours of sleep, three 20-minute training sessions a week, real meals.</li>
+      <li><b>Drop:</b> reading for pleasure, the side project, new habits, hosting.</li>
+      <li><b>Study as Mind teaches:</b> self-testing and spaced review, in single-task blocks, phone in another room.</li>
+      <li><b>Do not</b> trade sleep for hours. A tired hour of revision is worth less than half a rested one.</li>
+      <li><b>Return:</b> the day after the last paper is off. Normal week from the following Monday.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Joining a job <small>the first four weeks</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> sleep, three training sessions, the call home, the weekly review.</li>
+      <li><b>Drop:</b> every non-work project for a month. The job is the focus.</li>
+      <li><b>Fix the anchors in week one:</b> wake time, commute, when and where you train, what you eat at lunch.</li>
+      <li><b>Run</b> the first-90-days playbook in Craft and the relocation checklist in Base.</li>
+      <li><b>Expect</b> to be tired. New places cost energy. It passes by week six.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Moving city <small>about a month</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> sleep, a short daily walk or session, the weekly review, the inner-five calls.</li>
+      <li><b>Drop:</b> progress targets in Body. Aim only to not lose the habit.</li>
+      <li><b>First week:</b> find the place you will train and go once, even briefly. The habit survives a move if it restarts within seven days.</li>
+      <li><b>Run</b> the relocation checklist in Base and the move plan in People.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Travel <small>a few days to two weeks</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> the minimum viable day, protein at each meal, wake time within an hour.</li>
+      <li><b>Pack:</b> resistance band, running shoes, the book.</li>
+      <li><b>Train:</b> the 15-minute session from "Busy days and travel" in Body, every second day.</li>
+      <li><b>On holiday,</b> hold nothing except sleep. A holiday is rest, and rest is part of the system.</li>
+      <li><b>Return:</b> first session within 48 hours of landing.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Illness or injury <small>until you are well, plus a week</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> sleep, fluids, food. Nothing else.</li>
+      <li><b>Do not train</b> with a fever, chest symptoms or anything below the neck. Walking is fine when you feel like it.</li>
+      <li><b>See a doctor</b> if a fever lasts beyond three days, if breathing is difficult, or for any injury that stops normal movement.</li>
+      <li><b>Return at half:</b> half the weight or half the distance in the first week back, then build over two weeks.</li>
+      <li><b>For an injury,</b> train what is not injured. The injury rules are in Body.</li>
+    </ul>
+    <p class="note">General guidance, not medical advice.</p>
+  </div></details>
+
+  <details class="pb"><summary>Festivals, weddings and visits home <small>days to two weeks</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> a short morning session or walk, and your bedtime on most nights.</li>
+      <li><b>Enjoy the food.</b> Eat what is served and stop when full. One week does not undo a quarter.</li>
+      <li><b>Decide your line on alcohol</b> before you arrive, not at the table.</li>
+      <li><b>Be fully there.</b> This time is People at its most valuable. Put the phone away.</li>
+      <li><b>Return:</b> the first Monday back, no compensation, no punishment sessions.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>A crunch at work <small>two to six weeks</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> sleep at 7 hours, two training sessions a week, one evening off.</li>
+      <li><b>Drop:</b> the sprint, social plans except the inner five, anything optional.</li>
+      <li><b>Set the end date with your manager,</b> out loud. A crunch without one is the new normal.</li>
+      <li><b>If it passes eight weeks,</b> it is no longer a season. Read the burnout entry in the Risk register.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Heartbreak <small>weeks to months</small></summary><div class="in">
+    <ul>
+      <li><b>Hold:</b> sleep, training, meals, work at an acceptable level. Structure carries you when motivation cannot.</li>
+      <li><b>Lean on people.</b> Tell two friends. See someone most days for the first fortnight.</li>
+      <li><b>Remove the cues:</b> mute or unfollow, archive the chats, put the objects away. This is kindness to yourself, not drama.</li>
+      <li><b>No big decisions</b> for a month: no job changes, no moves, no rebound commitments.</li>
+      <li><b>No alcohol</b> to cope.</li>
+      <li><b>Write it out</b> once, on paper: what was good, what was not, what you will do differently.</li>
+      <li><b>If sleep, appetite or work stay badly off after a month,</b> use "When to get help" in Mind.</li>
+    </ul>
+    <p class="note">Judgement and common practice.</p>
+  </div></details>
+
+  <details class="pb"><summary>A family emergency <small>as long as it takes</small></summary><div class="in">
+    <ul>
+      <li><b>Go.</b> Tell work plainly and early what you need.</li>
+      <li><b>Hold:</b> sleep where you can, food, a daily walk.</li>
+      <li><b>Take a role.</b> Paperwork, money, transport, sitting with someone. Families in a crisis need someone handling logistics.</li>
+      <li><b>Use the reserve.</b> This is what the emergency fund and the parents' medical line in Money are for.</li>
+      <li><b>Keep a notebook:</b> doctors' names, what was said, what was paid, what is due.</li>
+      <li><b>Afterwards,</b> expect to be flat for a while. Restart with the three non-negotiables only, for two weeks.</li>
+    </ul>
+  </div></details>
+
+  <div class="panel wb">
+    <h4>Workbook · seasons</h4>
+    <div class="fld"><label for="f-se-now">Current season, if any</label><small>What it is, the end date, what I am holding, the day I restart.</small><textarea id="f-se-now" data-k></textarea></div>
+    <div class="fld"><label for="f-se-log">Past seasons and what I learned</label><small>One line each. What slipped, and how long the restart took.</small><textarea id="f-se-log" data-k></textarea></div>
+  </div>
+  <p class="note">This section is judgement and standard practice. If a stretch has no end date and no clear cause, it is not a season. Go to When it breaks.</p>
+</section>
+
+<section id="account" aria-labelledby="h-account">
+  <h2 id="h-account"><span class="n">25</span>Accountability</h2>
+  <p class="lede">A record you can see and a person who sees it. Both raise the odds that a plan gets done, and both take minutes a week.</p>
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <p style="margin-bottom:0">Across 138 experiments with 19,951 people, prompting people to monitor their progress improved goal attainment, with an average effect of d = 0.40. The effect was larger when progress was physically recorded and when it was reported to someone or made public.<sup><a href="#s50">50</a></sup> That is the case for the sprint board, the training log and the weekly message below.</p>
+  </div>
+  <h3>What works, and what does not</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Works</th><th>Does not</th></tr></thead>
+    <tbody>
+      <tr><td>A tick on a page you see every day</td><td>A plan kept in your head</td></tr>
+      <tr><td>The same three numbers sent to one person every week</td><td>Announcing a goal to many people once</td></tr>
+      <tr><td>A partner who is working on something of their own</td><td>A partner who only cheers</td></tr>
+      <tr><td>Reporting what you did</td><td>Reporting what you intend to do</td></tr>
+      <tr><td>A fixed day and a fixed format</td><td>"Let's check in sometime"</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">The table is judgement, built on the finding above.</p>
+  <h3>Setting it up</h3>
+  <ol>
+    <li><b>Choose one person.</b> Someone reliable, working on a goal of their own, who will notice a missed week and say so. A batchmate, a sibling, a training partner. It should not be someone you manage or report to.</li>
+    <li><b>Agree the format.</b> One message on the same day each week: your three lead measures as numbers, one line on what got in the way, one line on next week. They send theirs.</li>
+    <li><b>Reply in one line.</b> Acknowledge, and ask one question when a number drops two weeks running.</li>
+    <li><b>A call every month,</b> twenty minutes, to look at the trend.</li>
+    <li><b>Share the quarterly snapshot</b> with them, including the lowest score.</li>
+    <li><b>Review the arrangement each quarter.</b> If either of you has missed three messages, end it kindly and find another.</li>
+  </ol>
+  <p>Some work is better in company: a training partner who expects you at 7 a.m., a study group, a class you have paid for. Use these freely. They are accountability you do not have to manage.</p>
+  <div class="panel wb">
+    <h4>Workbook · accountability</h4>
+    <div class="fld"><label for="f-ac-who">Who, which day, and the format we agreed</label><textarea id="f-ac-who" data-k></textarea></div>
+    <div class="fld"><label for="f-ac-log">Weeks sent and weeks missed</label><textarea id="f-ac-log" data-k></textarea></div>
+  </div>
+</section>
+
 <section id="breaks" aria-labelledby="h-breaks">
-  <h2 id="h-breaks"><span class="n">22</span>When it breaks</h2>
+  <h2 id="h-breaks"><span class="n">26</span>When it breaks</h2>
   <p class="lede">It will. The plan for failure is part of the system.</p>
+  <p class="note">If the cause is a stretch with a name and an end date, such as exams, a move or an illness, use Seasons. For the larger shocks, see the Risk register.</p>
   <h3>You missed a day</h3>
   <p>Nothing happened. In the habit research a single missed day had no material effect.<sup><a href="#s8">8</a></sup> Do the minimum viable day tomorrow. The rule is never two in a row.</p>
   <h3>You missed two weeks</h3>
@@ -2012,7 +2972,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="roadmap" aria-labelledby="h-roadmap">
-  <h2 id="h-roadmap"><span class="n">23</span>Roadmap</h2>
+  <h2 id="h-roadmap"><span class="n">27</span>Roadmap</h2>
   <p class="lede">Ten years in five phases. Each phase has one job and a test for leaving it. Dates assume you start in November 2026 at 24.</p>
   <div class="phase"><div class="when"><b>Foundation</b>Nov 2026 to joining day<br>age 24</div><div>
     <p><b>Job: install the base habits while your schedule is still your own.</b></p>
@@ -2045,11 +3005,11 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <p><b>Job: turn skill into ownership.</b></p>
     <ul>
       <li>Lead a team, a product or a P&amp;L. Or found the company if the side project has paying users.</li>
-      <li>All seven domains at Strong. Two at Elite.</li>
+      <li>All nine domains at Strong. Two at Elite.</li>
       <li>Partner and family decisions made on purpose.</li>
       <li>Start mentoring others.</li>
     </ul>
-    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> You own a team, product or P&amp;L, or the company has passed gate 4. All seven domains at Strong and two at Elite.</p></div></div>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> You own a team, product or P&amp;L, or the company has passed gate 4. All nine domains at Strong and two at Elite.</p></div></div>
   <div class="phase"><div class="when"><b>Compound</b>2033 to 2036<br>age 31 to 34</div><div>
     <p><b>Job: hold the standard and widen the mission.</b></p>
     <ul>
@@ -2066,7 +3026,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="yearone" aria-labelledby="h-yearone">
-  <h2 id="h-yearone"><span class="n">24</span>Year one</h2>
+  <h2 id="h-yearone"><span class="n">28</span>Year one</h2>
   <p class="lede">The first eighteen months in sequence: the rest of the MBA, then the first twelve months at work.</p>
   <p>Each row adds a little to the row before. Nothing here is new. It is the Floor of every domain, laid out in the order that makes each step easier than the last. Work months are numbered from your joining date, so the plan holds whenever that falls.</p>
 
@@ -2097,7 +3057,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><td class="lab">7</td><td>Presence</td><td>Quarterly snapshot. Volunteer to present your work. Join or start a speaking group. One page written each week.</td><td>Five speaking repetitions logged.</td></tr>
       <tr><td class="lab">8</td><td>Presence</td><td>Ask two people how you come across under pressure. Wardrobe: add the working-stage items.</td><td>Filler count halved from baseline.</td></tr>
       <tr><td class="lab">9</td><td>Presence</td><td>Third win shipped. Identify a possible sponsor by making one of their goals succeed.</td><td>Ten speaking repetitions. Presence Floor ticked.</td></tr>
-      <tr><td class="lab">10</td><td>Your lowest score</td><td>Quarterly snapshot. Choose the weakest domain for the sprint. Body retest.</td><td>All seven domains at Floor or better.</td></tr>
+      <tr><td class="lab">10</td><td>Your lowest score</td><td>Quarterly snapshot. Choose the weakest domain for the sprint. Body retest.</td><td>All nine domains at Floor or better.</td></tr>
       <tr><td class="lab">11</td><td>Your lowest score</td><td>Emergency fund reaches six months. Start the second income experiment with a fixed weekly budget.</td><td>Money Floor ticked.</td></tr>
       <tr><td class="lab">12</td><td>Review</td><td>Annual review, half a day. First appraisal conversation prepared with the negotiation playbook. Rewrite Direction if you have changed.</td><td>The Prove phase exit criteria in the Roadmap are met, or you know exactly which are not.</td></tr>
     </tbody>
@@ -2119,7 +3079,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="decisions" aria-labelledby="h-decisions">
-  <h2 id="h-decisions"><span class="n">25</span>Decisions</h2>
+  <h2 id="h-decisions"><span class="n">29</span>Decisions</h2>
   <p class="lede">Five decisions that shape a decade, each with the questions to answer before you commit.</p>
   <p>Use the general method in the Decisions playbook under Mind for every one of these: base rate, pre-mortem, three horizons, one outside view, then record it. The frameworks below add the questions specific to each case. They are judgement, built from common practice.</p>
 
@@ -2186,7 +3146,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li><b>Families.</b> Have the hard conversations about expectations, money and where you will live been had out loud?</li>
       <li><b>Time.</b> Have you seen each other through a bad stretch, not only good ones?</li>
     </ul>
-    <p>Write what you want and what you offer before you are choosing, as the People standards ask. The fuller relationship playbook comes with the People release.</p>
+    <p>Write what you want and what you offer before you are choosing, as the People standards ask. The fuller playbooks are in People: choosing a partner, and being a good one.</p>
   </div></details>
 
   <div class="panel wb">
@@ -2195,9 +3155,88 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   </div>
 </section>
 
+<section id="risks" aria-labelledby="h-risks">
+  <h2 id="h-risks"><span class="n">30</span>Risk register</h2>
+  <p class="lede">The ten things most likely to knock a decade off course. Each has an early sign, a defence to put in place now, and a first response.</p>
+  <p>Reread this at every annual review. A risk you have named and prepared for is an inconvenience. The same event unprepared can cost years.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Risk</th><th>Early signs</th><th>Defence, in place now</th><th>First week if it happens</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Injury</td><td>Pain that changes how you move. Pain that is worse the next morning.</td><td>The injury rules and mobility routine in Body. Progress loads slowly.</td><td>Stop the movement, see a physiotherapist, train everything else.</td></tr>
+      <tr><td class="lab">Burnout</td><td>Sleep worsening, dreading work you used to like, falling ill often, snapping at people.</td><td>The weekly day off and evening boundary in Base. One focus per quarter.</td><td>Floor in every domain for two weeks. Tell your manager what must come off your plate. A doctor if it persists.</td></tr>
+      <tr><td class="lab">Losing the job</td><td>Projects stalling, your manager changing, hiring freezes, your work no longer tied to revenue.</td><td>Six months of expenses. A wins log and portfolio always current. Loose ties kept warm.</td><td>Cut spending to needs. Message twenty people. Treat the search as the job, with training and sleep held.</td></tr>
+      <tr><td class="lab">A family medical emergency</td><td>A parent's symptoms being put off. Cover that has lapsed or is too small.</td><td>The Parents playbook in Money. Their documents known. A medical reserve.</td><td>Go. Take a role. Use the reserve. See the family emergency entry in Seasons.</td></tr>
+      <tr><td class="lab">The wrong relationship</td><td>Friends see less of you. You edit what you say. Contempt, control or fear.</td><td>The partner tests in People. Two friends who will tell you the truth.</td><td>Say it to one of those friends. If you are afraid, leave first and talk after.</td></tr>
+      <tr><td class="lab">Lifestyle inflation</td><td>Savings rate flat after a raise. Instalments on things that lose value.</td><td>The automated split in Money, raised with every increment.</td><td>List every recurring payment. Cancel a third. Reset the split.</td></tr>
+      <tr><td class="lab">Fraud or account takeover</td><td>Unexpected codes, sign-in alerts, a call creating urgency.</td><td>The digital security playbook in Base. A low limit on the phone-linked account.</td><td>Block with the bank within the hour, report on 1930, change the mail password, check every linked account.</td></tr>
+      <tr><td class="lab">Isolation after a move</td><td>Weekends with no plans. Real conversations in 14 days near zero.</td><td>The move plan and repeating settings in People.</td><td>Two messages today, one call this week, one new weekly setting.</td></tr>
+      <tr><td class="lab">An ethical lapse</td><td>A small exception that felt reasonable. Something you would not want written down.</td><td>The code, and lines decided before they are tested, in Character.</td><td>Admit, repair, close the door that made it easy.</td></tr>
+      <tr><td class="lab">A failed venture</td><td>Months of building with no paying user. Savings funding the project.</td><td>The founder gates in Craft. A fixed budget of time and money, set in advance.</td><td>Stop at the gate you set. Write what you learned. Return to the job or the search with the skills you gained.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Tripwires</h3>
+  <p>A tripwire is a rule decided in a calm hour that forces a decision in a bad one. "If my savings rate is under 20% for two quarters, I cancel every subscription and reset the split." "If I miss training for ten days, I do the minimum session that evening." Write one for each of your three largest risks.</p>
+  <div class="panel wb">
+    <h4>Workbook · risk</h4>
+    <div class="fld"><label for="f-rk-top">My three largest risks this year, and the tripwire for each</label><textarea id="f-rk-top" data-k style="min-height:100px"></textarea></div>
+    <div class="fld"><label for="f-rk-log">What has gone wrong, and what I changed afterwards</label><textarea id="f-rk-log" data-k></textarea></div>
+  </div>
+  <p class="note">The register is judgement. It lists common ways a plan like this fails and makes no claim about how likely each one is for you.</p>
+</section>
+
+<section id="milestones" aria-labelledby="h-milestones">
+  <h2 id="h-milestones"><span class="n">31</span>Milestone log</h2>
+  <p class="lede">Every standard you have met, with the date you first met it. Over ten years this is the record that shows the system working.</p>
+  <div class="calc" style="border-top:0;margin-top:0;padding-top:0">
+    <span><b id="msTotal">0</b>standards met</span>
+    <span><b id="msFloor">0</b>Floor</span>
+    <span><b id="msStrong">0</b>Strong</span>
+    <span><b id="msElite">0</b>Elite</span>
+  </div>
+  <div class="scroll"><table id="msTable">
+    <thead><tr><th>Date</th><th>Domain</th><th>Tier</th><th>Standard</th></tr></thead>
+    <tbody><tr><td colspan="4" class="note">Nothing ticked yet. The first entry appears when you tick a standard in any domain.</td></tr></tbody>
+  </table></div>
+  <p class="note">Built from the ticks in the nine domains. Unticking a standard removes it from this list.</p>
+  <div class="panel wb">
+    <h4>Workbook · other milestones</h4>
+    <div class="fld"><label for="f-ms-log">Phases completed and firsts worth keeping</label><small>Date and one line: a roadmap phase exited, a first salary, a first talk, a first solo trip.</small><textarea id="f-ms-log" data-k style="min-height:100px"></textarea></div>
+  </div>
+</section>
+
+<section id="curriculum" aria-labelledby="h-curriculum">
+  <h2 id="h-curriculum"><span class="n">32</span>Curriculum</h2>
+  <p class="lede">What to study in each of the first five years. One main subject a year, so that each is learned properly.</p>
+  <p>The Craft column follows the skill tree in Craft. The second field builds the "one more subject to working depth" standard in Mind. The books are in the Library.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Year</th><th>Craft: main subject</th><th>Second field</th><th>Skill from Competence</th><th>Proof by year end</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">1<small>Nov 2026 to late 2027</small></td><td>The HR domain in your company, and data: SQL, advanced spreadsheets, Python for analysis</td><td>Personal finance, through running your own</td><td>First aid, cooking, running a home</td><td>One analysis on real data that changed a decision</td></tr>
+      <tr><td class="lab">2<small>2028</small></td><td>Automation and AI: workflows with APIs and language models, evaluation, where they fail</td><td>Statistics: one standard textbook with the problems worked</td><td>Swimming</td><td>One HR process automated end to end and in use</td></tr>
+      <tr><td class="lab">3<small>2029</small></td><td>Business: reading a P&amp;L, unit economics, a cost-benefit case</td><td>Accounting and corporate finance basics</td><td>Driving, solo travel</td><td>A one-page business case that won budget</td></tr>
+      <tr><td class="lab">4<small>2030</small></td><td>Leading people: delegation, feedback, hiring, running a project through others</td><td>Law that touches your work: labour codes, contracts, data protection</td><td>A striking or grappling art</td><td>A project delivered by a team you led</td></tr>
+      <tr><td class="lab">5<small>2031</small></td><td>Product and strategy: choosing what to build, pricing, going to market</td><td>A language, or the next field your direction needs</td><td>An art</td><td>A product, internal or your own, with users who would miss it</td></tr>
+    </tbody>
+  </table></div>
+  <h3>How to study a subject for a year</h3>
+  <ol>
+    <li><b>One standard text,</b> worked through with the exercises. A course is fine if it has graded problems.</li>
+    <li><b>One project</b> that forces you to use it on something real.</li>
+    <li><b>Recall notes</b> at the end of each chapter, reviewed on the spacing in Mind.</li>
+    <li><b>One piece published</b> each quarter explaining something you learned.</li>
+    <li><b>A test at the end:</b> can you teach the core of it to a colleague in thirty minutes without notes?</li>
+  </ol>
+  <div class="panel wb">
+    <h4>Workbook · curriculum</h4>
+    <div class="fld"><label for="f-cu-now">This year's subject, the text, the project, and the proof I am aiming for</label><textarea id="f-cu-now" data-k></textarea></div>
+    <div class="fld"><label for="f-cu-done">Subjects completed, with the proof</label><textarea id="f-cu-done" data-k></textarea></div>
+  </div>
+  <p class="note">The sequence is judgement, drawn from the skill tree and the roadmap. Reorder it if your role demands a subject sooner. Keep to one main subject at a time.</p>
+</section>
+
 <section id="library" aria-labelledby="h-library">
-  <h2 id="h-library"><span class="n">26</span>Library</h2>
-  <p class="lede">One or two books per domain. Read them in the quarter that domain is your focus.</p>
+  <h2 id="h-library"><span class="n">33</span>Library</h2>
+  <p class="lede">One or two books per domain. Read them in the quarter that domain is your focus. Each domain lists a few more under Resources.</p>
   <div class="scroll"><table>
     <thead><tr><th>Domain</th><th>Read</th><th>Why</th></tr></thead>
     <tbody>
@@ -2209,12 +3248,71 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <tr><th>Presence</th><td>Getting to Yes, Fisher and Ury<br>On Writing Well, William Zinsser</td><td>Principled negotiation. Clear writing, which becomes clear speaking.</td></tr>
       <tr><th>People</th><td>The Good Life, Waldinger and Schulz<br>How to Win Friends and Influence People, Dale Carnegie</td><td>The Harvard study in full. The basics of making people feel heard.</td></tr>
       <tr><th>Character</th><td>Man's Search for Meaning, Viktor Frankl<br>The Bhagavad Gita, any respected translation</td><td>Purpose under pressure. Action without attachment to the result.</td></tr>
+      <tr><th>Competence</th><td>Salt, Fat, Acid, Heat, Samin Nosrat<br>A certified first-aid course manual</td><td>How cooking works, so that recipes become optional. The reference you keep after the class.</td></tr>
+      <tr><th>Base</th><td>Getting Things Done, David Allen<br>Rest, Alex Soojung-Kim Pang</td><td>One trusted list for everything you have agreed to do. The case for deliberate rest.</td></tr>
     </tbody>
   </table></div>
 </section>
 
+<section id="glossary" aria-labelledby="h-glossary">
+  <h2 id="h-glossary"><span class="n">34</span>Glossary</h2>
+  <p class="lede">Terms the manual uses, in one place.</p>
+  <h3>The system</h3>
+  <dl class="gl">
+    <dt>Domain</dt><dd>One of the nine areas the manual tracks: Body, Mind, Craft, Money, Presence, People, Character, Competence and Base.</dd>
+    <dt>Standard</dt><dd>A specific, checkable statement in a domain. You tick it when you have met its check, and the date is recorded.</dd>
+    <dt>Floor, Strong, Elite</dt><dd>The three tiers of standards. Floor is the minimum that keeps a domain from collapsing. Strong is clearly above average and sustainable. Elite is rare and takes years.</dd>
+    <dt>Focus</dt><dd>The one domain you are pushing this quarter. Every other domain runs at its Floor.</dd>
+    <dt>Sprint</dt><dd>Twelve weeks on one focus, tracked on the Sprint board with three lead measures.</dd>
+    <dt>Lead measure</dt><dd>Something you do each week and fully control, such as training sessions completed.</dd>
+    <dt>Lag measure</dt><dd>A result that follows months later, such as a faster 5 km.</dd>
+    <dt>Hit rate</dt><dd>The share of weekly lead-measure targets you met in a sprint.</dd>
+    <dt>Snapshot</dt><dd>Your scores for all domains on one date, saved from the Scorecard.</dd>
+    <dt>Constraint</dt><dd>Your lowest-scoring domain. It usually chooses the next focus.</dd>
+    <dt>Baseline</dt><dd>A measured starting number, recorded once and never changed.</dd>
+    <dt>Non-negotiables</dt><dd>Three daily actions small enough to do on your worst day.</dd>
+    <dt>Minimum viable day</dt><dd>The 15-minute version of the day for travel, illness or chaos.</dd>
+    <dt>Season</dt><dd>A named stretch with an end date in which most of the system is paused on purpose.</dd>
+    <dt>Tripwire</dt><dd>A rule set in advance that forces a decision when a number crosses a line.</dd>
+    <dt>Gate</dt><dd>A test a project must pass before it gets more of your time or money.</dd>
+    <dt>Playbook</dt><dd>A step-by-step guide for one situation, shown as a collapsed row in a domain.</dd>
+    <dt>Phase and exit test</dt><dd>One of the five stages of the Roadmap, and the conditions for leaving it.</dd>
+  </dl>
+  <h3>Practices</h3>
+  <dl class="gl">
+    <dt>Deep work</dt><dd>Single-task concentration on something that matters, with the phone out of the room.</dd>
+    <dt>Recall note</dt><dd>What you can write about a chapter from memory after closing the book.</dd>
+    <dt>Thought record</dt><dd>A five-line written exercise from cognitive behavioural therapy for testing a worrying thought against evidence.</dd>
+    <dt>Pressure drill and courage rep</dt><dd>One deliberately uncomfortable action a week, taken from a ladder of situations ordered by difficulty.</dd>
+    <dt>If-then plan</dt><dd>"If situation X happens, then I will do Y." Also called an implementation intention.</dd>
+    <dt>WOOP</dt><dd>Wish, outcome, obstacle, plan. Imagining the obstacle before making the if-then plan.</dd>
+    <dt>Prep file</dt><dd>Five lines written before any meeting that matters: what they want, what you want, the hard questions, your answers, and what you do if the answer is no.</dd>
+    <dt>Wins log</dt><dd>A running list of results you delivered, each with a number.</dd>
+    <dt>Inner five</dt><dd>The five people who matter most to you, each given scheduled time.</dd>
+    <dt>Outer ring</dt><dd>Fifteen to twenty further people you keep in touch with every few months.</dd>
+    <dt>Mentor and sponsor</dt><dd>A mentor advises you. A sponsor speaks for you when you are not in the room.</dd>
+    <dt>Weak tie</dt><dd>An acquaintance. New jobs and ideas tend to arrive through these.</dd>
+    <dt>The code</dt><dd>Ten or fewer written lines you will not cross.</dd>
+    <dt>Promise ledger</dt><dd>A written list of commitments, each marked kept, renegotiated or broken.</dd>
+    <dt>Bright line</dt><dd>A rule with no exceptions, used where moderation keeps failing.</dd>
+    <dt>Savings rate</dt><dd>Money saved or invested, divided by money received.</dd>
+    <dt>Emergency fund</dt><dd>Months of expenses held in cash for shocks.</dd>
+    <dt>Admin hour</dt><dd>One hour a month for bills, renewals, backups and repairs.</dd>
+  </dl>
+  <h3>Reading the evidence</h3>
+  <dl class="gl">
+    <dt>Solid, useful, contested</dt><dd>The manual's ratings. Solid is well replicated or expert consensus. Useful is real and smaller than advertised. Contested means do not build on it.</dd>
+    <dt>Judgement</dt><dd>Advice from practice and reasoning that no study in this manual supports. It is always labelled.</dd>
+    <dt>Meta-analysis</dt><dd>A study that pools the results of many studies on the same question.</dd>
+    <dt>Replication</dt><dd>A repeat of a study by other researchers. A preregistered one fixes its method in advance.</dd>
+    <dt>Observational</dt><dd>A study that watches what people do without assigning them to anything. It can show a link, and cannot by itself show a cause.</dd>
+    <dt>Effect size, d or g</dt><dd>How large a difference is, in standard-deviation units. Around 0.2 is small, 0.5 medium and 0.8 large, by convention.</dd>
+    <dt>Odds ratio</dt><dd>How much higher the odds of an outcome are in one group than another. 1.0 means no difference.</dd>
+  </dl>
+</section>
+
 <section id="sources" aria-labelledby="h-sources">
-  <h2 id="h-sources"><span class="n">27</span>Sources</h2>
+  <h2 id="h-sources"><span class="n">35</span>Sources</h2>
   <p class="lede">Every research claim above points here. Where a finding is contested, both sides are listed.</p>
   <ol style="font-size:14.5px">
     <li id="s1">Morton et al. (2018). Protein supplementation and resistance-training gains, meta-analysis. British Journal of Sports Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/">PubMed</a></li>
@@ -2224,40 +3322,64 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li id="s5">Watson et al. (2015). Recommended amount of sleep for a healthy adult, AASM and SRS consensus. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/">Full text</a></li>
     <li id="s6">NICE. Keep the size of your waist to less than half of your height. <a href="https://nice.org.uk/news/articles/keep-the-size-of-your-waist-to-less-than-half-of-your-height-nice--recommends">NICE</a></li>
     <li id="s7">Kreider et al. (2017). ISSN position stand on creatine. <a href="https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0173-z">Full text</a></li>
-    <li id="s8">Lally et al. (2010). How are habits formed. European Journal of Social Psychology. <a href="https://bps.org.uk/research-digest/how-form-habit">BPS summary</a></li>
+    <li id="s8">Lally et al. (2010). How are habits formed. European Journal of Social Psychology. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ejsp.674">Full text</a></li>
     <li id="s9">Gollwitzer and Sheeran (2006). Implementation intentions and goal achievement, meta-analysis. <a href="https://kops.uni-konstanz.de/entities/publication/2e749bfb-8533-437c-8203-7e788c910c5f">Record</a></li>
-    <li id="s10">Sheeran, Listrom and Gollwitzer (2024), 642 tests with bias-corrected estimates. <a href="https://www.thebehavioralscientist.com/glossary/implementation-intentions">Summary</a></li>
+    <li id="s10">Sheeran, Listrom and Gollwitzer (2024). The when and how of planning: meta-analysis of implementation intentions in 642 tests. European Review of Social Psychology. <a href="https://psycnet.apa.org/record/2024-71260-001">Record</a></li>
     <li id="s11">Wang, Wang and Gai (2021). Mental contrasting with implementation intentions, meta-analysis. <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2021.565202/full">Full text</a></li>
     <li id="s12">Vohs et al. (2021). A multisite preregistered test of the ego-depletion effect. <a href="https://experts.umn.edu/en/publications/a-multisite-preregistered-paradigmatic-test-of-the-ego-depletion-/">Record</a></li>
-    <li id="s13">Macnamara, Hambrick and Oswald (2014). Deliberate practice and performance, meta-analysis. <a href="https://www.sciencedaily.com/releases/2014/07/140716123835.htm">Summary</a></li>
-    <li id="s14">Dunlosky et al. (2013). Improving students' learning with effective learning techniques. <a href="https://www.psychologicalscience.org/news/releases/which-study-strategies-make-the-grade.html">APS summary</a></li>
+    <li id="s13">Macnamara, Hambrick and Oswald (2014). Deliberate practice and performance, meta-analysis. Psychological Science. <a href="https://pubmed.ncbi.nlm.nih.gov/24986855/">PubMed</a></li>
+    <li id="s14">Dunlosky et al. (2013). Improving students' learning with effective learning techniques. Psychological Science in the Public Interest. <a href="https://pubmed.ncbi.nlm.nih.gov/26173288/">PubMed</a></li>
     <li id="s15">Macnamara and Burgoyne (2023), growth mindset interventions; Tipton et al. (2023), the opposing analysis. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10495100/">Commentary covering both</a></li>
     <li id="s16">Ryan and Deci (2000). Self-determination theory. American Psychologist. <a href="https://pubmed.ncbi.nlm.nih.gov/11392867/">PubMed</a></li>
-    <li id="s17">Bandura (1977, 1997). Self-efficacy and its four sources. <a href="https://www.simplypsychology.org/self-efficacy.html">Overview</a></li>
+    <li id="s17">Bandura (1977). Self-efficacy: toward a unifying theory of behavioral change. Psychological Review. <a href="https://pubmed.ncbi.nlm.nih.gov/847061/">PubMed</a></li>
     <li id="s18">Credé, Tynan and Harms (2017). Much ado about grit, meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/27845531/">PubMed</a></li>
     <li id="s19">Harvard Study of Adult Development, interview with director Robert Waldinger (2023). <a href="https://news.harvard.edu/gazette/story/2023/02/work-out-daily-ok-but-how-socially-fit-are-you">Harvard Gazette</a></li>
-    <li id="s20">Killingsworth, Kahneman and Mellers (2023). Income and emotional well-being: a conflict resolved. PNAS. <a href="https://sciencedaily.com/releases/2023/03/230306163006.htm">Summary</a></li>
+    <li id="s20">Killingsworth, Kahneman and Mellers (2023). Income and emotional well-being: a conflict resolved. PNAS. <a href="https://www.pnas.org/doi/10.1073/pnas.2208661120">Full text</a></li>
     <li id="s21">Holt-Lunstad, Smith and Layton (2010). Social relationships and mortality risk, meta-analysis. PLoS Medicine. <a href="https://doaj.org/article/c9833ba608474b048444b92ae7ee48ad">Record</a></li>
     <li id="s22">Schoenfeld, Grgic, Ogborn and Krieger (2017). Low- versus high-load resistance training, meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/28834797/">PubMed</a></li>
     <li id="s23">Windred et al. (2024). Sleep regularity is a stronger predictor of mortality risk than sleep duration. Sleep. <a href="https://www.ukbiobank.ac.uk/publications/sleep-regularity-is-a-stronger-predictor-of-mortality-risk-than-sleep-duration-a-prospective-cohort-study/">UK Biobank record</a></li>
-    <li id="s24">Drake et al. (2013). Caffeine effects on sleep taken 0, 3 or 6 hours before bed. Journal of Clinical Sleep Medicine. <a href="https://aasm.org/late-afternoon-and-early-evening-caffeine-can-disrupt-sleep-at-night/">AASM summary</a></li>
-    <li id="s25">Yang et al. (2019). Push-up capacity and future cardiovascular events in active adult men. JAMA Network Open. <a href="https://www.eurekalert.org/news-releases/865316">Summary</a></li>
+    <li id="s24">Drake et al. (2013). Caffeine effects on sleep taken 0, 3 or 6 hours before bed. Journal of Clinical Sleep Medicine. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3805807/">Full text</a></li>
+    <li id="s25">Yang et al. (2019). Push-up capacity and future cardiovascular events in active adult men. JAMA Network Open. <a href="https://pubmed.ncbi.nlm.nih.gov/30768197/">PubMed</a></li>
     <li id="s26">GBD 2020 Alcohol Collaborators (2022). Population-level risks of alcohol consumption by amount, geography, age, sex and year. The Lancet. <a href="https://spiral.imperial.ac.uk/handle/10044/1/99607">Record</a></li>
-    <li id="s27">Goyal et al. (2014). Meditation programs for psychological stress and well-being, meta-analysis. JAMA Internal Medicine. <a href="https://www.healthday.com/healthpro-news/mental-health/review-suggests-psychological-benefits-of-meditation-683649.html">Summary</a></li>
+    <li id="s27">Goyal et al. (2014). Meditation programs for psychological stress and well-being, meta-analysis. JAMA Internal Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/24395196/">PubMed</a></li>
     <li id="s28">Noetel et al. (2024). Effect of exercise for depression, network meta-analysis. BMJ. <a href="https://rodin.uca.es/xmlui/handle/10498/32732">Record</a></li>
-    <li id="s29">Ranehill et al. (2015). Assessing the robustness of power posing. Psychological Science. <a href="https://forrt.org/open-social-psychology/chapter27.html">Overview of the replications</a></li>
+    <li id="s29">Ranehill et al. (2015). Assessing the robustness of power posing. Psychological Science. <a href="https://pubmed.ncbi.nlm.nih.gov/25810452/">PubMed</a></li>
     <li id="s30">Pashler, McDaniel, Rohrer and Bjork (2008). Learning styles: concepts and evidence. <a href="https://digitalcommons.usf.edu/psy_facpub/1765/">Record</a></li>
     <li id="s31">Wilmot and Ones (2019). A century of research on conscientiousness at work. PNAS. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6859351">Full text</a></li>
     <li id="s32">S&amp;P Dow Jones Indices (2026). SPIVA India Scorecard, year-end 2025. <a href="https://www.spglobal.com/spdji/en/spiva/article/spiva-india-year-end-2025/">S&amp;P summary</a></li>
     <li id="s33">SEBI (2024). Analysis of profits and losses in the equity derivatives segment, FY22 to FY24. <a href="https://www.sebi.gov.in/media-and-notifications/press-releases/sep-2024/updated-sebi-study-reveals-93-of-individual-traders-incurred-losses-in-equity-fando-between-fy22-and-fy24-aggregate-losses-exceed-1-8-lakh-crores-over-three-years_86906.html">SEBI press release</a></li>
-    <li id="s34">Marks and Harold (2011). Who asks and who receives in salary negotiation. Journal of Organizational Behavior. <a href="https://www.pon.harvard.edu/daily/salary-negotiations/salary-negotiation-how-to-ask-for-a-higher-salary/">Harvard Program on Negotiation summary</a></li>
+    <li id="s34">Marks and Harold (2011). Who asks and who receives in salary negotiation. Journal of Organizational Behavior. <a href="https://psycnet.apa.org/record/2011-07926-001">Record</a></li>
     <li id="s35">Willis and Todorov (2006). First impressions: making up your mind after a 100-ms exposure to a face. Psychological Science. <a href="https://pubmed.ncbi.nlm.nih.gov/16866745/">PubMed</a></li>
     <li id="s36">Rajkumar et al. (2022). A causal test of the strength of weak ties. Science. <a href="https://pubmed.ncbi.nlm.nih.gov/36107999/">PubMed</a></li>
+    <li id="s37">Hall (2018). How many hours does it take to make a friend? Journal of Social and Personal Relationships. <a href="https://doi.org/10.1177/0265407518761225">Journal</a></li>
+    <li id="s38">Holt-Lunstad, Smith, Baker, Harris and Stephenson (2015). Loneliness and social isolation as risk factors for mortality, meta-analysis. Perspectives on Psychological Science. <a href="https://pubmed.ncbi.nlm.nih.gov/25910392/">PubMed</a></li>
+    <li id="s39">Joel et al. (2020). Machine learning uncovers the most robust self-report predictors of relationship quality across 43 longitudinal couples studies. PNAS. <a href="https://doi.org/10.1073/pnas.1917036117">Full text</a></li>
+    <li id="s40">Heyman and Slep (2001). The hazards of predicting divorce without crossvalidation. Journal of Marriage and Family. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1622921">Full text</a></li>
+    <li id="s41">Huang, Yeomans, Brooks, Minson and Gino (2017). It doesn't hurt to ask: question-asking increases liking. Journal of Personality and Social Psychology. <a href="https://dash.harvard.edu/handle/1/35647952">Open-access copy</a></li>
+    <li id="s42">Liu, Rim, Min and Min (2022). The surprise of reaching out: appreciated more than we think. Journal of Personality and Social Psychology. <a href="https://pubmed.ncbi.nlm.nih.gov/35816566/">PubMed</a></li>
+    <li id="s43">Gable, Reis, Impett and Asher (2004). What do you do when things go right? Journal of Personality and Social Psychology. <a href="https://pubmed.ncbi.nlm.nih.gov/15301629/">PubMed</a></li>
+    <li id="s44">Moffitt et al. (2011). A gradient of childhood self-control predicts health, wealth, and public safety. PNAS. <a href="https://www.pnas.org/doi/10.1073/pnas.1010076108">Full text</a></li>
+    <li id="s45">Kjærvik and Bushman (2024). A meta-analytic review of anger management activities that increase or decrease arousal. Clinical Psychology Review. <a href="https://pubmed.ncbi.nlm.nih.gov/38518585/">PubMed</a></li>
+    <li id="s46">Cohen, Bavishi and Rozanski (2016). Purpose in life and its relationship to all-cause mortality and cardiovascular events, meta-analysis. Psychosomatic Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/26630073/">PubMed</a></li>
+    <li id="s47">Aknin et al. (2020). Does spending money on others promote happiness? A registered replication report. Journal of Personality and Social Psychology. <a href="https://pubmed.ncbi.nlm.nih.gov/32250135/">PubMed</a></li>
+    <li id="s48">Cregg and Cheavens (2021). Gratitude interventions: effective self-help? A meta-analysis of the impact on symptoms of depression and anxiety. Journal of Happiness Studies. <a href="https://psycnet.apa.org/record/2020-13575-001">Record</a></li>
+    <li id="s49">Jha et al. (2013). 21st-century hazards of smoking and benefits of cessation in the United States. New England Journal of Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/23343063/">PubMed</a></li>
+    <li id="s50">Harkin et al. (2016). Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence. Psychological Bulletin. <a href="https://pubmed.ncbi.nlm.nih.gov/26479070/">PubMed</a></li>
+    <li id="s51">Hasselqvist-Ax et al. (2015). Early cardiopulmonary resuscitation in out-of-hospital cardiac arrest. New England Journal of Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/26061835/">PubMed</a></li>
+    <li id="s52">World Health Organization (2024). Global status report on drowning prevention. <a href="https://www.who.int/teams/social-determinants-of-health/safety-and-mobility/global-report-on-drowning-prevention">WHO</a></li>
+    <li id="s53">Ministry of Road Transport and Highways, Government of India. Road accidents in India 2023. <a href="https://morth.gov.in/backend/documents/uploaded/Road-Accident-in-India-2023-Publications.pdf">Report</a></li>
+    <li id="s54">Liu et al. (2008). Helmets for preventing injury in motorcycle riders. Cochrane Database of Systematic Reviews. <a href="https://pubmed.ncbi.nlm.nih.gov/18254047/">PubMed</a></li>
+    <li id="s55">Google Security Blog (2019). New research: how effective is basic account hygiene at preventing hijacking. <a href="https://security.googleblog.com/2019/05/new-research-how-effective-is-basic.html">Google</a></li>
+    <li id="s56">Bennett, Bakker and Field (2018). Recovery from work-related effort: a meta-analysis. Journal of Organizational Behavior. <a href="https://onlinelibrary.wiley.com/doi/10.1002/job.2217">Journal</a></li>
+    <li id="s57">Mech (1999). Alpha status, dominance, and division of labor in wolf packs. Canadian Journal of Zoology. <a href="https://cdnsciencepub.com/doi/10.1139/z99-099">Journal</a></li>
+    <li id="s58">Mehrabian's own statement on the limits of his 7%, 38%, 55% figures, quoted in Temple University's Advocacy and Evidence Resources (2021). <a href="https://law.temple.edu/aer/2021/05/03/brain-lessons-the-seven-percent-delusion/">Article</a></li>
+    <li id="s59">Rubinstein, Meyer and Evans (2001). Executive control of cognitive processes in task switching. Journal of Experimental Psychology: Human Perception and Performance. <a href="https://pubmed.ncbi.nlm.nih.gov/11518143/">PubMed</a></li>
   </ol>
-  <p class="note">Strength and running benchmarks, the tier definitions, the training programme, food portions and protein values, the ideal-week templates, the playbooks in Craft, Money and Presence, the decision frameworks, the roadmap and the money checkpoints are judgement or standard practice, not research findings. They are marked as such where they appear.</p>
+  <p class="note">Source 19 is an interview with the study's director, and source 58 is an article quoting the researcher. Every other entry links to the paper, the report or its record.</p>
+  <p class="note">Strength and running benchmarks, the tier definitions, the training programme, food portions and protein values, the ideal-week templates, the playbooks in every domain apart from the sentences that carry a source number, the first-response steps, the seasons, the risk register, the decision frameworks, the roadmap, the curriculum and the money checkpoints are judgement or standard practice, not research findings. They are marked as such where they appear.</p>
 </section>
 
-<footer>Version 1.2.0, updated 14 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
+<footer>Version 2.0.0, updated 14 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
 
 </div>
 </main>
@@ -2267,8 +3389,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 (function(){
   "use strict";
   var KEY="opman.v1";
-  var DOMS=["body","mind","craft","money","presence","people","character"];
-  var NAMES={body:"Body",mind:"Mind",craft:"Craft",money:"Money",presence:"Presence",people:"People",character:"Character"};
+  var DOMS=["body","mind","craft","money","presence","people","character","competence","base"];
+  var NAMES={body:"Body",mind:"Mind",craft:"Craft",money:"Money",presence:"Presence",people:"People",character:"Character",competence:"Competence",base:"Base"};
   var EMPTY_MSG="No snapshots yet. Your first one is the baseline every later one is measured against.";
   var state={f:{},snaps:[],t:0};
   function $(id){return document.getElementById(id);}
@@ -2314,7 +3436,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     });
     renderAll();
   }
-  function renderAll(){renderScores();renderSnaps();renderSparks();renderStamps();renderCount();renderDates();renderCalc();renderTime();renderSprint();}
+  function renderAll(){renderScores();renderSnaps();renderSparks();renderStamps();renderCount();renderMilestones();renderDates();renderCalc();renderTime();renderSprint();}
 
   /* Scorecard */
   function scoreOf(d){var v=state.f["s-"+d];return v===undefined?null:Number(v);}
@@ -2335,7 +3457,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   function renderSnaps(){
     var tb=document.querySelector("#snapTable tbody");if(!tb)return;tb.textContent="";
     if(!state.snaps.length){
-      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=11;td0.className="note";
+      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=13;td0.className="note";
       td0.textContent=EMPTY_MSG;tr0.appendChild(td0);tb.appendChild(tr0);return;
     }
     state.snaps.slice().reverse().forEach(function(s){
@@ -2401,6 +3523,31 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       em.textContent=c.filter(function(e){return e.checked;}).length+"/"+c.length;
     });
   }
+  /* Milestone log: every ticked standard with the date it was first met, newest first. */
+  function renderMilestones(){
+    var tb=document.querySelector("#msTable tbody");if(!tb)return;
+    var rows=[],n={Floor:0,Strong:0,Elite:0};
+    stds.forEach(function(el){
+      if(!el.checked)return;
+      var lab=el.closest("label"),sec=el.closest("section"),tier=el.closest(".tier");if(!lab)return;
+      var c=lab.cloneNode(true),dt=c.querySelector(".dt");if(dt)c.removeChild(dt);
+      var h=tier?tier.querySelector("h4"):null,tn=h&&h.firstChild?h.firstChild.textContent.trim():"";
+      if(n[tn]!==undefined)n[tn]++;
+      rows.push({d:state.f["@"+el.id]||"",dom:sec?(NAMES[sec.id]||sec.id):"",tier:tn,t:c.textContent.replace(/\s+/g," ").trim()});
+    });
+    setText("msTotal",String(rows.length));setText("msFloor",String(n.Floor));setText("msStrong",String(n.Strong));setText("msElite",String(n.Elite));
+    tb.textContent="";
+    if(!rows.length){
+      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=4;td0.className="note";
+      td0.textContent="Nothing ticked yet. The first entry appears when you tick a standard in any domain.";tr0.appendChild(td0);tb.appendChild(tr0);return;
+    }
+    rows.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0;});
+    rows.forEach(function(r){
+      var tr=document.createElement("tr");
+      [[r.d||"–","num"],[r.dom,"lab"],[r.tier,""],[r.t,""]].forEach(function(c){var td=document.createElement("td");td.textContent=c[0];if(c[1])td.className=c[1];tr.appendChild(td);});
+      tb.appendChild(tr);
+    });
+  }
   function renderDates(){
     var v=$("f-start").value,start=v?new Date(v+"T00:00:00"):null;
     if(!start||isNaN(start.getTime())){setText("weekNo","Week –");setText("nextRev","–");return;}
@@ -2458,7 +3605,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       }
       touch();
       if(el.type==="range")renderScores();
-      else if(el.type==="checkbox"){renderStamps();renderCount();renderSprint();}
+      else if(el.type==="checkbox"){renderStamps();renderCount();renderMilestones();renderSprint();}
       else if(el.id==="f-start")renderDates();
       else if(el.id.indexOf("bt-")===0)renderCalc();
       else if(el.id.indexOf("ta-")===0)renderTime();
@@ -2507,6 +3654,48 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     var d=t.closest("details");if(d)d.open=true;
   }
   window.addEventListener("hashchange",openForHash);
+
+  /* Search: matches every word, headings first, and opens a closed playbook when the hit is inside one. */
+  var qBox=$("q"),qOut=$("qOut"),qIdx=null,qTimer=null;
+  function buildIndex(){
+    qIdx=[];
+    [].forEach.call(document.querySelectorAll("main section"),function(sec){
+      var h=sec.querySelector("h2"),title=h&&h.lastChild?h.lastChild.textContent.trim():sec.id;
+      [].forEach.call(sec.querySelectorAll("h2,h3,summary,label.ck,li,p,td,dt,dd"),function(el){
+        if(el.closest("#msTable")||el.closest("#snapTable")||el.closest("#sparks"))return;
+        if((el.tagName==="LI"||el.tagName==="TD")&&el.querySelector("li,p"))return;
+        var t=el.textContent.replace(/\s+/g," ").trim();if(t.length<3)return;
+        var w=el.tagName==="H2"?3:(el.tagName==="H3"||el.tagName==="SUMMARY")?2:1;
+        qIdx.push({el:el,sec:title,t:t,l:t.toLowerCase(),w:w});
+      });
+    });
+  }
+  function runSearch(){
+    if(!qOut)return;qOut.textContent="";
+    var q=qBox.value.toLowerCase().replace(/\s+/g," ").trim();if(q.length<2)return;
+    if(!qIdx)buildIndex();
+    var terms=q.split(" "),hits=qIdx.filter(function(it){return terms.every(function(t){return it.l.indexOf(t)>=0;});});
+    if(!hits.length){var p=document.createElement("p");p.className="none";p.textContent="No match. Try one word.";qOut.appendChild(p);return;}
+    var ranked=hits.filter(function(h){return h.w===3;}).concat(hits.filter(function(h){return h.w===2;}),hits.filter(function(h){return h.w===1;}));
+    ranked.slice(0,12).forEach(function(it){
+      var b=document.createElement("button"),k=document.createElement("b"),sp=document.createElement("span");
+      b.type="button";k.textContent=it.sec;
+      var i=Math.max(0,it.l.indexOf(terms[0])-36),snip=(i>0?"…":"")+it.t.slice(i,i+96)+(i+96<it.t.length?"…":"");
+      sp.textContent=snip;b.appendChild(k);b.appendChild(sp);
+      b.addEventListener("click",function(){
+        var d=it.el.closest("details");while(d){d.open=true;d=d.parentElement?d.parentElement.closest("details"):null;}
+        it.el.scrollIntoView({block:"center"});
+        it.el.classList.add("hit");setTimeout(function(){it.el.classList.remove("hit");},2500);
+        if(window.matchMedia&&window.matchMedia("(max-width:900px)").matches){qOut.textContent="";}
+      });
+      qOut.appendChild(b);
+    });
+    if(ranked.length>12){var m=document.createElement("p");m.className="none";m.textContent=(ranked.length-12)+" more. Add a word to narrow it.";qOut.appendChild(m);}
+  }
+  if(qBox){
+    qBox.addEventListener("input",function(){clearTimeout(qTimer);qTimer=setTimeout(runSearch,120);});
+    qBox.addEventListener("keydown",function(e){if(e.key==="Escape"){qBox.value="";qOut.textContent="";}});
+  }
 
   $("copyBtn").addEventListener("click",function(){
     var txt=JSON.stringify(state);$("bkBox").value=txt;

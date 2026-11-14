@@ -213,4 +213,13 @@ Still open: expected joining month, for the roadmap dates in release 1.2.
 
 - **1.1.0 shipped 14 November 2026.** Parts A and B, Body, Mind, Ideal week, Sprint board. Deferred from 1.1 to 2.0: search, and a separate milestone log (dates are recorded on each standard).
 - **1.2.0 shipped 14 November 2026.** Craft, Money, Presence, Year one, Decisions, roadmap exit tests. Year one uses work months numbered from the joining date, since the date is not yet known.
-- 2.0 after: People, Character, Competence, Base, seasons, risk register, curriculum, glossary.
+- **2.0.0 shipped 14 November 2026.** People and Character to full depth, Competence and Base added, Seasons, Accountability, Risk register, Milestone log, Curriculum, Glossary, search, and eleven sources moved to primary papers.
+
+## 10. Left over after 2.0
+
+- Sources for the last three Myth file items.
+- A line-by-line read of the figures listed in the evidence log.
+- Confirm account saving in live use.
+- Real dates in Year one once the joining month is known.
+- The plan's "three depths" rule is met by summary, protocol and playbooks. A separate reference layer was not built.
+- Part numbering differs from section 3: D5 Seasons and D6 Accountability sit before When it breaks, and F2 Curriculum sits before the Library.

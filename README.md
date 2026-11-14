@@ -1,6 +1,6 @@
 # Operating Manual
 
-A ten-year personal system for body, mind, craft, money, presence, people and character. Started 14 November 2026.
+A ten-year personal system across nine domains: body, mind, craft, money, presence, people, character, competence and base. Started 14 November 2026.
 
 The manual itself is one self-contained page, `index.html`, assembled from the files in `src/`. This repository is where it is maintained: every change to the content is a commit, and every research claim is tracked in `research/`.
 
@@ -12,7 +12,7 @@ The manual itself is one self-contained page, `index.html`, assembled from the f
 | `src/sections/` | One file per section. Edit these. |
 | `src/head.html`, `src/script.js` | Styles and behaviour. |
 | `build.py` | Assembles `index.html`, numbers the sections and builds the index. Section order and version live here. |
-| `docs/v2-plan.md` | The audit of version 1 and the full content plan, with the release schedule. |
+| `docs/v2-plan.md` | The audit of version 1 and the full content plan, with the release schedule. Completed with 2.0.0. |
 | `CHANGELOG.md` | What changed in each version and why. |
 | `research/evidence-log.md` | Every research claim in the manual, its rating, its source and when it was last checked. |
 | `research/inbox.md` | New findings and ideas waiting to be evaluated before they go into the manual. |

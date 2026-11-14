@@ -2,17 +2,17 @@
 """Assemble index.html from src/. Run: python3 build.py"""
 import re, pathlib
 ROOT = pathlib.Path(__file__).parent
-VERSION = "1.2.0"
+VERSION = "2.0.0"
 UPDATED = "14 November 2026"
 PARTS = [
     ("A · Foundation", ["start", "standard", "principles", "myths", "change"]),
     ("B · Know yourself", ["baseline", "scorecard", "personality", "time", "direction", "assets"]),
-    ("C · Domains", ["body", "mind", "craft", "money", "presence", "people", "character"]),
-    ("D · Run it", ["week", "sprint", "rhythm", "breaks"]),
-    ("E · The long game", ["roadmap", "yearone", "decisions"]),
-    ("F · Reference", ["library", "sources"]),
+    ("C · Domains", ["body", "mind", "craft", "money", "presence", "people", "character", "competence", "base"]),
+    ("D · Run it", ["week", "sprint", "rhythm", "seasons", "account", "breaks"]),
+    ("E · The long game", ["roadmap", "yearone", "decisions", "risks", "milestones"]),
+    ("F · Reference", ["curriculum", "library", "glossary", "sources"]),
 ]
-DOMAINS = {"body", "mind", "craft", "money", "presence", "people", "character"}
+DOMAINS = {"body", "mind", "craft", "money", "presence", "people", "character", "competence", "base"}
 
 def main():
     head = (ROOT / "src/head.html").read_text(encoding="utf-8")
@@ -34,6 +34,7 @@ def main():
 <div class="shell">
 <nav class="index" aria-label="Sections">
   <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v{VERSION}</small></div>
+  <div class="find"><label class="sr" for="q">Search the manual</label><input type="search" id="q" placeholder="Search the manual" autocomplete="off"><div id="qOut" aria-live="polite"></div></div>
   <ol>
 {chr(10).join(nav)}
   </ol>
@@ -48,7 +49,7 @@ def main():
 
 <header class="top">
   <h1>The Operating Manual</h1>
-  <p>One system for body, mind, craft, money, presence, people and character. Built to be reopened every quarter for ten years.</p>
+  <p>One system for body, mind, craft, money, presence, people, character, competence and base. Built to be reopened every quarter for ten years.</p>
   <div class="meta">
     <span>Started <input type="date" id="f-start" data-k value="2026-11-14" aria-label="Start date"></span>
     <span><b id="weekNo">Week 1</b> of 520</span>
