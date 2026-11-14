@@ -1,8 +1,8 @@
 (function(){
   "use strict";
   var KEY="opman.v1";
-  var DOMS=["body","mind","craft","money","presence","people","character"];
-  var NAMES={body:"Body",mind:"Mind",craft:"Craft",money:"Money",presence:"Presence",people:"People",character:"Character"};
+  var DOMS=["body","mind","craft","money","presence","people","character","competence","base"];
+  var NAMES={body:"Body",mind:"Mind",craft:"Craft",money:"Money",presence:"Presence",people:"People",character:"Character",competence:"Competence",base:"Base"};
   var EMPTY_MSG="No snapshots yet. Your first one is the baseline every later one is measured against.";
   var state={f:{},snaps:[],t:0};
   function $(id){return document.getElementById(id);}
@@ -48,7 +48,7 @@
     });
     renderAll();
   }
-  function renderAll(){renderScores();renderSnaps();renderSparks();renderStamps();renderCount();renderDates();renderCalc();renderTime();renderSprint();}
+  function renderAll(){renderScores();renderSnaps();renderSparks();renderStamps();renderCount();renderMilestones();renderDates();renderCalc();renderTime();renderSprint();}
 
   /* Scorecard */
   function scoreOf(d){var v=state.f["s-"+d];return v===undefined?null:Number(v);}
@@ -69,7 +69,7 @@
   function renderSnaps(){
     var tb=document.querySelector("#snapTable tbody");if(!tb)return;tb.textContent="";
     if(!state.snaps.length){
-      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=11;td0.className="note";
+      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=13;td0.className="note";
       td0.textContent=EMPTY_MSG;tr0.appendChild(td0);tb.appendChild(tr0);return;
     }
     state.snaps.slice().reverse().forEach(function(s){
@@ -135,6 +135,31 @@
       em.textContent=c.filter(function(e){return e.checked;}).length+"/"+c.length;
     });
   }
+  /* Milestone log: every ticked standard with the date it was first met, newest first. */
+  function renderMilestones(){
+    var tb=document.querySelector("#msTable tbody");if(!tb)return;
+    var rows=[],n={Floor:0,Strong:0,Elite:0};
+    stds.forEach(function(el){
+      if(!el.checked)return;
+      var lab=el.closest("label"),sec=el.closest("section"),tier=el.closest(".tier");if(!lab)return;
+      var c=lab.cloneNode(true),dt=c.querySelector(".dt");if(dt)c.removeChild(dt);
+      var h=tier?tier.querySelector("h4"):null,tn=h&&h.firstChild?h.firstChild.textContent.trim():"";
+      if(n[tn]!==undefined)n[tn]++;
+      rows.push({d:state.f["@"+el.id]||"",dom:sec?(NAMES[sec.id]||sec.id):"",tier:tn,t:c.textContent.replace(/\s+/g," ").trim()});
+    });
+    setText("msTotal",String(rows.length));setText("msFloor",String(n.Floor));setText("msStrong",String(n.Strong));setText("msElite",String(n.Elite));
+    tb.textContent="";
+    if(!rows.length){
+      var tr0=document.createElement("tr"),td0=document.createElement("td");td0.colSpan=4;td0.className="note";
+      td0.textContent="Nothing ticked yet. The first entry appears when you tick a standard in any domain.";tr0.appendChild(td0);tb.appendChild(tr0);return;
+    }
+    rows.sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0;});
+    rows.forEach(function(r){
+      var tr=document.createElement("tr");
+      [[r.d||"–","num"],[r.dom,"lab"],[r.tier,""],[r.t,""]].forEach(function(c){var td=document.createElement("td");td.textContent=c[0];if(c[1])td.className=c[1];tr.appendChild(td);});
+      tb.appendChild(tr);
+    });
+  }
   function renderDates(){
     var v=$("f-start").value,start=v?new Date(v+"T00:00:00"):null;
     if(!start||isNaN(start.getTime())){setText("weekNo","Week –");setText("nextRev","–");return;}
@@ -192,7 +217,7 @@
       }
       touch();
       if(el.type==="range")renderScores();
-      else if(el.type==="checkbox"){renderStamps();renderCount();renderSprint();}
+      else if(el.type==="checkbox"){renderStamps();renderCount();renderMilestones();renderSprint();}
       else if(el.id==="f-start")renderDates();
       else if(el.id.indexOf("bt-")===0)renderCalc();
       else if(el.id.indexOf("ta-")===0)renderTime();
@@ -241,6 +266,48 @@
     var d=t.closest("details");if(d)d.open=true;
   }
   window.addEventListener("hashchange",openForHash);
+
+  /* Search: matches every word, headings first, and opens a closed playbook when the hit is inside one. */
+  var qBox=$("q"),qOut=$("qOut"),qIdx=null,qTimer=null;
+  function buildIndex(){
+    qIdx=[];
+    [].forEach.call(document.querySelectorAll("main section"),function(sec){
+      var h=sec.querySelector("h2"),title=h&&h.lastChild?h.lastChild.textContent.trim():sec.id;
+      [].forEach.call(sec.querySelectorAll("h2,h3,summary,label.ck,li,p,td,dt,dd"),function(el){
+        if(el.closest("#msTable")||el.closest("#snapTable")||el.closest("#sparks"))return;
+        if((el.tagName==="LI"||el.tagName==="TD")&&el.querySelector("li,p"))return;
+        var t=el.textContent.replace(/\s+/g," ").trim();if(t.length<3)return;
+        var w=el.tagName==="H2"?3:(el.tagName==="H3"||el.tagName==="SUMMARY")?2:1;
+        qIdx.push({el:el,sec:title,t:t,l:t.toLowerCase(),w:w});
+      });
+    });
+  }
+  function runSearch(){
+    if(!qOut)return;qOut.textContent="";
+    var q=qBox.value.toLowerCase().replace(/\s+/g," ").trim();if(q.length<2)return;
+    if(!qIdx)buildIndex();
+    var terms=q.split(" "),hits=qIdx.filter(function(it){return terms.every(function(t){return it.l.indexOf(t)>=0;});});
+    if(!hits.length){var p=document.createElement("p");p.className="none";p.textContent="No match. Try one word.";qOut.appendChild(p);return;}
+    var ranked=hits.filter(function(h){return h.w===3;}).concat(hits.filter(function(h){return h.w===2;}),hits.filter(function(h){return h.w===1;}));
+    ranked.slice(0,12).forEach(function(it){
+      var b=document.createElement("button"),k=document.createElement("b"),sp=document.createElement("span");
+      b.type="button";k.textContent=it.sec;
+      var i=Math.max(0,it.l.indexOf(terms[0])-36),snip=(i>0?"…":"")+it.t.slice(i,i+96)+(i+96<it.t.length?"…":"");
+      sp.textContent=snip;b.appendChild(k);b.appendChild(sp);
+      b.addEventListener("click",function(){
+        var d=it.el.closest("details");while(d){d.open=true;d=d.parentElement?d.parentElement.closest("details"):null;}
+        it.el.scrollIntoView({block:"center"});
+        it.el.classList.add("hit");setTimeout(function(){it.el.classList.remove("hit");},2500);
+        if(window.matchMedia&&window.matchMedia("(max-width:900px)").matches){qOut.textContent="";}
+      });
+      qOut.appendChild(b);
+    });
+    if(ranked.length>12){var m=document.createElement("p");m.className="none";m.textContent=(ranked.length-12)+" more. Add a word to narrow it.";qOut.appendChild(m);}
+  }
+  if(qBox){
+    qBox.addEventListener("input",function(){clearTimeout(qTimer);qTimer=setTimeout(runSearch,120);});
+    qBox.addEventListener("keydown",function(e){if(e.key==="Escape"){qBox.value="";qOut.textContent="";}});
+  }
 
   $("copyBtn").addEventListener("click",function(){
     var txt=JSON.stringify(state);$("bkBox").value=txt;

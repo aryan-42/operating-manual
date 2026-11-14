@@ -2,6 +2,45 @@
 
 All notable changes to the manual. Newest first.
 
+## 2.0.0 · 2026-11-14
+
+Third and last staged release from `docs/v2-plan.md`. A major version because two domains were added.
+
+**New domains**
+- Competence: practical skills in three tiers, run as one skill per quarter. Playbooks for road habits, first response, cooking, running a home, swimming, driving, repairs, solo travel, hosting and self-defence.
+- Base: documents, digital security, living space, tools, rest and play. A setup weekend, a monthly admin hour and a yearly audit. Playbooks for documents, digital security, the room, relocation, tools, and rest and adventure.
+
+**Rewritten to full depth**
+- People: summary, staged protocol and playbooks for the inner five and contact log, making friends in a new city, conversation, distance, family, mentors and network, choosing a partner, being a good partner, conflict and repair, boundaries and endings, and loneliness.
+- Character: summary, staged protocol and playbooks for the code, honesty, the promise ledger, the courage ladder, anger and ego, vices and compulsions, integrity at work, power, service, meaning, and what to do after breaking the code.
+
+**New sections**
+- Seasons: what to hold and what to drop in exam weeks, joining a job, a move, travel, illness, festivals, a work crunch, heartbreak and a family emergency.
+- Accountability: what works and how to set it up.
+- Risk register: ten risks with early signs, defences and first responses, plus tripwires.
+- Milestone log: every ticked standard with its date, built automatically.
+- Curriculum: one main subject a year for five years.
+- Glossary.
+
+**Changed**
+- Nine domains throughout: the standard, the scorecard, snapshots, trends, the roadmap and year one. Snapshots saved before 2.0 show a dash for the two new domains.
+- 37 new standards (143 in total): 17 in Competence, 16 in Base, 2 each in People and Character. Existing standards keep their ids, so ticks and dates carry over. Several gained a check.
+- Myth file: six new rows (venting anger, multitasking, the 93% rule, alpha hierarchy, predicting which couples last, the right type of partner). Three items remain unsourced.
+- Baseline tests for Competence and Base. Start here, Rhythm, Ideal week, Library and When it breaks updated to point at the new sections.
+
+**Page**
+- Search across the whole manual, in the index. A hit inside a closed playbook opens it.
+
+**Evidence**
+- 23 new sources (37 to 59).
+- Eleven sources that pointed to summaries now point to the paper or its record (8, 10, 13, 14, 17, 20, 24, 25, 27, 29, 34).
+- The evidence log lists which figures still need a line-by-line read against the paper.
+
+**Not done**
+- The Myth file's last three items have no source yet.
+- Account saving is still unconfirmed in live use.
+- Year one still counts work months from the joining date, which is not yet known.
+
 ## 1.2.0 · 2026-11-14
 
 Second staged release: Craft, Money, Presence and the long game.
