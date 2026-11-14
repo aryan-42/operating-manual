@@ -2,14 +2,14 @@
 """Assemble index.html from src/. Run: python3 build.py"""
 import re, pathlib
 ROOT = pathlib.Path(__file__).parent
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 UPDATED = "14 November 2026"
 PARTS = [
     ("A · Foundation", ["start", "standard", "principles", "myths", "change"]),
     ("B · Know yourself", ["baseline", "scorecard", "personality", "time", "direction", "assets"]),
     ("C · Domains", ["body", "mind", "craft", "money", "presence", "people", "character"]),
     ("D · Run it", ["week", "sprint", "rhythm", "breaks"]),
-    ("E · The long game", ["roadmap"]),
+    ("E · The long game", ["roadmap", "yearone", "decisions"]),
     ("F · Reference", ["library", "sources"]),
 ]
 DOMAINS = {"body", "mind", "craft", "money", "presence", "people", "character"}

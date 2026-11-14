@@ -2,6 +2,26 @@
 
 All notable changes to the manual. Newest first.
 
+## 1.2.0 · 2026-11-14
+
+Second staged release: Craft, Money, Presence and the long game.
+
+**Rewritten to full depth**
+- Craft: staged protocol from before joining to ownership, and playbooks for the first 90 days, the prep file, the skill tree, visibility and sponsors, negotiating pay, office politics, leading people, and gates for the side project and founder path.
+- Money: staged protocol from before the first salary, and playbooks for the salary-day split, emergency fund and insurance, instruments compared, tax basics, credit and debt, big purchases, the second income, scams, and parents. Tax sections and rates are left out on purpose.
+- Presence: staged protocol and playbooks for speaking, presenting, writing, listening, grooming, wardrobe at three budgets, body language, etiquette, and staying composed when challenged.
+
+**New sections**
+- Year one: month by month from November 2026 to joining, then twelve work months numbered from the joining date.
+- Decisions: frameworks for changing jobs, starting a company, moving city, a big purchase, and committing to a partner.
+
+**Changed**
+- Roadmap: every phase now has an exit test.
+- Five new standards (106 in total).
+
+**Evidence**
+- Five new sources (32 to 36): SPIVA India, SEBI on derivatives losses, salary negotiation, first impressions, weak ties.
+
 ## 1.1.0 · 2026-11-14
 
 First of three staged releases from `docs/v2-plan.md`: foundations, self-knowledge, Body and Mind.

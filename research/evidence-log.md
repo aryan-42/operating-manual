@@ -39,6 +39,11 @@ Last full check: 2026-11-14.
 | 29 | Power posing: no effect on hormones or behaviour in a 200-person replication | contested | Myth file | [Ranehill 2015, overview](https://forrt.org/open-social-psychology/chapter27.html) | 2026-11-14 |
 | 30 | No adequate evidence that matching teaching to a learning style helps | solid | Myth file, Mind | [Pashler 2008](https://digitalcommons.usf.edu/psy_facpub/1765/) | 2026-11-14 |
 | 31 | Conscientiousness is the strongest non-cognitive predictor of work performance; weaker in highly complex jobs (92 meta-analyses) | solid | Personality | [Wilmot and Ones 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6859351) | 2026-11-14 |
+| 32 | A firm majority of active Indian funds in every category underperformed their index over ten years to December 2025; about 83% of tax-saver equity funds | useful | Money | [SPIVA India year-end 2025](https://www.spglobal.com/spdji/en/spiva/article/spiva-india-year-end-2025/) | 2026-11-14 |
+| 33 | 93% of over one crore individual futures and options traders lost money in FY22 to FY24, about 2 lakh rupees each | solid | Money | [SEBI 2024](https://www.sebi.gov.in/media-and-notifications/press-releases/sep-2024/updated-sebi-study-reveals-93-of-individual-traders-incurred-losses-in-equity-fando-between-fy22-and-fy24-aggregate-losses-exceed-1-8-lakh-crores-over-three-years_86906.html) | 2026-11-14 |
+| 34 | New hires who negotiated raised starting pay by about $5,000 on average (149 US employees) | useful | Craft, Money | [Marks and Harold 2011, summary](https://www.pon.harvard.edu/daily/salary-negotiations/salary-negotiation-how-to-ask-for-a-higher-salary/) | 2026-11-14 |
+| 35 | Trait judgements from a face after 100 ms closely match judgements with no time limit | solid | Presence | [Willis and Todorov 2006](https://pubmed.ncbi.nlm.nih.gov/16866745/) | 2026-11-14 |
+| 36 | Moderately weak ties create more job mobility than strong ties, mainly in digital industries (20 million LinkedIn members, experiment) | solid | Craft | [Rajkumar 2022](https://pubmed.ncbi.nlm.nih.gov/36107999/) | 2026-11-14 |
 
 ## Watch list
 
@@ -48,16 +53,22 @@ Findings most likely to move. Recheck these at each quarterly sweep.
 - **Training volume (4).** Active area; newer meta-regressions keep refining the sets-per-week range.
 - **Income and wellbeing (20).** Recent and built on US data. Look for replications outside the US.
 - **Growth mindset (15).** Two meta-analyses disagree. Watch for an adjudicating study.
+- **Index versus active in India (32).** Updated twice a year. Refresh the figure each January and note the benchmark critique.
+- **Derivatives losses (33).** SEBI updates this study. Check for a newer edition.
 - **Sleep regularity (23).** One large observational cohort of older UK adults. Look for trials and younger samples.
 - **Exercise and depression (28).** Large effects with low-confidence evidence. Expect revisions.
 - **Protein ceiling (1).** Later analyses sometimes suggest a higher useful intake for trained lifters.
 
 ## Not research
 
-These parts of the manual are judgement or standard practice and are labelled as such in the page: the strength and running benchmarks, the tier definitions, the training programme and pull-up ladder, food protein values and sample days, sleep-hygiene steps other than timing and caffeine, the mobility routine, the preventive-health list, the pressure tools in Mind, the personality scaffolding table, the ideal-week templates, the roadmap dates, and the "years of expenses" money checkpoints.
+These parts of the manual are judgement or standard practice and are labelled as such in the page: the strength and running benchmarks, the tier definitions, the training programme and pull-up ladder, food protein values and sample days, sleep-hygiene steps other than timing and caffeine, the mobility routine, the preventive-health list, the pressure tools in Mind, the personality scaffolding table, the ideal-week templates, the playbooks in Craft, Money and Presence (first 90 days, negotiation steps, the 50, 30, 20 split, instrument descriptions, purchase heuristics, speaking, grooming, wardrobe, etiquette), the decision frameworks, the year-one plan, the roadmap dates and exit tests, and the "years of expenses" money checkpoints.
 
 The "Not yet sourced" list in the Myth file (dopamine detox, 5 a.m. routines, cold exposure and testosterone claims, alpha hierarchy, the 93% rule, multitasking) needs sources at the next sweep.
 
+## India-specific facts to re-verify each April
+
+Tax regimes and rates, provident fund and pension rules, deposit and scheme rates, credit-score bands. The Money section avoids quoting figures for these on purpose.
+
 ## Sources that are summaries
 
-Rows 8, 10, 13, 14, 17, 19, 20, 24, 25, 27 and 29 link to summaries rather than the original paper. Replace with the primary paper when one is freely available.
+Rows 8, 10, 13, 14, 17, 19, 20, 24, 25, 27, 29 and 34 link to summaries rather than the original paper. Replace with the primary paper when one is freely available.

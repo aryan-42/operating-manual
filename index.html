@@ -174,7 +174,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 <body>
 <div class="shell">
 <nav class="index" aria-label="Sections">
-  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v1.1.0</small></div>
+  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v1.2.0</small></div>
   <ol>
     <li class="part">A · Foundation</li>
     <li><a href="#start"><span>01</span>Start here</a></li>
@@ -204,9 +204,11 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li><a href="#breaks"><span>22</span>When it breaks</a></li>
     <li class="part">E · The long game</li>
     <li><a href="#roadmap"><span>23</span>Roadmap</a></li>
+    <li><a href="#yearone"><span>24</span>Year one</a></li>
+    <li><a href="#decisions"><span>25</span>Decisions</a></li>
     <li class="part">F · Reference</li>
-    <li><a href="#library"><span>24</span>Library</a></li>
-    <li><a href="#sources"><span>25</span>Sources</a></li>
+    <li><a href="#library"><span>26</span>Library</a></li>
+    <li><a href="#sources"><span>27</span>Sources</a></li>
   </ol>
   <div class="sync">
     <div><span class="dot" id="syncDot"></span><b id="syncText">Saving in this browser</b></div>
@@ -254,7 +256,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <p><b>One focus per quarter.</b> Every other domain runs at its Floor. Overhauling seven areas at once is the most reliable way to quit by week three.</p>
     <p style="margin-bottom:0"><b>Reading is not doing.</b> Adding content to this manual, rebuilding it as an app, or studying a domain you are not working on all feel like progress. Only ticked standards and retested numbers count.</p>
   </div>
-  <p class="note">Everything you type or tick is saved automatically, and each standard records the date you first met it. Use the backup at the bottom of Rhythm once a year. Body and Mind are complete in this version. Craft, Money and Presence get the same depth in the next release, and the remaining domains after that.</p>
+  <p class="note">Everything you type or tick is saved automatically, and each standard records the date you first met it. Use the backup at the bottom of Rhythm once a year. Body, Mind, Craft, Money and Presence are complete in this version. People and Character, and two new domains, get the same depth in the next release.</p>
 </section>
 
 <section id="standard" aria-labelledby="h-standard">
@@ -1102,23 +1104,38 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
   <p class="note"><b>Resources.</b> Deep Work by Cal Newport. Make It Stick by Brown, Roediger and McDaniel for the learning research. Feeling Good by David Burns for the thought record in depth. Meditations by Marcus Aurelius.</p>
 </section>
 
-<section id="craft" aria-labelledby="h-craft">
+<section id="craft" class="dom" aria-labelledby="h-craft">
   <h2 id="h-craft"><span class="n">14</span>Craft</h2>
   <p class="lede">Your work. At 24 this is the largest lever on income, options and self-respect.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>Known by name for one valuable thing, with results that carry numbers, and on a path from doing the work to owning the outcome.</dd>
+      <dt>Your position</dt><dd>Engineering plus HR plus the ability to build AI automation. Most HR professionals cannot build. Most builders do not understand how people decisions get made. That intersection is your spike.</dd>
+      <dt>Three actions</dt><dd>1. Be excellent at the assigned job. 2. Ship one measurable win per quarter. 3. Make sure someone with influence knows about it.</dd>
+      <dt>Watch one number</dt><dd>Wins logged with a number attached.</dd>
+      <dt>Before joining</dt><dd>Build the skill stack and scope one automation project you can start in your first month.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
   <div class="tiers">
     <div class="tier"><h4>Floor <i>first 6 months in role</i></h4>
-      <label class="ck"><input type="checkbox" id="c-c1" data-k>Every deliverable checked twice before it leaves me</label>
-      <label class="ck"><input type="checkbox" id="c-c2" data-k>A prep file written before every important meeting</label>
-      <label class="ck"><input type="checkbox" id="c-c3" data-k>Feedback asked from my manager every month</label>
-      <label class="ck"><input type="checkbox" id="c-c4" data-k>Wins log updated weekly</label>
+      <label class="ck"><input type="checkbox" id="c-c1" data-k>Every deliverable checked twice before it leaves me, for 3 months</label>
+      <label class="ck"><input type="checkbox" id="c-c2" data-k>A prep file written before every important meeting, for 3 months</label>
+      <label class="ck"><input type="checkbox" id="c-c3" data-k>Feedback asked from my manager every month, 6 months running</label>
+      <label class="ck"><input type="checkbox" id="c-c4" data-k>Wins log updated weekly, 12 weeks running</label>
       <label class="ck"><input type="checkbox" id="c-c5" data-k>I can read my employer's P&amp;L and explain how my function touches it</label>
+      <label class="ck"><input type="checkbox" id="c-c16" data-k>First measurable win within 90 days of joining</label>
     </div>
     <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
-      <label class="ck"><input type="checkbox" id="c-c6" data-k>Known inside the company for one specific thing</label>
-      <label class="ck"><input type="checkbox" id="c-c7" data-k>One shipped project per quarter with a number attached</label>
+      <label class="ck"><input type="checkbox" id="c-c6" data-k>Known inside the company for one specific thing. Check: people outside my team ask me for it.</label>
+      <label class="ck"><input type="checkbox" id="c-c7" data-k>One shipped project per quarter with a number attached, for a year</label>
       <label class="ck"><input type="checkbox" id="c-c8" data-k>Working stack: HR domain, SQL and Python, AI automation, finance basics</label>
-      <label class="ck"><input type="checkbox" id="c-c9" data-k>A public portfolio: writing, tools or case studies</label>
+      <label class="ck"><input type="checkbox" id="c-c9" data-k>A public portfolio with at least six pieces: writing, tools or case studies</label>
       <label class="ck"><input type="checkbox" id="c-c10" data-k>Two mentors and one sponsor who speaks for me in rooms I am not in</label>
+      <label class="ck"><input type="checkbox" id="c-c17" data-k>I have negotiated an offer or a raise with a written prep file</label>
     </div>
     <div class="tier t3"><h4>Elite <i>year 4 to 10</i></h4>
       <label class="ck"><input type="checkbox" id="c-c11" data-k>Sought by name from outside my company</label>
@@ -1128,155 +1145,611 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <label class="ck"><input type="checkbox" id="c-c15" data-k>Have built something that earns or runs without my daily hours</label>
     </div>
   </div>
+
   <div class="panel ev">
     <h4>What the evidence says</h4>
-    <p style="margin-bottom:0">Accumulated practice explains less than 1% of performance differences in professions, against 18 to 26% in sports, music and games.<sup><a href="#s13">13</a></sup> In knowledge work, grinding more hours on the same tasks is a weak strategy. What separates people is problem selection, feedback quality and proximity to opportunity. The protocol below is built on those three.</p>
+    <ul style="margin-bottom:0">
+      <li><b>Hours are not the edge.</b> Accumulated practice explains less than 1% of performance differences in professions, against 18 to 26% in sports, music and games.<sup><a href="#s13">13</a></sup> What separates people in knowledge work is problem selection, feedback and proximity to opportunity.</li>
+      <li><b>Reliability is.</b> Conscientiousness is the strongest non-cognitive predictor of job performance across more than a century of studies. The effect is weaker in highly complex jobs.<sup><a href="#s31">31</a></sup> Early in a career, being the person whose work never needs checking is a real advantage.</li>
+      <li><b>Acquaintances find you jobs.</b> An experiment across 20 million LinkedIn members found that moderately weak ties created more job moves than close ties, most strongly in digital industries.<sup><a href="#s36">36</a></sup> A wide, lightly maintained network matters more than a few close contacts for mobility.</li>
+      <li><b>Asking pays.</b> In a survey of 149 new hires in the United States, those who negotiated raised their starting pay by about $5,000 on average, mainly through competing and collaborating strategies. Small sample, one country.<sup><a href="#s34">34</a></sup></li>
+      <li><b>Preparation over posture.</b> Power posing did not change behaviour in replication.<sup><a href="#s29">29</a></sup> The prep file is the real version.</li>
+    </ul>
   </div>
-  <h3>Your position</h3>
-  <p>Engineering plus HR plus the ability to build AI automation is an uncommon combination. Most HR professionals cannot build and most builders do not understand how people decisions get made in a company. That intersection is your spike. Protect it by going deep, because breadth dilutes it.</p>
-  <h3>The ladder</h3>
+
+  <h3>Protocol by stage</h3>
+  <div class="phase"><div class="when"><b>Before joining</b>Now to day one</div><div><ul>
+    <li>Close the two weakest boxes in your skill stack. Use real HR data problems, not tutorials.</li>
+    <li>Build one portfolio piece that shows the intersection: an HR process automated end to end, written up with before and after.</li>
+    <li>Learn to read a P&amp;L and a balance sheet. Read your employer's last annual report.</li>
+    <li>Find three people already in the company or function and ask each one question.</li>
+  </ul></div></div>
   <div class="phase"><div class="when"><b>Credibility</b>Year 0 to 2</div><div><ul>
     <li>Be excellent at the job you were hired for. Nothing else counts until this is true.</li>
-    <li>Find the most painful manual process near you and automate it. Measure hours or money saved. That is your first number.</li>
+    <li>Find the most painful manual process near you and automate it. Measure hours or money saved.</li>
     <li>Choose managers over brand names. A strong boss in year one is worth more than a title.</li>
+    <li>One win per quarter into the log. One feedback conversation per month.</li>
   </ul></div></div>
   <div class="phase"><div class="when"><b>Adjacency</b>Year 2 to 5</div><div><ul>
     <li>Move one step toward revenue: HR tech product, people analytics, consulting, total rewards or a business role. One step at a time is realistic. A direct leap rarely is.</li>
     <li>Publish what you build. A portfolio does the selling when you are not in the room.</li>
-    <li>Keep a small HR and AI tool alive on the side with a fixed weekly time budget and written criteria for when to stop.</li>
+    <li>Keep a small HR and AI tool alive on the side with a fixed weekly time budget and written stop criteria.</li>
+    <li>Start managing: an intern, a project team, a vendor.</li>
   </ul></div></div>
   <div class="phase"><div class="when"><b>Ownership</b>Year 5 to 10</div><div><ul>
     <li>Take P&amp;L responsibility, or found the company if the side tool has paying users.</li>
     <li>Build a team. Your ceiling becomes the quality of people who choose to work with you.</li>
     <li>Add income that does not depend on your salary.</li>
   </ul></div></div>
-  <h3>The prep file</h3>
-  <p>The whole Specter effect is one habit. Before any meeting that matters, write five lines: what they want, what I want, the three objections I will hear, my answer to each, and where I walk away. Ten minutes. Almost nobody does it.</p>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>The first 90 days <small>how to start a role well</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Days</th><th>Goal</th><th>Do</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">1–30</td><td>Learn</td><td>Meet your manager in week one and ask: what does excellent look like at 3, 6 and 12 months? Meet every person your work touches. Map how the function makes or saves money. Write down every acronym and process. Say little, deliver small things fast and exactly.</td></tr>
+        <tr><td class="lab">31–60</td><td>Contribute</td><td>Own one recurring task completely. Pick the manual process to automate and get your manager's agreement. Start the wins log. Ask for feedback at day 45.</td></tr>
+        <tr><td class="lab">61–90</td><td>Deliver</td><td>Ship the automation or improvement, with a measured before and after. Present it in one page. Agree goals for the next two quarters.</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Avoid in the first 90 days:</b> criticising how things are done, comparing with your internship or college, office gossip, and saying yes to everything.</p>
+  </div></details>
+
+  <details class="pb"><summary>The prep file <small>the whole Specter effect in ten minutes</small></summary><div class="in">
+    <p>Before any meeting that matters, write five lines.</p>
+    <ol>
+      <li>What they want from this meeting.</li>
+      <li>What I want, as one sentence.</li>
+      <li>The three objections or hard questions I will get.</li>
+      <li>My answer to each, with the number or example that supports it.</li>
+      <li>What I do if the answer is no.</li>
+    </ol>
+    <p>Add the names and roles of everyone attending and one thing each of them cares about. Almost nobody does this, which is why it reads as confidence.</p>
+  </div></details>
+
+  <details class="pb"><summary>Skill tree <small>the HR technologist stack, in order</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Layer</th><th>What to be able to do</th><th>Proof</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">1. HR domain</td><td>Explain the employee lifecycle, compensation structure, labour law basics and the metrics each function is judged on</td><td>You can critique a real HR process and name its cost</td></tr>
+        <tr><td class="lab">2. Data</td><td>SQL to pull and join data. Spreadsheets at an advanced level. Python for cleaning and analysis.</td><td>An attrition or hiring-funnel analysis on real or public data</td></tr>
+        <tr><td class="lab">3. Automation and AI</td><td>Build workflows with APIs and language models. Evaluate outputs. Know where they fail.</td><td>One HR process automated end to end, with error handling</td></tr>
+        <tr><td class="lab">4. Business</td><td>Read a P&amp;L. Build a simple cost-benefit case. Understand how the company earns.</td><td>A one-page business case for something you built</td></tr>
+        <tr><td class="lab">5. Communication</td><td>One-page memo. Ten-minute presentation. A clear demo.</td><td>Covered in Presence</td></tr>
+        <tr><td class="lab">6. Leading people</td><td>Run a project, delegate, give feedback, hire</td><td>A project delivered through others</td></tr>
+      </tbody>
+    </table></div>
+    <p>Go deep on layers 1 to 3 first. Breadth dilutes the spike. Depth compounds.</p>
+  </div></details>
+
+  <details class="pb"><summary>Visibility and sponsors <small>making sure good work is known</small></summary><div class="in">
+    <ul>
+      <li><b>The Friday note.</b> Three lines to your manager each week: done, next, blocked. It becomes your appraisal evidence.</li>
+      <li><b>One-page write-ups.</b> Every finished project gets a page: problem, what you did, result in numbers.</li>
+      <li><b>Demo, do not describe.</b> Show the thing working to the people who feel the problem.</li>
+      <li><b>Mentor and sponsor are different.</b> A mentor advises you. A sponsor puts their name on you. You earn a sponsor by making a senior person's goal succeed.</li>
+      <li><b>The advice loop.</b> Ask one specific question, act on the answer, report back within a month. That loop is what turns a senior acquaintance into a mentor.</li>
+      <li><b>Keep weak ties alive.</b> A short message twice a year to former classmates, colleagues and alumni: one useful link or a real congratulation.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Negotiating pay <small>offers, raises and role changes</small></summary><div class="in">
+    <ol>
+      <li><b>Know the range.</b> Three sources: people in the role, recruiters, published data. Write the low, middle and high.</li>
+      <li><b>Know your alternative.</b> The best thing you will do if this fails. A second offer is the strongest. Build it before you need it.</li>
+      <li><b>List your evidence.</b> Wins with numbers from the log.</li>
+      <li><b>Let them name a number first where you can.</b> If asked, give a range whose bottom is a figure you would accept gladly.</li>
+      <li><b>Ask plainly, then stop talking.</b> "Based on the scope and what I have delivered, I am looking for X." Silence after the ask is part of it.</li>
+      <li><b>Trade, do not concede.</b> If base pay cannot move, ask about joining bonus, review date, role scope, learning budget or location.</li>
+      <li><b>Stay collaborative.</b> You will work with these people. Aim for an agreement both sides can defend.</li>
+      <li><b>Get it in writing.</b></li>
+    </ol>
+    <p class="note">A campus offer with fixed terms for a whole cohort leaves little to negotiate at entry. The first real negotiation is usually the first appraisal or the first external offer. Prepare the evidence from day one.</p>
+  </div></details>
+
+  <details class="pb"><summary>Office politics, done honestly <small>how decisions really get made</small></summary><div class="in">
+    <ul>
+      <li>Find out who decides, who influences, and who can block. They are often three different people.</li>
+      <li>Before a proposal, talk to each person it affects, one at a time. A meeting should confirm a decision, not surprise anyone.</li>
+      <li>Give credit in public, by name. It costs nothing and people remember.</li>
+      <li>Disagree in private first. In the room, disagree once, clearly, then commit to the decision.</li>
+      <li>Never put in writing what you would not say to the person's face.</li>
+      <li>Do not join factions. Be useful to both.</li>
+      <li>When someone takes credit for your work, correct the record calmly the same day, with the document. Then move on.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Leading people <small>the basics for your first project team</small></summary><div class="in">
+    <ul>
+      <li><b>Set the outcome, not the steps.</b> Say what done looks like and by when. Let them choose how.</li>
+      <li><b>One-to-ones.</b> Thirty minutes a week with each person. Their agenda first.</li>
+      <li><b>Feedback.</b> Specific, soon, private for criticism. "When you did X, the effect was Y. Next time, try Z."</li>
+      <li><b>Delegate what you are good at.</b> That is the only way your capacity grows.</li>
+      <li><b>Protect the team.</b> Take blame upward and pass praise downward.</li>
+      <li><b>Hire slowly.</b> A work sample beats an interview impression.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>The side project and the founder path <small>gates before it gets more of your time</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Gate</th><th>Evidence needed to pass</th><th>If not</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">1. Problem</td><td>Ten people in the target role describe the same pain without prompting</td><td>Change the problem</td></tr>
+        <tr><td class="lab">2. Use</td><td>Three of them use your rough version more than once without being asked</td><td>Change the solution</td></tr>
+        <tr><td class="lab">3. Money</td><td>One pays, or signs a letter of intent</td><td>Keep it as a portfolio piece</td></tr>
+        <tr><td class="lab">4. Repeat</td><td>Five paying users from a channel you can repeat</td><td>Stay employed and keep learning</td></tr>
+        <tr><td class="lab">5. Leave</td><td>Revenue covers your living costs, or you hold 12 months of expenses and a co-founder</td><td>Do not leave yet</td></tr>
+      </tbody>
+    </table></div>
+    <p>Fix a weekly hour budget and keep it away from work time and work resources. Read your employment contract for clauses on outside work and intellectual property before building anything near your employer's business.</p>
+  </div></details>
+
+  <h3>Metrics</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Lead measures, weekly</th><th>Lag measures, yearly</th></tr></thead>
+    <tbody>
+      <tr><td>Wins log updated</td><td>Appraisal rating and pay change</td></tr>
+      <tr><td>Hours on the hardest problem available</td><td>Scope: what you own that you did not a year ago</td></tr>
+      <tr><td>Feedback asked for and acted on</td><td>Inbound requests from outside your team or company</td></tr>
+      <tr><td>One weak tie contacted</td><td>Portfolio pieces published</td></tr>
+    </tbody>
+  </table></div>
+
   <div class="panel wb">
     <h4>Workbook · craft</h4>
     <div class="fld"><label for="f-c-known">The one thing I will be known for by December 2027</label><textarea id="f-c-known" data-k></textarea></div>
     <div class="two">
-      <div class="fld"><label for="f-c-stack">My skill stack, rated 1 to 5</label><textarea id="f-c-stack" data-k></textarea></div>
+      <div class="fld"><label for="f-c-stack">My skill stack, each layer rated 1 to 5</label><textarea id="f-c-stack" data-k></textarea></div>
       <div class="fld"><label for="f-c-next">The next skill and how I will prove it</label><textarea id="f-c-next" data-k></textarea></div>
     </div>
-    <div class="fld"><label for="f-c-wins">Wins log</label><small>Date, what I did, the number. This becomes every appraisal, CV and negotiation.</small><textarea id="f-c-wins" data-k></textarea></div>
-    <div class="fld"><label for="f-c-people">Mentors, sponsors and people I should know</label><textarea id="f-c-people" data-k></textarea></div>
-    <div class="fld"><label for="f-c-kill">Side project: weekly hours and stop criteria</label><textarea id="f-c-kill" data-k></textarea></div>
+    <div class="fld"><label for="f-c-wins">Wins log</label><small>Date, what I did, the number. This becomes every appraisal, CV and negotiation.</small><textarea id="f-c-wins" data-k style="min-height:110px"></textarea></div>
+    <div class="fld"><label for="f-c-people">Mentors, sponsors and weak ties to keep alive</label><small>Name, how I know them, last contact.</small><textarea id="f-c-people" data-k></textarea></div>
+    <div class="fld"><label for="f-c-kill">Side project: weekly hours, current gate, stop criteria</label><textarea id="f-c-kill" data-k></textarea></div>
   </div>
+
   <div class="panel warnp">
-    <h4>How this domain fails</h4>
+    <h4>How this domain fails, and what to ignore</h4>
     <ul style="margin-bottom:0">
       <li>Planning the third job while underperforming in the first.</li>
       <li>Learning five tools shallowly. Depth in one visible thing beats a long skills list.</li>
       <li>Letting the side project eat the main job. Credibility comes first.</li>
       <li>Doing good work silently. If nobody with influence knows, it did not happen for career purposes.</li>
+      <li>Changing jobs only for pay. Change for scope, manager and learning, and pay follows.</li>
+      <li><b>Ignore:</b> hustle-culture hour counts, certificates collected without a project, personal-brand advice that puts posting ahead of doing, and anyone who says HR cannot lead to business roles.</li>
     </ul>
   </div>
+
+  <p class="note"><b>Resources.</b> The First 90 Days by Michael Watkins. So Good They Can't Ignore You by Cal Newport. High Output Management by Andrew Grove. Getting to Yes by Fisher and Ury for negotiation.</p>
 </section>
 
-<section id="money" aria-labelledby="h-money">
+<section id="money" class="dom" aria-labelledby="h-money">
   <h2 id="h-money"><span class="n">15</span>Money</h2>
   <p class="lede">Wayne inherited his. You build yours with a savings rate, time and rising income.</p>
-  <p class="note">General information for an Indian salaried professional. This is not personalised financial advice. Tax rules and products change, so check current rules each April and use a SEBI-registered fee-only adviser for real decisions.</p>
+  <p class="note">General information for an Indian salaried professional. This is not personalised financial advice. Tax rules, limits and products change, so check current rules each April and use a SEBI-registered fee-only adviser for real decisions. Tax sections are not quoted here because India's income-tax law was renumbered in 2026.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>Spend less than you earn by a wide margin, invest the difference automatically in low-cost funds, carry no consumer debt, and grow income faster than lifestyle.</dd>
+      <dt>Three actions</dt><dd>1. Automate investing on salary day. 2. Build six months of expenses in cash. 3. Send half of every raise to investments.</dd>
+      <dt>Watch one number</dt><dd>Savings rate: money saved or invested, divided by take-home pay.</dd>
+      <dt>Before the first salary</dt><dd>Track a month of spending. Open the accounts. Decide the split below so that day one is automatic.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
   <div class="tiers">
     <div class="tier"><h4>Floor <i>first 12 months of salary</i></h4>
-      <label class="ck"><input type="checkbox" id="c-f1" data-k>I know my monthly spend to within 10%</label>
+      <label class="ck"><input type="checkbox" id="c-f1" data-k>I know my monthly spend to within 10%. Check: 3 months tracked.</label>
       <label class="ck"><input type="checkbox" id="c-f2" data-k>Emergency fund of 6 months of expenses</label>
       <label class="ck"><input type="checkbox" id="c-f3" data-k>No credit card balance carried, ever</label>
       <label class="ck"><input type="checkbox" id="c-f4" data-k>Personal health cover beyond the employer policy</label>
       <label class="ck"><input type="checkbox" id="c-f5" data-k>20% of take-home invested automatically on salary day</label>
+      <label class="ck"><input type="checkbox" id="c-f16" data-k>Nominees named on every bank, fund and insurance account</label>
     </div>
     <div class="tier t2"><h4>Strong <i>year 2 to 4</i></h4>
-      <label class="ck"><input type="checkbox" id="c-f6" data-k>Savings rate of 30 to 40%</label>
+      <label class="ck"><input type="checkbox" id="c-f6" data-k>Savings rate of 30 to 40%, held for a year</label>
       <label class="ck"><input type="checkbox" id="c-f7" data-k>One year of expenses invested</label>
       <label class="ck"><input type="checkbox" id="c-f8" data-k>Half of every raise goes to investments</label>
       <label class="ck"><input type="checkbox" id="c-f9" data-k>I file my own taxes and understand each line</label>
       <label class="ck"><input type="checkbox" id="c-f10" data-k>A second income source has earned its first rupee</label>
+      <label class="ck"><input type="checkbox" id="c-f17" data-k>Credit score above 750</label>
     </div>
     <div class="tier t3"><h4>Elite <i>year 5 to 10</i></h4>
       <label class="ck"><input type="checkbox" id="c-f11" data-k>5 years of expenses invested by 31</label>
       <label class="ck"><input type="checkbox" id="c-f12" data-k>10 years of expenses invested by 35</label>
       <label class="ck"><input type="checkbox" id="c-f13" data-k>Income from at least three sources</label>
       <label class="ck"><input type="checkbox" id="c-f14" data-k>Parents' health and retirement plan written and funded</label>
-      <label class="ck"><input type="checkbox" id="c-f15" data-k>Will and nominations in place on every account</label>
+      <label class="ck"><input type="checkbox" id="c-f15" data-k>Will in place</label>
     </div>
   </div>
   <p class="note">The "years of expenses" targets are arithmetic from a 40 to 50% savings rate held from age 24, before investment returns. They are checkpoints, not promises.</p>
-  <h3>Order of operations</h3>
-  <ol>
-    <li><b>Track one full month</b> of spending before designing anything.</li>
-    <li><b>Build the emergency fund</b> in a liquid, boring place.</li>
-    <li><b>Insure.</b> Health cover now. Term life cover when someone depends on your income. Keep insurance and investment as separate products.</li>
-    <li><b>Automate.</b> A standing instruction on salary day into low-cost, broad index funds. Learn what EPF, NPS and PPF each do for you before choosing.</li>
-    <li><b>Raise the rate with every raise.</b> Lifestyle may grow, at half the speed of income.</li>
-    <li><b>Then go after income.</b> Saving has a ceiling. Earning does not. The Craft section is your real money plan.</li>
-  </ol>
+
   <div class="panel ev">
-    <h4>What money does and does not do</h4>
-    <p style="margin-bottom:0">A 2023 joint analysis by two research teams who had disagreed found that for most people happiness keeps rising with income. For the least happy fifth it stops rising at a point, so money does not fix misery that has other causes.<sup><a href="#s20">20</a></sup> The director of Harvard's 85-year study adds that beyond basic security, more wealth moves wellbeing only a little compared with relationships.<sup><a href="#s19">19</a></sup> Money is a strong tool for freedom and a weak one for meaning. Build it and do not confuse it with the mission.</p>
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>Most active funds lose to the index.</b> S&amp;P's scorecard for India reports that a firm majority of actively managed funds in every category underperformed their benchmark over the decade to December 2025, including about 83% of tax-saver equity funds. Critics note the benchmarks are not all directly investable, so read it as direction, not a precise figure.<sup><a href="#s32">32</a></sup></li>
+      <li><b>Trading derivatives loses money for almost everyone.</b> SEBI's own study found 93% of more than one crore individual futures and options traders lost money between FY22 and FY24, about ₹2 lakh each on average.<sup><a href="#s33">33</a></sup></li>
+      <li><b>Money and happiness.</b> For most people happiness keeps rising with income. It stops rising only for the least happy group.<sup><a href="#s20">20</a></sup> Beyond basic security, relationships move wellbeing far more than wealth does.<sup><a href="#s19">19</a></sup></li>
+      <li><b>Negotiating is worth it.</b> New hires who negotiated gained about $5,000 in starting pay on average in one US survey.<sup><a href="#s34">34</a></sup> Early pay differences compound through every later raise.</li>
+    </ul>
   </div>
+
+  <h3>Protocol by stage</h3>
+  <div class="phase"><div class="when"><b>Stage 0</b>Before the first salary</div><div><ul>
+    <li>Track every rupee for one month.</li>
+    <li>Open a salary account, a separate savings account for the emergency fund, and a direct mutual fund account. Complete KYC.</li>
+    <li>Read the offer letter line by line: fixed pay, variable pay, provident fund, gratuity, notice period, any bond.</li>
+    <li>Estimate monthly take-home and write the split below.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 1</b>Months 1 to 12</div><div><ul>
+    <li>Automate the split on salary day. Never rely on what is left at month end.</li>
+    <li>Fill the emergency fund first. Start a small index-fund instalment alongside it so the habit exists.</li>
+    <li>Buy personal health cover. Choose the tax regime with a calculator, not by habit.</li>
+    <li>Get one credit card, set it to pay the full bill automatically, and use it for one fixed expense.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 2</b>Year 2 to 4</div><div><ul>
+    <li>Emergency fund is full, so its share moves to investing. Savings rate reaches 30 to 40%.</li>
+    <li>Half of every raise goes to investments before it reaches spending.</li>
+    <li>Start the second income source from your Craft: paid writing, consulting, a small tool.</li>
+    <li>Term life cover when someone depends on your income.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 3</b>Year 5 onward</div><div><ul>
+    <li>Review allocation once a year and rebalance. Ignore the market in between.</li>
+    <li>Fund your parents' plan. Write a will.</li>
+    <li>Large decisions through the frameworks in Decisions: house, car, starting up.</li>
+  </ul></div></div>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>The split <small>where each ₹100 of take-home goes in year one</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Bucket</th><th class="num">Share</th><th>Goes to</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Needs</td><td class="num">₹50</td><td>Rent, food, transport, bills, insurance premiums, money sent home</td></tr>
+        <tr><td class="lab">Future</td><td class="num">₹30</td><td>Emergency fund until it is full, then index funds. This is on top of the provident fund your employer deducts.</td></tr>
+        <tr><td class="lab">Wants</td><td class="num">₹20</td><td>Everything else. Spend it without guilt.</td></tr>
+      </tbody>
+    </table></div>
+    <p>If rent in your city makes ₹50 impossible, cut wants before future. The order of transfers on salary day is: future first, needs second, wants with what remains.</p>
+    <p class="note">The 50, 30, 20 split is a common starting heuristic and is judgement. Your real numbers replace it after three months of tracking.</p>
+  </div></details>
+
+  <details class="pb"><summary>Emergency fund and insurance <small>the defence comes before the offence</small></summary><div class="in">
+    <ul>
+      <li><b>Emergency fund.</b> Six months of total monthly spend. Keep it boring and reachable within a day: a separate savings account, sweep-in deposit or liquid fund. It is not an investment and does not need a return.</li>
+      <li><b>What it is for.</b> Job loss, medical costs not covered, an urgent trip home, a broken laptop you need for work. Not holidays or phones.</li>
+      <li><b>Health insurance.</b> A personal policy in addition to the employer's group cover, because the group cover ends when the job does. Buying young keeps premiums low and waiting periods behind you. Check your parents' cover too. Their medical bills are the largest risk to your plan.</li>
+      <li><b>Term life insurance.</b> Buy it when someone depends on your income or you take a large loan. Plain term cover only.</li>
+      <li><b>Keep insurance and investment separate.</b> Products that mix the two, such as endowment and unit-linked plans, usually do both jobs poorly.</li>
+    </ul>
+    <p class="note">Cover amounts depend on your city, family and health. Ask an adviser who charges a fee and earns no commission.</p>
+  </div></details>
+
+  <details class="pb"><summary>Where to invest <small>the instruments compared</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Instrument</th><th>What it is</th><th>Use it for</th><th>Watch out for</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Employees' Provident Fund</td><td>Compulsory deduction from salary, matched by the employer, at a government-declared rate</td><td>The debt part of long-term savings. Already happening.</td><td>Withdrawing it when you change jobs. Transfer it.</td></tr>
+        <tr><td class="lab">Index funds</td><td>Mutual funds that track a broad market index at very low cost</td><td>The core of long-term investing, through a monthly instalment</td><td>Regular plans that pay a commission. Choose direct plans and a low expense ratio.</td></tr>
+        <tr><td class="lab">National Pension System</td><td>Low-cost retirement account, mostly locked until 60</td><td>Extra retirement saving, especially where the employer contributes</td><td>The lock-in. Money here is gone until retirement.</td></tr>
+        <tr><td class="lab">Public Provident Fund</td><td>15-year government savings scheme</td><td>Safe long-term debt allocation</td><td>Low liquidity</td></tr>
+        <tr><td class="lab">Fixed and recurring deposits</td><td>Bank deposits at a fixed rate</td><td>Goals within three years</td><td>Interest is taxed as income</td></tr>
+        <tr><td class="lab">Tax-saver equity funds</td><td>Equity funds with a 3-year lock-in</td><td>Only if your tax regime rewards them</td><td>Most have lagged the index over ten years</td></tr>
+        <tr><td class="lab">Direct stocks</td><td>Shares you pick yourself</td><td>At most a small learning allocation</td><td>Mistaking a bull market for skill</td></tr>
+        <tr><td class="lab">Gold</td><td>A diversifier</td><td>A small share, through a fund or bond</td><td>Jewellery is consumption, not investment</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>A simple default.</b> One or two broad index funds bought every month on salary day, plus the provident fund you already have. Decide a split between stocks and safe assets that you could hold through a fall of 40% without selling. Review once a year. That is the whole strategy.</p>
+    <p class="note">Rates, limits and tax treatment for every row change. Verify before acting.</p>
+  </div></details>
+
+  <details class="pb"><summary>Tax basics <small>what to understand, without the section numbers</small></summary><div class="in">
+    <ul>
+      <li>India has two tax regimes: one with lower rates and few deductions, one with higher rates and more deductions. Run your own numbers through the government calculator each year and pick the cheaper one.</li>
+      <li>Your employer deducts tax every month based on what you declare. Declare accurately in April and again when asked for proofs.</li>
+      <li>Read your salary slip until you can explain every line: basic, allowances, provident fund, professional tax, tax deducted.</li>
+      <li>File your own return on the government portal at least once. Match it against the annual tax statement and your Form 16.</li>
+      <li>Capital gains on funds and shares are taxed when you sell, at rates that depend on the asset and holding period. Buying and holding defers this.</li>
+      <li>Never choose an investment only for a tax saving. A bad product with a deduction is still a bad product.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Credit and debt <small>use credit, never carry it</small></summary><div class="in">
+    <ul>
+      <li>A credit score runs from 300 to 900. Above 750 is generally treated as good by lenders.</li>
+      <li>It is built by paying on time, using a small part of your limit, and keeping old accounts open.</li>
+      <li>Pay the full statement amount, automatically. The minimum-due option is the most expensive loan you can take.</li>
+      <li>No "buy now, pay later", personal loans or instalment plans for things that lose value.</li>
+      <li>An education loan or a sensible home loan can be reasonable debt. Clear the costliest loan first.</li>
+      <li>Do not lend, or sign as guarantor, an amount you cannot afford to lose. If you lend to family or friends, treat it as a gift in your own accounts.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Big purchases <small>phone, vehicle, home</small></summary><div class="in">
+    <ul>
+      <li><b>The 30-day rule.</b> For anything over an amount you set, wait 30 days. Most wants do not survive it.</li>
+      <li><b>Vehicle.</b> A common heuristic: at least 20% down, a loan of four years or less, and total running cost under a tenth of income. Prefer no loan at all in your twenties.</li>
+      <li><b>Home.</b> Renting is not waste when you may change city. Compare the full cost of owning (interest, maintenance, taxes, the return your down payment would have earned) against rent. Buy when you expect to stay seven years or more, and the instalment fits inside your needs bucket.</li>
+      <li><b>Status goods.</b> Watches, phones and cars are signals. Buy them from the wants bucket after the future bucket is paid, or not at all.</li>
+    </ul>
+    <p class="note">These are heuristics and judgement. Use the house, vehicle and job frameworks in Decisions for the actual choice.</p>
+  </div></details>
+
+  <details class="pb"><summary>The second income <small>a ladder from your Craft</small></summary><div class="in">
+    <ol>
+      <li><b>Sell time at a premium.</b> Paid workshops, freelance analysis or automation work in your niche.</li>
+      <li><b>Sell a result.</b> Fixed-price projects: you are paid for the outcome, not the hours.</li>
+      <li><b>Sell a product.</b> A template, a small tool, a course. Built once, sold many times.</li>
+      <li><b>Own equity.</b> Shares in something you help build.</li>
+    </ol>
+    <p>Each rung needs the one below it. Check your employment contract before taking outside paid work, and declare the income.</p>
+  </div></details>
+
+  <details class="pb"><summary>Scams and expensive mistakes <small>how money is usually lost</small></summary><div class="in">
+    <ul>
+      <li>Any promise of guaranteed high returns. Guaranteed and high do not occur together.</li>
+      <li>Futures, options, intraday trading and tips from groups or influencers. Nine in ten individuals lose.</li>
+      <li>Insurance sold as investment by a relative, a bank relationship manager or an agent.</li>
+      <li>Crypto or stock "courses" where the product being sold is the course.</li>
+      <li>Calls, links or messages asking for an OTP, a PIN or remote access. No bank or official asks for these.</li>
+      <li>Lifestyle rising to match every raise.</li>
+      <li>Selling investments during a market fall.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Parents <small>the plan most people leave too late</small></summary><div class="in">
+    <ul>
+      <li>Know their health cover, its limit and when it renews.</li>
+      <li>Know where their documents, accounts and nominations are.</li>
+      <li>Agree, as a family, what support looks like: a monthly amount, a medical reserve, or both.</li>
+      <li>Add a parents' medical line to your emergency planning. It is the single biggest shock to plans like this one.</li>
+    </ul>
+  </div></details>
+
+  <h3>Metrics</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Lead measures, monthly</th><th>Lag measures, quarterly and yearly</th></tr></thead>
+    <tbody>
+      <tr><td>Automatic transfers went through on salary day</td><td>Savings rate</td></tr>
+      <tr><td>Spending tracked and within the needs and wants buckets</td><td>Net worth</td></tr>
+      <tr><td>Card bill paid in full</td><td>Months of expenses held as cash</td></tr>
+      <tr><td>Hours spent on the second income</td><td>Income, and the share that is not salary</td></tr>
+    </tbody>
+  </table></div>
+
   <div class="panel wb">
     <h4>Workbook · money</h4>
+    <div class="fld"><label for="f-f-split">My split on salary day</label><small>Amount, destination account and date for each automatic transfer.</small><textarea id="f-f-split" data-k></textarea></div>
     <div class="two">
-      <div class="fld"><label for="f-f-rate">Savings rate, by quarter</label><small>Invested divided by take-home.</small><textarea id="f-f-rate" data-k></textarea></div>
+      <div class="fld"><label for="f-f-rate">Savings rate, by quarter</label><small>Saved or invested, divided by take-home.</small><textarea id="f-f-rate" data-k></textarea></div>
       <div class="fld"><label for="f-f-nw">Net worth, by quarter</label><small>Assets minus debts. One line per quarter.</small><textarea id="f-f-nw" data-k></textarea></div>
     </div>
     <div class="fld"><label for="f-f-rules">My money rules</label><small>Example: wait 30 days on any purchase over a set amount. No loans for things that lose value.</small><textarea id="f-f-rules" data-k></textarea></div>
+    <div class="fld"><label for="f-f-docs">Where everything is</label><small>Accounts, policies, nominees, and who knows about them. No passwords or account numbers here.</small><textarea id="f-f-docs" data-k></textarea></div>
   </div>
+
   <div class="panel warnp">
-    <h4>How this domain fails</h4>
+    <h4>How this domain fails, and what to ignore</h4>
     <ul style="margin-bottom:0">
       <li>Buying the watch and the car to look like the destination before reaching it.</li>
-      <li>Trading, options and tips. For nearly everyone, automated index investing beats activity.</li>
-      <li>Lending or co-signing without a written agreement.</li>
+      <li>Optimising small expenses while ignoring income growth. The Craft section is your real money plan.</li>
+      <li>Waiting to invest until you "know enough". The automatic index instalment needs no knowledge.</li>
+      <li>Checking the portfolio daily.</li>
+      <li><b>Ignore:</b> stock tips, trading screenshots, "passive income" schemes that need recruiting, and anyone whose income depends on you buying the product.</li>
     </ul>
   </div>
+
+  <p class="note"><b>Resources.</b> Let's Talk Money by Monika Halan for a system built for Indian households. The Psychology of Money by Morgan Housel for behaviour. The annual SPIVA India scorecard to keep the index-fund case current.</p>
 </section>
 
-<section id="presence" aria-labelledby="h-presence">
+<section id="presence" class="dom" aria-labelledby="h-presence">
   <h2 id="h-presence"><span class="n">16</span>Presence</h2>
-  <p class="lede">How you look, sound and carry yourself. Competence people can see within thirty seconds.</p>
+  <p class="lede">How you look, sound and carry yourself. Competence people can see within seconds, backed by substance that survives the next hour.</p>
+
+  <div class="panel sumry">
+    <h4>One-page summary</h4>
+    <dl>
+      <dt>The standard</dt><dd>You look put together, speak clearly and briefly, listen well, and stay composed when challenged. People leave a conversation with you feeling heard and sure of what you said.</dd>
+      <dt>Three actions</dt><dd>1. Fix fit and grooming once, then keep them on a schedule. 2. Answer first, then explain. 3. One speaking repetition a week, recorded or logged.</dd>
+      <dt>Watch one number</dt><dd>Speaking repetitions logged.</dd>
+      <dt>Honest order</dt><dd>Presence multiplies competence. It cannot replace it. Craft and Mind come first.</dd>
+    </dl>
+  </div>
+
+  <h3>Standards</h3>
   <div class="tiers">
-    <div class="tier"><h4>Floor</h4>
-      <label class="ck"><input type="checkbox" id="c-p1" data-k>Clothes fit, are pressed, and shoes are clean</label>
-      <label class="ck"><input type="checkbox" id="c-p2" data-k>Haircut, skin and nails on a fixed schedule</label>
-      <label class="ck"><input type="checkbox" id="c-p3" data-k>Five minutes early to everything</label>
+    <div class="tier"><h4>Floor <i>month 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-p1" data-k>Clothes fit, are pressed, and shoes are clean, every day for a month</label>
+      <label class="ck"><input type="checkbox" id="c-p2" data-k>Haircut, beard, skin and nails on a fixed schedule</label>
+      <label class="ck"><input type="checkbox" id="c-p3" data-k>Five minutes early to everything, for a month</label>
       <label class="ck"><input type="checkbox" id="c-p4" data-k>Phone out of sight in every conversation</label>
       <label class="ck"><input type="checkbox" id="c-p5" data-k>I use people's names and remember them</label>
+      <label class="ck"><input type="checkbox" id="c-p15" data-k>Filler words under 5 in a 2-minute recording</label>
     </div>
-    <div class="tier t2"><h4>Strong</h4>
-      <label class="ck"><input type="checkbox" id="c-p6" data-k>I answer first, then explain</label>
+    <div class="tier t2"><h4>Strong <i>year 1 to 2</i></h4>
+      <label class="ck"><input type="checkbox" id="c-p6" data-k>I answer first, then explain. Check: a colleague confirms it.</label>
       <label class="ck"><input type="checkbox" id="c-p7" data-k>10-minute presentation delivered without notes</label>
       <label class="ck"><input type="checkbox" id="c-p8" data-k>One-page memos that need no follow-up questions</label>
       <label class="ck"><input type="checkbox" id="c-p9" data-k>A small wardrobe of basics, altered by a tailor</label>
       <label class="ck"><input type="checkbox" id="c-p10" data-k>25 public speaking repetitions logged</label>
     </div>
-    <div class="tier t3"><h4>Elite</h4>
+    <div class="tier t3"><h4>Elite <i>year 3 onward</i></h4>
       <label class="ck"><input type="checkbox" id="c-p11" data-k>Held a room of 100 or more</label>
       <label class="ck"><input type="checkbox" id="c-p12" data-k>Negotiated a major deal or offer calmly, with a prepared walk-away</label>
-      <label class="ck"><input type="checkbox" id="c-p13" data-k>I stay level when insulted or provoked</label>
+      <label class="ck"><input type="checkbox" id="c-p13" data-k>I stay level when insulted or provoked. Check: others say so.</label>
       <label class="ck"><input type="checkbox" id="c-p14" data-k>A recognisable personal style that I did not copy</label>
     </div>
   </div>
-  <h3>Drills</h3>
-  <ul>
-    <li><b>Two-minute tape.</b> Record yourself explaining one idea each week. Watch it once. Fix one thing: pace, filler words, eye line or posture.</li>
-    <li><b>Pause instead of filler.</b> Silence reads as control. "Um" reads as searching.</li>
-    <li><b>Answer first.</b> Conclusion in the first sentence, reasons after. Use it in email, meetings and interviews.</li>
-    <li><b>Three questions before one statement.</b> In any new conversation, ask three real questions before offering an opinion. People remember being heard.</li>
-    <li><b>Speaking reps.</b> Join a speaking club or volunteer for every presentation at work until the log reaches 25.</li>
-    <li><b>Negotiation prep.</b> Their interests, your interests, your best alternative if this fails, your opening number and your walk-away. Written before the call.</li>
-    <li><b>Wardrobe.</b> Fewer pieces, better fit. Two well-fitted suits or blazers, plain shirts, dark trousers, good leather shoes, one watch. Tailoring matters more than labels.</li>
-  </ul>
+
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>First impressions are instant.</b> In five experiments, judgements of competence, trustworthiness and likeability made after seeing a face for a tenth of a second closely matched judgements made with no time limit. More time raised confidence, not accuracy.<sup><a href="#s35">35</a></sup> People decide fast and then look for confirmation, so the first seconds are worth preparing. The lead author also notes that these impressions are revised as people get to know you.</li>
+      <li><b>Posture tricks do not work.</b> Power posing failed to change hormones or behaviour in replication.<sup><a href="#s29">29</a></sup></li>
+      <li><b>Composure is trained by doing.</b> Belief in your ability comes mainly from having done the thing before.<sup><a href="#s17">17</a></sup> Speaking repetitions are the method. There is no shortcut around them.</li>
+    </ul>
+    <p class="note" style="margin:10px 0 0">Most specific advice on voice, clothing and body language rests on convention and experience more than on strong studies. The playbooks below are judgement unless a source is given.</p>
+  </div>
+
+  <h3>Protocol by stage</h3>
+  <div class="phase"><div class="when"><b>Stage 1</b>Months 1 to 3</div><div><ul>
+    <li>One-time fixes: get clothes altered, set the grooming schedule, replace worn shoes.</li>
+    <li>Record a 2-minute talk every week. Count fillers. Fix one thing.</li>
+    <li>Practise answer-first in every reply in class, in mail and in messages.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 2</b>Months 4 to 18</div><div><ul>
+    <li>Take every chance to present. Join a speaking club or start one. Reach 25 logged repetitions.</li>
+    <li>Write one page a week: a memo, a project write-up or a public post.</li>
+    <li>Ask two people you trust what your presence is like when you are stressed.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Stage 3</b>Year 2 onward</div><div><ul>
+    <li>Larger rooms, tougher audiences, unscripted questions.</li>
+    <li>Negotiations with real stakes.</li>
+    <li>Refine a style that is yours: fewer, better things.</li>
+  </ul></div></div>
+
+  <h3>Playbooks</h3>
+  <details class="pb"><summary>Speaking clearly <small>structure, pace and fillers</small></summary><div class="in">
+    <ul>
+      <li><b>Answer first.</b> Conclusion in the first sentence, then two or three reasons, then stop. "Yes, we should, for three reasons."</li>
+      <li><b>One idea per sentence.</b> Short sentences are easier to say well and easier to hear.</li>
+      <li><b>Pause instead of filler.</b> When you feel "um" coming, close your mouth for a beat. Silence reads as control.</li>
+      <li><b>Slow the first sentence.</b> Nerves speed you up. Deliver the opening line deliberately and the rest follows.</li>
+      <li><b>Land the end of sentences.</b> Do not trail off or let a statement rise like a question.</li>
+      <li><b>Numbers and examples.</b> One specific number or story persuades more than three adjectives.</li>
+    </ul>
+    <p><b>The weekly tape.</b> Two minutes, unscripted, on any topic. Watch once with sound, once without. Note one thing to fix. Record the filler count in Baseline tests each quarter.</p>
+  </div></details>
+
+  <details class="pb"><summary>Presenting <small>a ten-minute talk that works</small></summary><div class="in">
+    <ol>
+      <li><b>One sentence first.</b> Write the single thing the audience should remember. If you cannot, you are not ready.</li>
+      <li><b>Structure.</b> Problem, what you propose, evidence, what you need from them. Three points at most.</li>
+      <li><b>Open with the point,</b> not with thanks, an agenda or an apology.</li>
+      <li><b>Slides support you.</b> Few words, one idea each. Never read them out.</li>
+      <li><b>Rehearse aloud three times,</b> standing, with a timer. Once in front of a person.</li>
+      <li><b>Prepare the five hardest questions</b> and your answers.</li>
+      <li><b>In the room.</b> Arrive early, test the screen, stand still when making a point, look at one person per sentence.</li>
+      <li><b>When you do not know,</b> say so and say when you will. It builds more credibility than a guess.</li>
+      <li><b>End on the ask.</b> Then stop.</li>
+    </ol>
+  </div></details>
+
+  <details class="pb"><summary>Writing <small>the one-page memo</small></summary><div class="in">
+    <ul>
+      <li>Subject line or title that states the decision needed.</li>
+      <li>First paragraph: the recommendation and the single most important reason.</li>
+      <li>Then the evidence, in order of importance. Numbers with sources.</li>
+      <li>Then risks and what you would do about each.</li>
+      <li>Last line: what you need, from whom, by when.</li>
+      <li>Cut every sentence that would not be missed. Read it aloud before sending.</li>
+    </ul>
+    <p>Clear writing is clear thinking made visible. It is also the fastest way to be noticed by people senior to you who never see you speak.</p>
+  </div></details>
+
+  <details class="pb"><summary>Listening and conversation <small>where warmth comes from</small></summary><div class="in">
+    <ul>
+      <li><b>Three questions before one statement.</b> In any new conversation, ask three real questions before offering an opinion.</li>
+      <li><b>Follow the last answer.</b> Your next question should come from what they just said, not from your list.</li>
+      <li><b>Summarise back.</b> "So the real problem is the handover, not the tool?" People feel understood when they hear their point returned accurately.</li>
+      <li><b>Names.</b> Say it back when you hear it. Write it down afterwards with one detail.</li>
+      <li><b>Do not top their story.</b> Let it be theirs.</li>
+      <li><b>Leave well.</b> End conversations a little early, with something specific: "I will send you that article."</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Grooming <small>a schedule, so it never needs a decision</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>How often</th><th>What</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Daily</td><td>Shower. Face wash, moisturiser, sunscreen in the morning. Teeth twice, floss once. Deodorant. Beard shaved or edged cleanly.</td></tr>
+        <tr><td class="lab">Weekly</td><td>Nails trimmed. Stray hair on neck, ears and brows tidied. Shoes cleaned.</td></tr>
+        <tr><td class="lab">Every 3 to 4 weeks</td><td>Haircut with the same barber. Ask for a cut that suits your face and holds its shape as it grows.</td></tr>
+        <tr><td class="lab">Every 6 months</td><td>Dentist. Replace toothbrush every 3 months.</td></tr>
+        <tr><td class="lab">Once</td><td>Find one light fragrance. Two sprays, no more. See a dermatologist for persistent acne or hair loss instead of trying products at random.</td></tr>
+      </tbody>
+    </table></div>
+  </div></details>
+
+  <details class="pb"><summary>Wardrobe <small>for an Indian climate and office, at three budgets</small></summary><div class="in">
+    <p><b>Principles.</b> Fit matters more than brand. Shoulders must fit off the rack, and a tailor fixes the rest for a small cost. Plain, dark and well kept beats loud. Breathable cotton and linen blends for the heat. Buy less and replace what is worn.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Stage</th><th>Buy</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Starter, before joining</td><td>4 plain shirts in white and light blue. 2 trousers in navy and charcoal. 1 dark pair of jeans. 3 plain polos or tees. 1 pair of brown or black leather shoes and a matching belt. 1 pair of clean white sneakers. A simple watch.</td></tr>
+        <tr><td class="lab">Working, year 1</td><td>Add a navy blazer, altered. 2 more shirts. A second pair of leather shoes so each pair rests. One formal Indian outfit for occasions. A good bag.</td></tr>
+        <tr><td class="lab">Established, year 2 onward</td><td>One suit made or altered to fit. Better shoes. Replace, do not accumulate.</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Checks.</b> Shirt collar closes with one finger of room. Sleeves end at the wrist bone. Trousers touch the shoe with one small break. Nothing pulls across the chest or seat. Iron or steam everything.</p>
+  </div></details>
+
+  <details class="pb"><summary>Body language and room behaviour <small>what is worth doing</small></summary><div class="in">
+    <ul>
+      <li>Stand and sit tall, shoulders relaxed. Take up your space without spreading.</li>
+      <li>Keep your hands visible and still. Gesture when making a point, then rest.</li>
+      <li>Look at people when they speak and when you finish a sentence.</li>
+      <li>Move slowly. Hurry signals low status in any room.</li>
+      <li>Phone face down or away, always.</li>
+      <li>In meetings, speak in the first ten minutes, even to ask one question. It gets harder the longer you wait.</li>
+      <li>On video: camera at eye level, light in front of you, look at the lens when making your main point.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Etiquette <small>dining, meetings and travel</small></summary><div class="in">
+    <ul>
+      <li><b>Introductions.</b> Stand, look at the person, say your full name clearly. Introduce the junior person to the senior one.</li>
+      <li><b>Dining.</b> Wait for the host to start. Order something easy to eat. Match the pace of the table. Treat serving staff well. People watch this more than anything else.</li>
+      <li><b>Who pays.</b> Whoever invited. Offer once, sincerely, and accept the answer.</li>
+      <li><b>Mail and messages.</b> Reply within a day, even if only to say when you will answer properly. Check names and spellings before sending.</li>
+      <li><b>Meetings.</b> Agenda in advance if you called it. End on time. Send the decisions and owners afterwards.</li>
+      <li><b>Thank-yous.</b> Specific and within 24 hours.</li>
+      <li><b>Travel.</b> Carry-on packed light, documents ready, early to the gate. Calm travellers are noticed.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Staying composed when challenged <small>the Specter moment</small></summary><div class="in">
+    <ol>
+      <li><b>Pause.</b> One breath out before answering. It looks like thought, because it is.</li>
+      <li><b>Restate the challenge fairly.</b> "You are saying the numbers do not hold for smaller teams." This buys time and shows you are not threatened.</li>
+      <li><b>Concede what is true.</b> "That is right for teams under ten."</li>
+      <li><b>Then make your point,</b> once, with the evidence.</li>
+      <li><b>Lower your voice</b> as theirs rises.</li>
+      <li><b>If it is an insult, not a challenge,</b> name the topic and return to it. "Let us stay with the proposal." Do not trade.</li>
+    </ol>
+    <p>What makes this possible is the prep file in Craft. Composure in the room is prepared the night before.</p>
+  </div></details>
+
+  <h3>Metrics</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Lead measures, weekly</th><th>Lag measures, quarterly</th></tr></thead>
+    <tbody>
+      <tr><td>Speaking repetitions</td><td>Filler count in the 2-minute tape</td></tr>
+      <tr><td>Weekly tape recorded and reviewed</td><td>Unprompted comments on how you present or write</td></tr>
+      <tr><td>Pages written for others</td><td>Invitations to present</td></tr>
+      <tr><td>Grooming schedule kept</td><td>What two trusted people say about you under stress</td></tr>
+    </tbody>
+  </table></div>
+
   <div class="panel wb">
     <h4>Workbook · presence</h4>
-    <div class="fld"><label for="f-p-log">Speaking log</label><small>Date, audience, what went well, one fix.</small><textarea id="f-p-log" data-k></textarea></div>
+    <div class="fld"><label for="f-p-log">Speaking log</label><small>Date, audience, what went well, one fix.</small><textarea id="f-p-log" data-k style="min-height:100px"></textarea></div>
     <div class="fld"><label for="f-p-fix">The one presence habit I am fixing this quarter</label><textarea id="f-p-fix" data-k></textarea></div>
+    <div class="fld"><label for="f-p-ward">Wardrobe: what I own that fits, what needs altering, what to buy</label><textarea id="f-p-ward" data-k></textarea></div>
+    <div class="fld"><label for="f-p-fb">What people tell me about my presence</label><small>Their words, with the date.</small><textarea id="f-p-fb" data-k></textarea></div>
   </div>
+
   <div class="panel warnp">
-    <h4>How this domain fails</h4>
-    <p style="margin-bottom:0">Copying the swagger without the preparation. On screen, the one-liners work because the character already won the case in the library the night before. Presence without substance gets found out quickly.</p>
+    <h4>How this domain fails, and what to ignore</h4>
+    <ul style="margin-bottom:0">
+      <li>Copying the swagger without the preparation. On screen, the one-liners work because the character already won the case in the library the night before.</li>
+      <li>Performing confidence in place of listening. Talking more is not presence.</li>
+      <li>Spending on brands before fit.</li>
+      <li><b>Ignore:</b> power poses, "alpha" body-language rules, the claim that 93% of communication is non-verbal, pickup-style tricks, and any script designed to pressure or mislead. Skill and honesty are the whole of this section.</li>
+    </ul>
   </div>
+
+  <p class="note"><b>Resources.</b> On Writing Well by William Zinsser. The Pyramid Principle by Barbara Minto for structure. Getting to Yes by Fisher and Ury. A local or campus speaking club for repetitions.</p>
 </section>
 
 <section id="people" aria-labelledby="h-people">
@@ -1540,7 +2013,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 
 <section id="roadmap" aria-labelledby="h-roadmap">
   <h2 id="h-roadmap"><span class="n">23</span>Roadmap</h2>
-  <p class="lede">Ten years in five phases. Each phase has one job. Dates assume you start in November 2026 at 24.</p>
+  <p class="lede">Ten years in five phases. Each phase has one job and a test for leaving it. Dates assume you start in November 2026 at 24.</p>
   <div class="phase"><div class="when"><b>Foundation</b>Nov 2026 to joining day<br>age 24</div><div>
     <p><b>Job: install the base habits while your schedule is still your own.</b></p>
     <ul>
@@ -1548,7 +2021,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>Direction written. First scorecard snapshot saved.</li>
       <li>Weekly review running. Daily reading running.</li>
       <li>Finish the MBA cleanly and arrive at work with one automation project already scoped.</li>
-    </ul></div></div>
+    </ul>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> Twelve weeks of training logged, Body Floor mostly ticked, sleep steady, Direction written, three snapshots saved, one portfolio piece published.</p></div></div>
   <div class="phase"><div class="when"><b>Prove</b>First 12 months at work<br>age 24 to 25</div><div>
     <p><b>Job: become undeniably good at the role and automate your finances.</b></p>
     <ul>
@@ -1556,7 +2030,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>Money Floor complete: emergency fund, health cover, 20% invested automatically.</li>
       <li>Training survives the move to full-time work. This is where most people lose it.</li>
       <li>Presence Floor complete. Speaking log started.</li>
-    </ul></div></div>
+    </ul>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> Craft and Money Floors ticked, three wins logged with numbers, six months of expenses in cash, training unbroken through the move, a good first appraisal.</p></div></div>
   <div class="phase"><div class="when"><b>Differentiate</b>2028 to 2029<br>age 26 to 27</div><div>
     <p><b>Job: build the spike. Be known for one thing.</b></p>
     <ul>
@@ -1564,7 +2039,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>Body at Strong. A physical skill started.</li>
       <li>Savings rate at 30 to 40%. Second income source earns its first rupee.</li>
       <li>Mentors and a sponsor in place. Inner five maintained through any city change.</li>
-    </ul></div></div>
+    </ul>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> Craft and Body at Strong, a public portfolio of six pieces, known for one thing inside the company, savings rate at 30% or more, a sponsor in place.</p></div></div>
   <div class="phase"><div class="when"><b>Leverage</b>2030 to 2032<br>age 28 to 30</div><div>
     <p><b>Job: turn skill into ownership.</b></p>
     <ul>
@@ -1572,7 +2048,8 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>All seven domains at Strong. Two at Elite.</li>
       <li>Partner and family decisions made on purpose.</li>
       <li>Start mentoring others.</li>
-    </ul></div></div>
+    </ul>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> You own a team, product or P&amp;L, or the company has passed gate 4. All seven domains at Strong and two at Elite.</p></div></div>
   <div class="phase"><div class="when"><b>Compound</b>2033 to 2036<br>age 31 to 34</div><div>
     <p><b>Job: hold the standard and widen the mission.</b></p>
     <ul>
@@ -1580,15 +2057,146 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
       <li>5 to 10 years of expenses invested. Parents' plan funded.</li>
       <li>Elite Body numbers held, not just touched once.</li>
       <li>The mission in Direction is visible in how you spend your weeks.</li>
-    </ul></div></div>
+    </ul>
+    <p class="note" style="margin:8px 0 0"><b>Exit when:</b> There is no exit. The measure is that the standards hold with less effort each year and that other people are better off for it.</p></div></div>
   <div class="panel">
     <h4>Reading this again in a year or three</h4>
-    <p style="margin-bottom:0">Find your phase by age. If you are behind it, do not compress two phases into one. Go back to the earliest incomplete Floor and rebuild from there. The order matters more than the dates.</p>
+    <p style="margin-bottom:0">Find your phase by age. Then check the exit test of the phase before it. If that test is not met, you are still in the earlier phase, whatever your age. Do not compress two phases into one. The order matters more than the dates. The first eighteen months are laid out month by month in Year one.</p>
+  </div>
+</section>
+
+<section id="yearone" aria-labelledby="h-yearone">
+  <h2 id="h-yearone"><span class="n">24</span>Year one</h2>
+  <p class="lede">The first eighteen months in sequence: the rest of the MBA, then the first twelve months at work.</p>
+  <p>Each row adds a little to the row before. Nothing here is new. It is the Floor of every domain, laid out in the order that makes each step easier than the last. Work months are numbered from your joining date, so the plan holds whenever that falls.</p>
+
+  <h3>Before joining</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>When</th><th>Sprint focus</th><th>Add this month</th><th>By the end</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">Nov 2026</td><td>Body</td><td>Baseline tests, time audit, sleep log. Body Stage 1 begins. Phone out of the bedroom. Weekly review slot fixed. Direction written.</td><td>First snapshot saved. Four weeks of training logged.</td></tr>
+      <tr><td class="lab">Dec 2026</td><td>Body</td><td>Protein target daily. One 60-minute deep-work block. 20 pages a day. Blood panel and dental check.</td><td>Sleep and wake time steady. Eight weeks of training.</td></tr>
+      <tr><td class="lab">Jan 2027</td><td>Body</td><td>Run-walk progression. Clothes altered, grooming schedule set. Weekly 2-minute tape begins.</td><td>Stage 1 complete. Retest. Body Floor mostly ticked.</td></tr>
+      <tr><td class="lab">Feb 2027</td><td>Craft</td><td>Second snapshot. Body moves to Stage 2. Skill stack: close the weakest layer with a real project.</td><td>One portfolio piece drafted.</td></tr>
+      <tr><td class="lab">Mar 2027</td><td>Craft</td><td>Finish the portfolio piece and publish it. Read your employer's annual report. Learn to read a P&amp;L.</td><td>MBA requirements closed out cleanly.</td></tr>
+      <tr><td class="lab">Apr 2027 to joining</td><td>Craft, then Money</td><td>Track a month of spending. Open accounts and complete KYC. Starter wardrobe. Three conversations with people in the company or function. Relocation plan.</td><td>Third snapshot. Day one is fully prepared.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note" style="margin-top:12px">Exam and submission weeks: keep wake time, sleep and three short sessions. Everything else drops to the minimum viable day and resumes the following Monday.</p>
+
+  <h3>The first twelve months at work</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Work month</th><th>Sprint focus</th><th>Do</th><th>By the end</th></tr></thead>
+    <tbody>
+      <tr><td class="lab">1</td><td>Craft</td><td>First 90 days playbook, days 1 to 30. Salary split automated from the first pay. Find a gym or set up the home kit in the new city within the first week. Keep three sessions and the weekly review, and let the rest flex.</td><td>You know what excellent looks like at 3, 6 and 12 months.</td></tr>
+      <tr><td class="lab">2</td><td>Craft</td><td>Own one recurring task completely. Choose the process to automate. Wins log and Friday note begin. Feedback at day 45.</td><td>Manager agrees the automation project.</td></tr>
+      <tr><td class="lab">3</td><td>Craft</td><td>Ship the first measurable win. One-page write-up. Personal health cover bought.</td><td>Craft Floor mostly ticked. First win logged.</td></tr>
+      <tr><td class="lab">4</td><td>Money</td><td>Quarterly snapshot. Spending tracked for three months, so set real budget numbers. One credit card on full auto-pay.</td><td>Savings rate known.</td></tr>
+      <tr><td class="lab">5</td><td>Money</td><td>Emergency fund building. Index instalment running. Rebuild the inner five in the new city: one standing weekly plan with a friend.</td><td>Three months of expenses in cash.</td></tr>
+      <tr><td class="lab">6</td><td>Money</td><td>Mid-year review with your manager, with the wins log in hand. Tax regime chosen with a calculator. Second win shipped.</td><td>Six-month check against Direction.</td></tr>
+      <tr><td class="lab">7</td><td>Presence</td><td>Quarterly snapshot. Volunteer to present your work. Join or start a speaking group. One page written each week.</td><td>Five speaking repetitions logged.</td></tr>
+      <tr><td class="lab">8</td><td>Presence</td><td>Ask two people how you come across under pressure. Wardrobe: add the working-stage items.</td><td>Filler count halved from baseline.</td></tr>
+      <tr><td class="lab">9</td><td>Presence</td><td>Third win shipped. Identify a possible sponsor by making one of their goals succeed.</td><td>Ten speaking repetitions. Presence Floor ticked.</td></tr>
+      <tr><td class="lab">10</td><td>Your lowest score</td><td>Quarterly snapshot. Choose the weakest domain for the sprint. Body retest.</td><td>All seven domains at Floor or better.</td></tr>
+      <tr><td class="lab">11</td><td>Your lowest score</td><td>Emergency fund reaches six months. Start the second income experiment with a fixed weekly budget.</td><td>Money Floor ticked.</td></tr>
+      <tr><td class="lab">12</td><td>Review</td><td>Annual review, half a day. First appraisal conversation prepared with the negotiation playbook. Rewrite Direction if you have changed.</td><td>The Prove phase exit criteria in the Roadmap are met, or you know exactly which are not.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="panel warnp">
+    <h4>Where year one usually breaks</h4>
+    <ul style="margin-bottom:0">
+      <li><b>Work month 1.</b> A new city and long days end the training habit. Decide where and when you will train before you arrive.</li>
+      <li><b>Work months 2 to 4.</b> First salary meets first freedom. Automate the split before the first pay lands.</li>
+      <li><b>Work months 5 to 8.</b> Old friendships fade through distance. Put the calls in the calendar.</li>
+      <li><b>Work months 9 to 12.</b> Comparison with classmates' titles and pay. Compare with your own snapshot from a year earlier.</li>
+    </ul>
+  </div>
+  <div class="panel wb">
+    <h4>Workbook · year one</h4>
+    <div class="fld"><label for="f-y1-join">Joining date, city and role, once known</label><input type="text" id="f-y1-join" data-k></div>
+    <div class="fld"><label for="f-y1-notes">Month-by-month notes</label><small>One line a month: what was done, what slipped, what moves to next month.</small><textarea id="f-y1-notes" data-k style="min-height:110px"></textarea></div>
+  </div>
+</section>
+
+<section id="decisions" aria-labelledby="h-decisions">
+  <h2 id="h-decisions"><span class="n">25</span>Decisions</h2>
+  <p class="lede">Five decisions that shape a decade, each with the questions to answer before you commit.</p>
+  <p>Use the general method in the Decisions playbook under Mind for every one of these: base rate, pre-mortem, three horizons, one outside view, then record it. The frameworks below add the questions specific to each case. They are judgement, built from common practice.</p>
+
+  <details class="pb" open><summary>Changing jobs <small>stay, move inside, or leave</small></summary><div class="in">
+    <div class="scroll"><table>
+      <thead><tr><th>Question</th><th>Stay if</th><th>Move if</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Am I still learning fast?</td><td>You are doing things you could not do six months ago</td><td>The last new skill was more than a year ago</td></tr>
+        <tr><td class="lab">Is my manager good for me?</td><td>They give feedback, scope and credit</td><td>They block, ignore or take credit, and a transfer is not possible</td></tr>
+        <tr><td class="lab">Is there a next role here?</td><td>You can name it and someone senior has agreed the path</td><td>The path does not exist or keeps moving</td></tr>
+        <tr><td class="lab">What is the market paying?</td><td>You are within range, or the learning offsets the gap</td><td>The gap is large and has lasted two cycles</td></tr>
+        <tr><td class="lab">Does the new role move me toward ownership?</td><td>It is the same job with a new logo</td><td>It adds scope, revenue exposure or a team</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Leave toward something, never only away from something.</li>
+      <li>Ask internally first. A move inside keeps your reputation and often gets the same result.</li>
+      <li>Finish what you started. Leave with a win logged and a manager who would rehire you.</li>
+      <li>Less than twelve months in a first job needs a strong reason.</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>Starting a company <small>when the side project becomes the job</small></summary><div class="in">
+    <ul>
+      <li>Have the five gates in the Craft founder playbook been passed in order?</li>
+      <li>Do you hold 12 months of personal expenses, separate from company money?</li>
+      <li>Is there a co-founder whose skills cover what yours do not, and have you worked together under pressure?</li>
+      <li>Does anyone depend on your income, and have you agreed the plan with them?</li>
+      <li>What is the date and the metric at which you stop and go back to a job? Write it before you start.</li>
+      <li>What does your employment contract say about what you built while employed?</li>
+    </ul>
+    <p>The base rate for new companies is failure. That is a reason to stage the risk with gates, and it is not a reason to avoid trying once the gates are passed.</p>
+  </div></details>
+
+  <details class="pb"><summary>Moving city <small>for a role, a person or a life</small></summary><div class="in">
+    <ul>
+      <li>What does the move add to Craft: scope, pay, industry density, people to learn from?</li>
+      <li>What does it cost in rent and travel? Recalculate the savings rate.</li>
+      <li>Who do you leave, and what is the plan to keep each of the inner five?</li>
+      <li>Who do you know there? Line up three people to meet in the first month.</li>
+      <li>Where will you train, and where will you live relative to work? A long commute taxes every other domain.</li>
+      <li>How far is it from your parents, in hours door to door?</li>
+    </ul>
+  </div></details>
+
+  <details class="pb"><summary>A big purchase <small>vehicle, home, anything over a month of pay</small></summary><div class="in">
+    <ol>
+      <li>Has it survived 30 days of waiting?</li>
+      <li>Is the emergency fund full and the future bucket paid this month?</li>
+      <li>What is the full cost over five years, including running costs and what the money would otherwise have earned?</li>
+      <li>How many hours of work does it cost?</li>
+      <li>Am I buying the thing or the image? Would I still want it if nobody saw it?</li>
+      <li>What is the resale value, and what is the cheaper version that does 90% of the job?</li>
+    </ol>
+    <p>For a home, also: do you expect to stay seven years, and does the instalment fit inside the needs bucket with room to spare?</p>
+  </div></details>
+
+  <details class="pb"><summary>Committing to a partner <small>the highest-leverage decision in the manual</small></summary><div class="in">
+    <ul>
+      <li><b>Character.</b> Are they honest, kind to people who can do nothing for them, and steady when things go wrong?</li>
+      <li><b>Direction.</b> Do your pictures of an ordinary Tuesday ten years out fit together: city, work, family, money, faith?</li>
+      <li><b>Conflict.</b> When you disagree, do you both repair it within a day? How you fight predicts more than how you get along.</li>
+      <li><b>Growth.</b> Are you each better for the other's presence, by your friends' account and not only your own?</li>
+      <li><b>Families.</b> Have the hard conversations about expectations, money and where you will live been had out loud?</li>
+      <li><b>Time.</b> Have you seen each other through a bad stretch, not only good ones?</li>
+    </ul>
+    <p>Write what you want and what you offer before you are choosing, as the People standards ask. The fuller relationship playbook comes with the People release.</p>
+  </div></details>
+
+  <div class="panel wb">
+    <h4>Workbook · decisions</h4>
+    <div class="fld"><label for="f-dec-open">Decisions I am facing in the next 12 months</label><small>Each with a deadline and the framework that applies.</small><textarea id="f-dec-open" data-k></textarea></div>
   </div>
 </section>
 
 <section id="library" aria-labelledby="h-library">
-  <h2 id="h-library"><span class="n">24</span>Library</h2>
+  <h2 id="h-library"><span class="n">26</span>Library</h2>
   <p class="lede">One or two books per domain. Read them in the quarter that domain is your focus.</p>
   <div class="scroll"><table>
     <thead><tr><th>Domain</th><th>Read</th><th>Why</th></tr></thead>
@@ -1606,7 +2214,7 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
 </section>
 
 <section id="sources" aria-labelledby="h-sources">
-  <h2 id="h-sources"><span class="n">25</span>Sources</h2>
+  <h2 id="h-sources"><span class="n">27</span>Sources</h2>
   <p class="lede">Every research claim above points here. Where a finding is contested, both sides are listed.</p>
   <ol style="font-size:14.5px">
     <li id="s1">Morton et al. (2018). Protein supplementation and resistance-training gains, meta-analysis. British Journal of Sports Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/">PubMed</a></li>
@@ -1640,11 +2248,16 @@ td small,th small{display:block;color:var(--muted);font-weight:400;font-size:12.
     <li id="s29">Ranehill et al. (2015). Assessing the robustness of power posing. Psychological Science. <a href="https://forrt.org/open-social-psychology/chapter27.html">Overview of the replications</a></li>
     <li id="s30">Pashler, McDaniel, Rohrer and Bjork (2008). Learning styles: concepts and evidence. <a href="https://digitalcommons.usf.edu/psy_facpub/1765/">Record</a></li>
     <li id="s31">Wilmot and Ones (2019). A century of research on conscientiousness at work. PNAS. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6859351">Full text</a></li>
+    <li id="s32">S&amp;P Dow Jones Indices (2026). SPIVA India Scorecard, year-end 2025. <a href="https://www.spglobal.com/spdji/en/spiva/article/spiva-india-year-end-2025/">S&amp;P summary</a></li>
+    <li id="s33">SEBI (2024). Analysis of profits and losses in the equity derivatives segment, FY22 to FY24. <a href="https://www.sebi.gov.in/media-and-notifications/press-releases/sep-2024/updated-sebi-study-reveals-93-of-individual-traders-incurred-losses-in-equity-fando-between-fy22-and-fy24-aggregate-losses-exceed-1-8-lakh-crores-over-three-years_86906.html">SEBI press release</a></li>
+    <li id="s34">Marks and Harold (2011). Who asks and who receives in salary negotiation. Journal of Organizational Behavior. <a href="https://www.pon.harvard.edu/daily/salary-negotiations/salary-negotiation-how-to-ask-for-a-higher-salary/">Harvard Program on Negotiation summary</a></li>
+    <li id="s35">Willis and Todorov (2006). First impressions: making up your mind after a 100-ms exposure to a face. Psychological Science. <a href="https://pubmed.ncbi.nlm.nih.gov/16866745/">PubMed</a></li>
+    <li id="s36">Rajkumar et al. (2022). A causal test of the strength of weak ties. Science. <a href="https://pubmed.ncbi.nlm.nih.gov/36107999/">PubMed</a></li>
   </ol>
-  <p class="note">Strength and running benchmarks, the tier definitions, the training programme, food portions and protein values, the ideal-week templates, the roadmap and the money checkpoints are judgement or standard practice, not research findings. They are marked as such where they appear.</p>
+  <p class="note">Strength and running benchmarks, the tier definitions, the training programme, food portions and protein values, the ideal-week templates, the playbooks in Craft, Money and Presence, the decision frameworks, the roadmap and the money checkpoints are judgement or standard practice, not research findings. They are marked as such where they appear.</p>
 </section>
 
-<footer>Version 1.1.0, updated 14 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
+<footer>Version 1.2.0, updated 14 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
 
 </div>
 </main>
