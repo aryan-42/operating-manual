@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryan Operating Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a field manual. Fixed numbered index on the left, one reading column, ruled panels for standards and fill-in pages. */
+  --paper:#eef1f5; --panel:#ffffff; --ink:#111a2b; --muted:#56627a; --line:#cbd3df;
+  --accent:#1c4fd6; --accent-soft:#e3eafb; --brass:#8a5f12; --good:#1f7a4d; --warn:#b4541a;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0b111c; --panel:#121a29; --ink:#e3e9f3; --muted:#93a0b8; --line:#27334b;
+    --accent:#86a8ff; --accent-soft:#17233d; --brass:#d9ac5a; --good:#5cc793; --warn:#f0935a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0b111c; --panel:#121a29; --ink:#e3e9f3; --muted:#93a0b8; --line:#27334b;
+  --accent:#86a8ff; --accent-soft:#17233d; --brass:#d9ac5a; --good:#5cc793; --warn:#f0935a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100%}
+nav.index{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:24px 16px 24px 24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.brand{font-family:var(--display);font-weight:700;font-size:26px;line-height:1;letter-spacing:.02em;text-transform:uppercase}
+.brand small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.04em;color:var(--muted);margin-top:8px;text-transform:none}
+nav.index ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+nav.index a{display:flex;gap:10px;align-items:baseline;padding:5px 8px;border-radius:4px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.index a:hover{background:var(--accent-soft)}
+nav.index a span{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:18px}
+.sync{font-family:var(--mono);font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+.sync b{font-weight:500;color:var(--ink)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--warn);margin-right:6px}
+.dot.ok{background:var(--good)}
+main{padding:32px clamp(16px,4vw,56px) 96px;min-width:0}
+.col{max-width:760px}
+header.top h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,68px);line-height:.95;text-transform:uppercase;letter-spacing:.01em;margin:0 0 12px;text-wrap:balance}
+header.top p{font-size:18px;color:var(--muted);margin:0 0 20px;max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;align-items:center}
+.meta b{color:var(--ink);font-weight:500}
+.meta input{font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+section{padding-top:56px}
+h2{font-family:var(--display);font-weight:700;font-size:38px;line-height:1;text-transform:uppercase;margin:0 0 6px;display:flex;gap:14px;align-items:baseline;text-wrap:balance}
+h2 .n{font-family:var(--mono);font-weight:400;font-size:14px;color:var(--accent)}
+.lede{color:var(--muted);font-size:17px;margin:0 0 20px;max-width:62ch}
+h3{font-family:var(--display);font-weight:600;font-size:23px;text-transform:uppercase;letter-spacing:.03em;margin:32px 0 8px}
+h4{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+p{margin:0 0 12px;max-width:68ch}
+ul,ol{margin:0 0 12px;padding-left:20px;max-width:68ch}
+li{margin-bottom:4px}
+sup a{font-family:var(--mono);font-size:11px;text-decoration:none}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px 20px;margin:16px 0}
+.ev{border-left:3px solid var(--brass)}
+.ev h4{color:var(--brass)}
+.wb{background:var(--accent-soft);border-color:var(--accent)}
+.wb h4{color:var(--accent)}
+.warnp{border-left:3px solid var(--warn)}
+.warnp h4{color:var(--warn)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.tier{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--line);border-radius:6px;padding:14px 16px}
+.tier.t2{border-top-color:var(--accent)}
+.tier.t3{border-top-color:var(--brass)}
+.tier h4{display:flex;justify-content:space-between;gap:8px}
+.tier h4 i{font-style:normal;color:var(--ink)}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45;padding:5px 0;border-top:1px dashed var(--line);cursor:pointer}
+.ck:first-of-type{border-top:0}
+.ck input{margin:3px 0 0;width:16px;height:16px;accent-color:var(--accent);flex:none}
+.pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;border:1px solid currentColor;border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.pill.s{color:var(--good)} .pill.m{color:var(--brass)} .pill.c{color:var(--warn)}
+.fld{display:flex;flex-direction:column;gap:4px;margin:10px 0}
+.fld label{font-size:13.5px;font-weight:500}
+.fld small{color:var(--muted);font-size:12.5px}
+textarea,input[type=text],input[type=number]{font:inherit;font-size:15px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 10px;width:100%}
+textarea{min-height:64px;resize:vertical;line-height:1.5}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+td.num,th.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.scroll{overflow-x:auto}
+.score{display:grid;grid-template-columns:96px minmax(0,1fr) 34px;gap:10px;align-items:center;padding:7px 0;border-top:1px dashed var(--line)}
+.score:first-of-type{border-top:0}
+.score label{font-weight:500;font-size:14.5px}
+.score input[type=range]{width:100%;accent-color:var(--accent)}
+.score output{font-family:var(--mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.sum{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:var(--mono);font-size:13px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.sum b{font-size:22px;font-family:var(--display);font-weight:700;margin-right:6px}
+button{font:inherit;font-size:14px;font-weight:500;color:var(--panel);background:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:8px 14px;cursor:pointer}
+button.ghost{background:transparent;color:var(--accent)}
+button.sm{font-size:12px;padding:3px 8px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.note{font-size:13.5px;color:var(--muted)}
+.phase{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.phase .when{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.phase .when b{display:block;font-family:var(--display);font-size:24px;font-weight:700;color:var(--ink);text-transform:uppercase;line-height:1.05;margin-bottom:4px}
+.phase ul{margin-bottom:0}
+footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+  .shell{display:block}
+  nav.index{position:sticky;top:0;z-index:5;height:auto;background:var(--paper);border-right:0;border-bottom:1px solid var(--line);padding:10px 16px;gap:8px}
+  .brand{font-size:18px} .brand small{display:none}
+  nav.index ol{flex-direction:row;overflow-x:auto;gap:4px;padding-bottom:2px}
+  nav.index a{white-space:nowrap;border:1px solid var(--line);padding:3px 9px;font-size:13px}
+  .sync{border-top:0;padding-top:0;flex-direction:row;flex-wrap:wrap;gap:4px 12px}
+  .sync .hide-s{display:none}
+  html{scroll-padding-top:110px}
+  .tiers,.two{grid-template-columns:minmax(0,1fr)}
+  .phase{grid-template-columns:minmax(0,1fr);gap:6px}
+  .score{grid-template-columns:76px minmax(0,1fr) 28px}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<nav class="index" aria-label="Sections">
+  <div class="brand">Operating Manual<small>Aryan · ages 24 to 34</small></div>
+  <ol>
+    <li><a href="#start"><span>00</span>Start here</a></li>
+    <li><a href="#standard"><span>01</span>The standard</a></li>
+    <li><a href="#principles"><span>02</span>Principles</a></li>
+    <li><a href="#scorecard"><span>03</span>Scorecard</a></li>
+    <li><a href="#direction"><span>04</span>Direction</a></li>
+    <li><a href="#body"><span>05</span>Body</a></li>
+    <li><a href="#mind"><span>06</span>Mind</a></li>
+    <li><a href="#craft"><span>07</span>Craft</a></li>
+    <li><a href="#money"><span>08</span>Money</a></li>
+    <li><a href="#presence"><span>09</span>Presence</a></li>
+    <li><a href="#people"><span>10</span>People</a></li>
+    <li><a href="#character"><span>11</span>Character</a></li>
+    <li><a href="#roadmap"><span>12</span>Roadmap</a></li>
+    <li><a href="#rhythm"><span>13</span>Rhythm</a></li>
+    <li><a href="#breaks"><span>14</span>When it breaks</a></li>
+    <li><a href="#library"><span>15</span>Library</a></li>
+    <li><a href="#sources"><span>16</span>Sources</a></li>
+  </ol>
+  <div class="sync">
+    <div><span class="dot" id="syncDot"></span><b id="syncText">Saving in this browser</b></div>
+    <div class="hide-s" id="stdCount">0 of 0 standards met</div>
+  </div>
+</nav>
+
+<main>
+<div class="col">
+
+<header class="top" id="start">
+  <h1>The Operating Manual</h1>
+  <p>One system for body, mind, craft, money, presence, people and character. Built to be reopened every quarter for ten years.</p>
+  <div class="meta">
+    <span>Started <input type="date" id="f-start" data-k value="2026-11-14" aria-label="Start date"></span>
+    <span><b id="weekNo">Week 1</b> of 520</span>
+    <span>Next review <b id="nextRev">Feb 2027</b></span>
+  </div>
+</header>
+
+<section aria-labelledby="h-start">
+  <h2 id="h-start"><span class="n">00</span>Start here</h2>
+  <p class="lede">Read sections 01 to 04 once and fill them in. After that you only need the scorecard, one domain at a time, and the rhythm in section 13.</p>
+  <div class="panel">
+    <h4>How to use this in the first week</h4>
+    <ol>
+      <li><b>Today, 30 minutes.</b> Score yourself in section 03 and save the snapshot. Do not think hard. First instinct is accurate enough.</li>
+      <li><b>This week, 60 minutes.</b> Fill in Direction (section 04). This decides what the next ten years are for.</li>
+      <li><b>Pick one domain.</b> Your lowest score is your constraint. Read that section and tick off its Floor standards before touching anything else.</li>
+      <li><b>Set the rhythm.</b> Put the weekly review in your calendar as a recurring 20-minute block.</li>
+      <li><b>Come back every quarter.</b> Rescore, save a snapshot, choose the next focus.</li>
+    </ol>
+  </div>
+  <div class="panel warnp">
+    <h4>Two rules that protect the system</h4>
+    <p><b>One focus per quarter.</b> Every other domain runs at its Floor. Overhauling seven areas at once is the most reliable way to quit by week three.</p>
+    <p style="margin-bottom:0"><b>The manual is finished.</b> Do not rebuild it into an app, a dashboard or a prettier template until you have run it for 90 days. Building trackers feels like progress and is not training.</p>
+  </div>
+  <p class="note">Everything you type or tick is saved automatically. Use the backup at the bottom of section 13 once a year.</p>
+</section>
+
+<section id="standard" aria-labelledby="h-standard">
+  <h2 id="h-standard"><span class="n">01</span>The standard</h2>
+  <p class="lede">What "top 1% man" means here, stated so it can be measured.</p>
+  <p>You said you do not want the watered-down version. Agreed. Here is the version that is both ambitious and mathematically real.</p>
+  <h3>The arithmetic of being rare</h3>
+  <p>Being the best in the world at one thing is mostly unavailable. Being very good across every domain at once is rare and available. If four qualities were unrelated and you reached the top 30% in each, you would be in roughly the top 1% for the combination (0.3 × 0.3 × 0.3 × 0.3 = 0.8%). Top 25% in three is 1.6%.</p>
+  <p>Real traits are correlated, so the true figure is less extreme. The principle holds. Most people who are strong in one domain have let another collapse: the high earner who is unfit, the athlete who is broke, the achiever who is alone. <b>The top 1% man is the one with no collapsed domain and one or two spikes.</b></p>
+  <div class="panel">
+    <h4>The definition this manual uses</h4>
+    <ul style="margin-bottom:0">
+      <li><b>No domain below Strong.</b> All seven domains at the Strong tier or better.</li>
+      <li><b>Two spikes at Elite.</b> For you the natural spikes are Craft and one of Body or Presence.</li>
+      <li><b>Held for years.</b> A standard you hold for one quarter is a stunt. The target is to still be there at 34.</li>
+    </ul>
+  </div>
+  <h3>The two characters, decoded</h3>
+  <p>Both are written to look effortless. The traits underneath are trainable. Each also carries damage you should not copy.</p>
+  <div class="scroll"><table>
+    <thead><tr><th></th><th>Take this</th><th>Leave this</th></tr></thead>
+    <tbody>
+      <tr><th>Harvey Specter</th><td>Over-preparation that reads as confidence. Composure under attack. Short, precise speech. Loyalty to his people. Clothes that fit.</td><td>Winning as identity. Arrogance as armour. Avoiding his own emotions until they cost him.</td></tr>
+      <tr><th>Bruce Wayne</th><td>Discipline across many skills. A mission bigger than himself. Restraint with power. Preparation for the worst case.</td><td>Isolation. Obsession with no off switch. Grief he never processed.</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin-top:12px">Sections 09 and 11 turn the "take this" column into drills. Section 10 exists because of the "leave this" column.</p>
+</section>
+
+<section id="principles" aria-labelledby="h-principles">
+  <h2 id="h-principles"><span class="n">02</span>Principles</h2>
+  <p class="lede">The psychology the system runs on, with an honest rating of how strong the evidence is.</p>
+  <p>Self-improvement content repeats findings that have not held up. Each principle below carries a rating: <span class="pill s">solid</span> well replicated or consensus, <span class="pill m">useful</span> real but smaller than advertised, <span class="pill c">contested</span> do not build on it.</p>
+
+  <h3>1. Confidence is a record, not a feeling <span class="pill s">solid</span></h3>
+  <p>In Bandura's work on self-efficacy, the strongest source of belief in your ability is having actually done the hard thing before. Watching others and being encouraged help less.<sup><a href="#s17">17</a></sup> So you do not work on confidence directly. You stack small completed challenges and the belief follows. Every domain here starts with a Floor you can hit this month for that reason.</p>
+
+  <h3>2. Pursue goals you endorse <span class="pill s">solid</span></h3>
+  <p>Self-determination theory identifies three needs behind lasting motivation: autonomy (you chose it), competence (you are getting better), relatedness (you are connected to people while doing it). Motivation and wellbeing rise when they are met and fall when they are blocked.<sup><a href="#s16">16</a></sup> A goal you adopted to impress people fails the first test. Section 04 exists to filter those out.</p>
+
+  <h3>3. Write if-then plans <span class="pill m">useful</span></h3>
+  <p>"If it is 6:30 on Monday, Wednesday or Friday, then I go to the gym before anything else." A 2006 meta-analysis of 94 tests found a medium-to-large effect on goal attainment (d = 0.65).<sup><a href="#s9">9</a></sup> A much larger 2024 synthesis that corrected for publication bias put the effect far lower, between 0.15 and 0.35.<sup><a href="#s10">10</a></sup> Use it, because it costs nothing. Do not expect it to carry the load.</p>
+
+  <h3>4. Imagine the obstacle, not just the win <span class="pill m">useful</span></h3>
+  <p>WOOP: Wish, Outcome, Obstacle, Plan. Pairing a vivid goal with the specific inner obstacle and an if-then plan shows a small-to-medium effect across 21 studies (g = 0.34), and the authors note the true figure may be smaller.<sup><a href="#s11">11</a></sup> Pure positive visualisation is not part of this system.</p>
+
+  <h3>5. Habits take months, and one miss is harmless <span class="pill s">solid</span></h3>
+  <p>The study behind the "66 days" figure followed 96 volunteers for 12 weeks. The median time to automaticity was 66 days, with a range from 18 to 254, and missing a single day made no material difference.<sup><a href="#s8">8</a></sup> Only about half the participants fitted the habit curve at all. Plan on two to eight months per habit, and treat the first miss as nothing and the second in a row as an alarm.</p>
+
+  <h3>6. Design the environment. Do not rely on willpower <span class="pill c">contested</span></h3>
+  <p>The idea that willpower is a tank that drains has not survived testing. A preregistered project across 36 labs and 3,531 people found an effect near zero (d = 0.06), with the data four times more likely under no effect.<sup><a href="#s12">12</a></sup> Stop asking whether you have enough discipline today. Remove the decision: gym bag packed the night before, phone charging outside the bedroom, investments debited on salary day.</p>
+
+  <h3>7. In knowledge work, hours are not the edge <span class="pill s">solid</span></h3>
+  <p>Deliberate practice explains about a quarter of performance differences in games, a fifth in music and under 1% in professions.<sup><a href="#s13">13</a></sup> Practice still matters. In a career, the differentiators are which problems you work on, who gives you feedback and which opportunities you are near. Section 07 is built around that.</p>
+
+  <h3>8. Learn by testing yourself, spaced out <span class="pill s">solid</span></h3>
+  <p>A review of ten study techniques rated two as high utility: practice testing and distributed practice. Rereading and highlighting, the most common methods, rated low.<sup><a href="#s14">14</a></sup> For anything you want to keep: close the book, write what you remember, repeat after days and then weeks.</p>
+
+  <h3>9. Skip the mindset and grit products <span class="pill c">contested</span></h3>
+  <p>Growth-mindset programmes show an average effect on achievement close to zero (d = 0.05 across 63 studies), though a competing analysis finds real benefits for at-risk students.<sup><a href="#s15">15</a></sup> Grit turns out to be nearly the same thing as conscientiousness and only moderately related to performance.<sup><a href="#s18">18</a></sup> You do not need a special belief. You need the plain version of conscientiousness: do what you said, on schedule, checked.</p>
+
+  <h3>10. Three thinking tools worth owning</h3>
+  <ul>
+    <li><b>The control split (Stoic).</b> Sort every worry into "mine to act on" and "not mine". Act on the first list. Drop the second.</li>
+    <li><b>The thought record (CBT).</b> Situation, automatic thought, evidence for, evidence against, balanced thought. Five lines on paper when your mind is running a story.</li>
+    <li><b>Values over moods (ACT).</b> Ask "what would the person I am building do in the next ten minutes?" and do that with the mood still present.</li>
+  </ul>
+</section>
+
+<section id="scorecard" aria-labelledby="h-scorecard">
+  <h2 id="h-scorecard"><span class="n">03</span>Scorecard</h2>
+  <p class="lede">Score each domain from 1 to 10. Save a snapshot every quarter. The lowest score chooses your next focus.</p>
+  <p class="note">Calibration: 3 = neglected. 5 = Floor standards mostly met. 7 = Strong tier met. 9 = Elite tier met and held for a year.</p>
+  <div class="panel">
+    <div id="scores">
+      <div class="score"><label for="s-body">Body</label><input type="range" min="1" max="10" value="5" id="s-body" data-k><output for="s-body">–</output></div>
+      <div class="score"><label for="s-mind">Mind</label><input type="range" min="1" max="10" value="5" id="s-mind" data-k><output for="s-mind">–</output></div>
+      <div class="score"><label for="s-craft">Craft</label><input type="range" min="1" max="10" value="5" id="s-craft" data-k><output for="s-craft">–</output></div>
+      <div class="score"><label for="s-money">Money</label><input type="range" min="1" max="10" value="5" id="s-money" data-k><output for="s-money">–</output></div>
+      <div class="score"><label for="s-presence">Presence</label><input type="range" min="1" max="10" value="5" id="s-presence" data-k><output for="s-presence">–</output></div>
+      <div class="score"><label for="s-people">People</label><input type="range" min="1" max="10" value="5" id="s-people" data-k><output for="s-people">–</output></div>
+      <div class="score"><label for="s-character">Character</label><input type="range" min="1" max="10" value="5" id="s-character" data-k><output for="s-character">–</output></div>
+    </div>
+    <div class="sum">
+      <span><b id="avg">–</b>average</span>
+      <span><b id="low">–</b>your constraint</span>
+      <span><b id="gap">–</b>gap, highest minus lowest</span>
+    </div>
+    <div class="fld"><label for="f-snapnote">One line on this quarter</label><input type="text" id="f-snapnote" data-k placeholder="What changed since the last snapshot"></div>
+    <div class="row"><button type="button" id="snapBtn">Save snapshot for today</button><span class="note" id="snapMsg">Move a slider to score a domain. Unscored domains show a dash.</span></div>
+  </div>
+  <h3>History</h3>
+  <div class="scroll"><table id="snapTable">
+    <thead><tr><th>Date</th><th class="num">Bo</th><th class="num">Mi</th><th class="num">Cr</th><th class="num">Mo</th><th class="num">Pr</th><th class="num">Pe</th><th class="num">Ch</th><th class="num">Avg</th><th>Note</th><th></th></tr></thead>
+    <tbody><tr><td colspan="11" class="note">No snapshots yet. Your first one is the baseline every later one is measured against.</td></tr></tbody>
+  </table></div>
+  <p class="note" style="margin-top:12px">Watch the gap as closely as the average. A widening gap means one domain is being fed by starving another.</p>
+</section>
+
+<section id="direction" aria-labelledby="h-direction">
+  <h2 id="h-direction"><span class="n">04</span>Direction</h2>
+  <p class="lede">What the next ten years are for. Fill this in before optimising anything.</p>
+  <div class="panel wb">
+    <h4>Workbook · values and identity</h4>
+    <div class="fld"><label for="f-values">My five values, ranked</label><small>Rank them. When two conflict, the higher one wins. Examples: mastery, family, freedom, integrity, wealth, health, service, adventure.</small><textarea id="f-values" data-k></textarea></div>
+    <div class="fld"><label for="f-identity">Identity statement</label><small>"I am the kind of man who ..." Write five. Each must be something you can prove with an action this week.</small><textarea id="f-identity" data-k></textarea></div>
+    <div class="fld"><label for="f-anti">Anti-vision</label><small>Describe the 34-year-old you refuse to become, in detail. Health, work, money, relationships. This is the obstacle step from WOOP applied to a whole life.</small><textarea id="f-anti" data-k></textarea></div>
+  </div>
+  <div class="panel wb">
+    <h4>Workbook · the three horizons</h4>
+    <div class="fld"><label for="f-v10">Age 34. An ordinary Tuesday.</label><small>Where you wake up, what you look like, what work you do, who is around you, what you own, what people say about you.</small><textarea id="f-v10" data-k></textarea></div>
+    <div class="fld"><label for="f-v3">Age 27. What must be true for the above to be on track?</label><textarea id="f-v3" data-k></textarea></div>
+    <div class="fld"><label for="f-v1">Twelve months from today. Three outcomes, each measurable.</label><textarea id="f-v1" data-k></textarea></div>
+    <div class="fld"><label for="f-mission">Mission, one sentence</label><small>Who do you get strong for? A mission that serves only you runs out around 30.</small><textarea id="f-mission" data-k></textarea></div>
+  </div>
+  <div class="panel">
+    <h4>The autonomy test</h4>
+    <p style="margin-bottom:0">For each goal above, ask: would I still want this if nobody could ever know I achieved it? Keep the ones that pass. The ones that fail are status goals, and they will not hold your effort for a decade.</p>
+  </div>
+</section>
+
+<section id="body" aria-labelledby="h-body">
+  <h2 id="h-body"><span class="n">05</span>Body</h2>
+  <p class="lede">Start here if you are unsure. It has the fastest feedback loop and it raises energy for everything else.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor <i>month 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-b1" data-k>Sleep 7 or more hours, at least 6 nights a week</label>
+      <label class="ck"><input type="checkbox" id="c-b2" data-k>Strength train 3 times a week for 12 straight weeks</label>
+      <label class="ck"><input type="checkbox" id="c-b3" data-k>150 minutes of moderate cardio a week, or 75 vigorous</label>
+      <label class="ck"><input type="checkbox" id="c-b4" data-k>Protein near 1.6 g per kg of bodyweight daily</label>
+      <label class="ck"><input type="checkbox" id="c-b5" data-k>Waist under half your height</label>
+      <label class="ck"><input type="checkbox" id="c-b6" data-k>Blood panel and dental check done this year</label>
+    </div>
+    <div class="tier t2"><h4>Strong <i>year 1 to 2</i></h4>
+      <label class="ck"><input type="checkbox" id="c-b7" data-k>Squat 1.5× bodyweight, bench 1×, deadlift 1.75×</label>
+      <label class="ck"><input type="checkbox" id="c-b8" data-k>10 strict pull-ups</label>
+      <label class="ck"><input type="checkbox" id="c-b9" data-k>5 km run under 25 minutes</label>
+      <label class="ck"><input type="checkbox" id="c-b10" data-k>Resting heart rate under 60</label>
+      <label class="ck"><input type="checkbox" id="c-b11" data-k>Trained through one full year with no gap over 10 days</label>
+    </div>
+    <div class="tier t3"><h4>Elite <i>year 3 to 6</i></h4>
+      <label class="ck"><input type="checkbox" id="c-b12" data-k>Squat 2× bodyweight, bench 1.5×, deadlift 2.5×</label>
+      <label class="ck"><input type="checkbox" id="c-b13" data-k>15 strict pull-ups</label>
+      <label class="ck"><input type="checkbox" id="c-b14" data-k>5 km under 21 minutes, or 10 km under 45</label>
+      <label class="ck"><input type="checkbox" id="c-b15" data-k>Tested VO2 max in the top bracket for your age</label>
+      <label class="ck"><input type="checkbox" id="c-b16" data-k>Three years in one physical skill: boxing, a grappling art, swimming or climbing</label>
+    </div>
+  </div>
+  <p class="note">The lifting and running numbers are common coaching benchmarks for a healthy man in his twenties, not research findings. Adjust for your frame and any injuries.</p>
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li><b>Weekly dose.</b> WHO guidance for adults is 150 to 300 minutes of moderate aerobic activity or 75 to 150 vigorous, plus muscle strengthening for all major groups on 2 or more days.<sup><a href="#s2">2</a></sup></li>
+      <li><b>Cardio fitness is the big lever for lifespan.</b> In 122,007 adults given treadmill tests, the fittest group had about a fifth of the death risk of the least fit, with no upper limit to the benefit. Low fitness carried risk comparable to or greater than smoking or diabetes. This was an observational study of clinic patients, so treat the size as indicative.<sup><a href="#s3">3</a></sup></li>
+      <li><b>Protein.</b> Across 49 trials, extra protein improved strength and muscle gain from lifting, with no further benefit above roughly 1.6 g per kg per day.<sup><a href="#s1">1</a></sup></li>
+      <li><b>Training volume.</b> Muscle growth rises with weekly sets per muscle. Ten or more beats fewer than five, and 12 to 20 hard sets a week is a reasonable range once you are trained.<sup><a href="#s4">4</a></sup></li>
+      <li><b>Sleep.</b> The sleep-medicine consensus is 7 or more hours a night on a regular basis.<sup><a href="#s5">5</a></sup></li>
+      <li><b>Waist.</b> NICE advises keeping your waist under half your height. A ratio of 0.4 to 0.49 indicates no increased risk.<sup><a href="#s6">6</a></sup></li>
+      <li><b>Creatine, optional.</b> The best-studied supplement. 3 to 5 g a day maintains stores and is well tolerated at that dose.<sup><a href="#s7">7</a></sup> Check with a doctor first if you have any kidney concern.</li>
+    </ul>
+  </div>
+  <h3>Protocol</h3>
+  <p><b>Months 0 to 6. Three full-body sessions a week.</b> Each session: one squat pattern, one hinge, one push, one pull, one carry or core movement. Three sets of 6 to 12. When you hit the top of the range on all sets, add the smallest plate next time. Add two easy cardio sessions of 30 to 45 minutes at a pace where you can still talk.</p>
+  <p><b>Months 6 to 24. Four sessions, upper and lower split.</b> Build to 10 to 20 hard sets per muscle per week. Keep two easy cardio sessions and add one interval session, for example four rounds of four minutes hard with three minutes easy.</p>
+  <p><b>Year 2 onward. Add a skill.</b> Something with a coach, a ranking or an opponent. This is the Wayne part: capability, not only appearance.</p>
+  <p><b>Food.</b> Hit protein first. Build meals around whole foods. Log everything for two weeks to calibrate your eye, then stop logging. Keep alcohol rare.</p>
+  <p><b>Safety.</b> Pain that changes how you move means stop and see a physiotherapist. Learn the barbell lifts from a coach for the first month. It is the cheapest insurance you will buy.</p>
+  <div class="panel wb">
+    <h4>Workbook · body</h4>
+    <div class="two">
+      <div class="fld"><label for="f-b-base">Baseline today</label><small>Weight, waist, height, resting heart rate, best lifts, 5 km time.</small><textarea id="f-b-base" data-k></textarea></div>
+      <div class="fld"><label for="f-b-now">Latest numbers</label><small>Update monthly. Date each line.</small><textarea id="f-b-now" data-k></textarea></div>
+    </div>
+    <div class="fld"><label for="f-b-if">My if-then plan for training</label><small>"If it is [day and time], then I [exact session] at [place]." Add one for the most likely obstacle.</small><textarea id="f-b-if" data-k></textarea></div>
+  </div>
+  <div class="panel warnp">
+    <h4>How this domain fails</h4>
+    <ul style="margin-bottom:0">
+      <li>Changing programme every three weeks. Run one programme for at least twelve.</li>
+      <li>Training hard and sleeping six hours. Sleep is where the adaptation happens.</li>
+      <li>Chasing appearance with crash diets. The standard is performance and a stable waist, held all year.</li>
+      <li>Skipping cardio because lifting is more fun. The longevity data sits with cardio fitness.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="mind" aria-labelledby="h-mind">
+  <h2 id="h-mind"><span class="n">06</span>Mind</h2>
+  <p class="lede">Attention, learning and emotional steadiness. This is where Specter's knowledge and Wayne's calm come from.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor</h4>
+      <label class="ck"><input type="checkbox" id="c-m1" data-k>Phone charges outside the bedroom</label>
+      <label class="ck"><input type="checkbox" id="c-m2" data-k>60 minutes of single-task deep work every weekday</label>
+      <label class="ck"><input type="checkbox" id="c-m3" data-k>20 pages of a real book daily</label>
+      <label class="ck"><input type="checkbox" id="c-m4" data-k>Weekly review done 10 weeks running</label>
+      <label class="ck"><input type="checkbox" id="c-m5" data-k>Social apps under 45 minutes a day</label>
+    </div>
+    <div class="tier t2"><h4>Strong</h4>
+      <label class="ck"><input type="checkbox" id="c-m6" data-k>3 hours of deep work on a normal workday</label>
+      <label class="ck"><input type="checkbox" id="c-m7" data-k>25 books a year, each with a one-page recall note</label>
+      <label class="ck"><input type="checkbox" id="c-m8" data-k>10 minutes of stillness daily: sitting meditation or longhand journal</label>
+      <label class="ck"><input type="checkbox" id="c-m9" data-k>Can state the best case against any position I hold</label>
+      <label class="ck"><input type="checkbox" id="c-m10" data-k>Decision journal kept for every major decision</label>
+    </div>
+    <div class="tier t3"><h4>Elite</h4>
+      <label class="ck"><input type="checkbox" id="c-m11" data-k>One original piece of thinking published every month for a year</label>
+      <label class="ck"><input type="checkbox" id="c-m12" data-k>Other people describe me as calm under pressure, unprompted</label>
+      <label class="ck"><input type="checkbox" id="c-m13" data-k>A second field studied to working depth: finance, law or statistics</label>
+      <label class="ck"><input type="checkbox" id="c-m14" data-k>Conversational in one more language</label>
+    </div>
+  </div>
+  <h3>Protocol</h3>
+  <p><b>Deep work block.</b> Same time each day, phone in another room, one task written on paper before you start. Begin at 60 minutes and add 15 a month.</p>
+  <p><b>Reading that sticks.</b> After each chapter, close the book and write what you remember. Review the note after a week and after a month. This applies the two techniques rated highest in the learning research: self-testing and spacing.<sup><a href="#s14">14</a></sup> Your commonplace book is the right home for these notes.</p>
+  <p><b>The Specter file.</b> Pick the three subjects your career runs on and read the standard texts in each, not summaries. Depth is what lets you speak briefly and be right.</p>
+  <p><b>Pressure drill.</b> Once a week do something that raises your pulse socially or mentally: ask a hard question in a meeting, cold-message someone senior, present without slides. Calm is trained by exposure.</p>
+  <p><b>Decision journal.</b> Before any major decision, write the decision, what you expect to happen, and why. Read it six months later. It is the fastest way to find out how your judgement is actually performing.</p>
+  <div class="panel wb">
+    <h4>Workbook · mind</h4>
+    <div class="fld"><label for="f-m-three">My three core subjects and the next book in each</label><textarea id="f-m-three" data-k></textarea></div>
+    <div class="fld"><label for="f-m-leak">My biggest attention leak and the environmental fix</label><small>The fix must change the environment. "Try harder" is not a fix.</small><textarea id="f-m-leak" data-k></textarea></div>
+    <div class="fld"><label for="f-m-read">Books finished, with one line each</label><textarea id="f-m-read" data-k></textarea></div>
+  </div>
+  <div class="panel warnp">
+    <h4>How this domain fails</h4>
+    <ul style="margin-bottom:0">
+      <li>Consuming self-improvement content in place of doing the work. One book applied beats ten skimmed.</li>
+      <li>Treating low mood as a discipline problem. If you feel flat or anxious most days for two weeks or more, see a doctor or therapist. That is maintenance, the same as seeing a physio for a knee.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="craft" aria-labelledby="h-craft">
+  <h2 id="h-craft"><span class="n">07</span>Craft</h2>
+  <p class="lede">Your work. At 24 this is the largest lever on income, options and self-respect.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor <i>first 6 months in role</i></h4>
+      <label class="ck"><input type="checkbox" id="c-c1" data-k>Every deliverable checked twice before it leaves me</label>
+      <label class="ck"><input type="checkbox" id="c-c2" data-k>A prep file written before every important meeting</label>
+      <label class="ck"><input type="checkbox" id="c-c3" data-k>Feedback asked from my manager every month</label>
+      <label class="ck"><input type="checkbox" id="c-c4" data-k>Wins log updated weekly</label>
+      <label class="ck"><input type="checkbox" id="c-c5" data-k>I can read my employer's P&amp;L and explain how my function touches it</label>
+    </div>
+    <div class="tier t2"><h4>Strong <i>year 1 to 3</i></h4>
+      <label class="ck"><input type="checkbox" id="c-c6" data-k>Known inside the company for one specific thing</label>
+      <label class="ck"><input type="checkbox" id="c-c7" data-k>One shipped project per quarter with a number attached</label>
+      <label class="ck"><input type="checkbox" id="c-c8" data-k>Working stack: HR domain, SQL and Python, AI automation, finance basics</label>
+      <label class="ck"><input type="checkbox" id="c-c9" data-k>A public portfolio: writing, tools or case studies</label>
+      <label class="ck"><input type="checkbox" id="c-c10" data-k>Two mentors and one sponsor who speaks for me in rooms I am not in</label>
+    </div>
+    <div class="tier t3"><h4>Elite <i>year 4 to 10</i></h4>
+      <label class="ck"><input type="checkbox" id="c-c11" data-k>Sought by name from outside my company</label>
+      <label class="ck"><input type="checkbox" id="c-c12" data-k>Own a P&amp;L, a product or a team</label>
+      <label class="ck"><input type="checkbox" id="c-c13" data-k>Pay in the top tenth of my MBA cohort</label>
+      <label class="ck"><input type="checkbox" id="c-c14" data-k>Invited to speak or publish in my field</label>
+      <label class="ck"><input type="checkbox" id="c-c15" data-k>Have built something that earns or runs without my daily hours</label>
+    </div>
+  </div>
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <p style="margin-bottom:0">Accumulated practice explains less than 1% of performance differences in professions, against 18 to 26% in sports, music and games.<sup><a href="#s13">13</a></sup> In knowledge work, grinding more hours on the same tasks is a weak strategy. What separates people is problem selection, feedback quality and proximity to opportunity. The protocol below is built on those three.</p>
+  </div>
+  <h3>Your position</h3>
+  <p>Engineering plus HR plus the ability to build AI automation is an uncommon combination. Most HR professionals cannot build and most builders do not understand how people decisions get made in a company. That intersection is your spike. Protect it by going deep, because breadth dilutes it.</p>
+  <h3>The ladder</h3>
+  <div class="phase"><div class="when"><b>Credibility</b>Year 0 to 2</div><div><ul>
+    <li>Be excellent at the job you were hired for. Nothing else counts until this is true.</li>
+    <li>Find the most painful manual process near you and automate it. Measure hours or money saved. That is your first number.</li>
+    <li>Choose managers over brand names. A strong boss in year one is worth more than a title.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Adjacency</b>Year 2 to 5</div><div><ul>
+    <li>Move one step toward revenue: HR tech product, people analytics, consulting, total rewards or a business role. One step at a time is realistic. A direct leap rarely is.</li>
+    <li>Publish what you build. A portfolio does the selling when you are not in the room.</li>
+    <li>Keep a small HR and AI tool alive on the side with a fixed weekly time budget and written criteria for when to stop.</li>
+  </ul></div></div>
+  <div class="phase"><div class="when"><b>Ownership</b>Year 5 to 10</div><div><ul>
+    <li>Take P&amp;L responsibility, or found the company if the side tool has paying users.</li>
+    <li>Build a team. Your ceiling becomes the quality of people who choose to work with you.</li>
+    <li>Add income that does not depend on your salary.</li>
+  </ul></div></div>
+  <h3>The prep file</h3>
+  <p>The whole Specter effect is one habit. Before any meeting that matters, write five lines: what they want, what I want, the three objections I will hear, my answer to each, and where I walk away. Ten minutes. Almost nobody does it.</p>
+  <div class="panel wb">
+    <h4>Workbook · craft</h4>
+    <div class="fld"><label for="f-c-known">The one thing I will be known for by December 2027</label><textarea id="f-c-known" data-k></textarea></div>
+    <div class="two">
+      <div class="fld"><label for="f-c-stack">My skill stack, rated 1 to 5</label><textarea id="f-c-stack" data-k></textarea></div>
+      <div class="fld"><label for="f-c-next">The next skill and how I will prove it</label><textarea id="f-c-next" data-k></textarea></div>
+    </div>
+    <div class="fld"><label for="f-c-wins">Wins log</label><small>Date, what I did, the number. This becomes every appraisal, CV and negotiation.</small><textarea id="f-c-wins" data-k></textarea></div>
+    <div class="fld"><label for="f-c-people">Mentors, sponsors and people I should know</label><textarea id="f-c-people" data-k></textarea></div>
+    <div class="fld"><label for="f-c-kill">Side project: weekly hours and stop criteria</label><textarea id="f-c-kill" data-k></textarea></div>
+  </div>
+  <div class="panel warnp">
+    <h4>How this domain fails</h4>
+    <ul style="margin-bottom:0">
+      <li>Planning the third job while underperforming in the first.</li>
+      <li>Learning five tools shallowly. Depth in one visible thing beats a long skills list.</li>
+      <li>Letting the side project eat the main job. Credibility comes first.</li>
+      <li>Doing good work silently. If nobody with influence knows, it did not happen for career purposes.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="money" aria-labelledby="h-money">
+  <h2 id="h-money"><span class="n">08</span>Money</h2>
+  <p class="lede">Wayne inherited his. You build yours with a savings rate, time and rising income.</p>
+  <p class="note">General information for an Indian salaried professional. This is not personalised financial advice. Tax rules and products change, so check current rules each April and use a SEBI-registered fee-only adviser for real decisions.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor <i>first 12 months of salary</i></h4>
+      <label class="ck"><input type="checkbox" id="c-f1" data-k>I know my monthly spend to within 10%</label>
+      <label class="ck"><input type="checkbox" id="c-f2" data-k>Emergency fund of 6 months of expenses</label>
+      <label class="ck"><input type="checkbox" id="c-f3" data-k>No credit card balance carried, ever</label>
+      <label class="ck"><input type="checkbox" id="c-f4" data-k>Personal health cover beyond the employer policy</label>
+      <label class="ck"><input type="checkbox" id="c-f5" data-k>20% of take-home invested automatically on salary day</label>
+    </div>
+    <div class="tier t2"><h4>Strong <i>year 2 to 4</i></h4>
+      <label class="ck"><input type="checkbox" id="c-f6" data-k>Savings rate of 30 to 40%</label>
+      <label class="ck"><input type="checkbox" id="c-f7" data-k>One year of expenses invested</label>
+      <label class="ck"><input type="checkbox" id="c-f8" data-k>Half of every raise goes to investments</label>
+      <label class="ck"><input type="checkbox" id="c-f9" data-k>I file my own taxes and understand each line</label>
+      <label class="ck"><input type="checkbox" id="c-f10" data-k>A second income source has earned its first rupee</label>
+    </div>
+    <div class="tier t3"><h4>Elite <i>year 5 to 10</i></h4>
+      <label class="ck"><input type="checkbox" id="c-f11" data-k>5 years of expenses invested by 31</label>
+      <label class="ck"><input type="checkbox" id="c-f12" data-k>10 years of expenses invested by 35</label>
+      <label class="ck"><input type="checkbox" id="c-f13" data-k>Income from at least three sources</label>
+      <label class="ck"><input type="checkbox" id="c-f14" data-k>Parents' health and retirement plan written and funded</label>
+      <label class="ck"><input type="checkbox" id="c-f15" data-k>Will and nominations in place on every account</label>
+    </div>
+  </div>
+  <p class="note">The "years of expenses" targets are arithmetic from a 40 to 50% savings rate held from age 24, before investment returns. They are checkpoints, not promises.</p>
+  <h3>Order of operations</h3>
+  <ol>
+    <li><b>Track one full month</b> of spending before designing anything.</li>
+    <li><b>Build the emergency fund</b> in a liquid, boring place.</li>
+    <li><b>Insure.</b> Health cover now. Term life cover when someone depends on your income. Keep insurance and investment as separate products.</li>
+    <li><b>Automate.</b> A standing instruction on salary day into low-cost, broad index funds. Learn what EPF, NPS and PPF each do for you before choosing.</li>
+    <li><b>Raise the rate with every raise.</b> Lifestyle may grow, at half the speed of income.</li>
+    <li><b>Then go after income.</b> Saving has a ceiling. Earning does not. Section 07 is your real money plan.</li>
+  </ol>
+  <div class="panel ev">
+    <h4>What money does and does not do</h4>
+    <p style="margin-bottom:0">A 2023 joint analysis by two research teams who had disagreed found that for most people happiness keeps rising with income. For the least happy fifth it stops rising at a point, so money does not fix misery that has other causes.<sup><a href="#s20">20</a></sup> The director of Harvard's 85-year study adds that beyond basic security, more wealth moves wellbeing only a little compared with relationships.<sup><a href="#s19">19</a></sup> Money is a strong tool for freedom and a weak one for meaning. Build it and do not confuse it with the mission.</p>
+  </div>
+  <div class="panel wb">
+    <h4>Workbook · money</h4>
+    <div class="two">
+      <div class="fld"><label for="f-f-rate">Savings rate, by quarter</label><small>Invested divided by take-home.</small><textarea id="f-f-rate" data-k></textarea></div>
+      <div class="fld"><label for="f-f-nw">Net worth, by quarter</label><small>Assets minus debts. One line per quarter.</small><textarea id="f-f-nw" data-k></textarea></div>
+    </div>
+    <div class="fld"><label for="f-f-rules">My money rules</label><small>Example: wait 30 days on any purchase over a set amount. No loans for things that lose value.</small><textarea id="f-f-rules" data-k></textarea></div>
+  </div>
+  <div class="panel warnp">
+    <h4>How this domain fails</h4>
+    <ul style="margin-bottom:0">
+      <li>Buying the watch and the car to look like the destination before reaching it.</li>
+      <li>Trading, options and tips. For nearly everyone, automated index investing beats activity.</li>
+      <li>Lending or co-signing without a written agreement.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="presence" aria-labelledby="h-presence">
+  <h2 id="h-presence"><span class="n">09</span>Presence</h2>
+  <p class="lede">How you look, sound and carry yourself. Competence people can see within thirty seconds.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor</h4>
+      <label class="ck"><input type="checkbox" id="c-p1" data-k>Clothes fit, are pressed, and shoes are clean</label>
+      <label class="ck"><input type="checkbox" id="c-p2" data-k>Haircut, skin and nails on a fixed schedule</label>
+      <label class="ck"><input type="checkbox" id="c-p3" data-k>Five minutes early to everything</label>
+      <label class="ck"><input type="checkbox" id="c-p4" data-k>Phone out of sight in every conversation</label>
+      <label class="ck"><input type="checkbox" id="c-p5" data-k>I use people's names and remember them</label>
+    </div>
+    <div class="tier t2"><h4>Strong</h4>
+      <label class="ck"><input type="checkbox" id="c-p6" data-k>I answer first, then explain</label>
+      <label class="ck"><input type="checkbox" id="c-p7" data-k>10-minute presentation delivered without notes</label>
+      <label class="ck"><input type="checkbox" id="c-p8" data-k>One-page memos that need no follow-up questions</label>
+      <label class="ck"><input type="checkbox" id="c-p9" data-k>A small wardrobe of basics, altered by a tailor</label>
+      <label class="ck"><input type="checkbox" id="c-p10" data-k>25 public speaking repetitions logged</label>
+    </div>
+    <div class="tier t3"><h4>Elite</h4>
+      <label class="ck"><input type="checkbox" id="c-p11" data-k>Held a room of 100 or more</label>
+      <label class="ck"><input type="checkbox" id="c-p12" data-k>Negotiated a major deal or offer calmly, with a prepared walk-away</label>
+      <label class="ck"><input type="checkbox" id="c-p13" data-k>I stay level when insulted or provoked</label>
+      <label class="ck"><input type="checkbox" id="c-p14" data-k>A recognisable personal style that I did not copy</label>
+    </div>
+  </div>
+  <h3>Drills</h3>
+  <ul>
+    <li><b>Two-minute tape.</b> Record yourself explaining one idea each week. Watch it once. Fix one thing: pace, filler words, eye line or posture.</li>
+    <li><b>Pause instead of filler.</b> Silence reads as control. "Um" reads as searching.</li>
+    <li><b>Answer first.</b> Conclusion in the first sentence, reasons after. Use it in email, meetings and interviews.</li>
+    <li><b>Three questions before one statement.</b> In any new conversation, ask three real questions before offering an opinion. People remember being heard.</li>
+    <li><b>Speaking reps.</b> Join a speaking club or volunteer for every presentation at work until the log reaches 25.</li>
+    <li><b>Negotiation prep.</b> Their interests, your interests, your best alternative if this fails, your opening number and your walk-away. Written before the call.</li>
+    <li><b>Wardrobe.</b> Fewer pieces, better fit. Two well-fitted suits or blazers, plain shirts, dark trousers, good leather shoes, one watch. Tailoring matters more than labels.</li>
+  </ul>
+  <div class="panel wb">
+    <h4>Workbook · presence</h4>
+    <div class="fld"><label for="f-p-log">Speaking log</label><small>Date, audience, what went well, one fix.</small><textarea id="f-p-log" data-k></textarea></div>
+    <div class="fld"><label for="f-p-fix">The one presence habit I am fixing this quarter</label><textarea id="f-p-fix" data-k></textarea></div>
+  </div>
+  <div class="panel warnp">
+    <h4>How this domain fails</h4>
+    <p style="margin-bottom:0">Copying the swagger without the preparation. On screen, the one-liners work because the character already won the case in the library the night before. Presence without substance gets found out quickly.</p>
+  </div>
+</section>
+
+<section id="people" aria-labelledby="h-people">
+  <h2 id="h-people"><span class="n">10</span>People</h2>
+  <p class="lede">The domain both of your models neglected, and the one the long-term research ranks first.</p>
+  <div class="panel ev">
+    <h4>What the evidence says</h4>
+    <ul style="margin-bottom:0">
+      <li>Harvard's study of adult life has followed people since 1938. Its director's central finding is that the quality of close relationships shapes both happiness and physical health across a lifetime.<sup><a href="#s19">19</a></sup></li>
+      <li>Pooling 148 studies and 308,849 people, those with stronger social relationships had 50% greater odds of survival over the follow-up period, an effect comparable with well-established mortality risk factors.<sup><a href="#s21">21</a></sup></li>
+    </ul>
+  </div>
+  <div class="tiers">
+    <div class="tier"><h4>Floor</h4>
+      <label class="ck"><input type="checkbox" id="c-r1" data-k>A proper call home every week</label>
+      <label class="ck"><input type="checkbox" id="c-r2" data-k>Two friends I could call at 3 a.m.</label>
+      <label class="ck"><input type="checkbox" id="c-r3" data-k>I reply within a day to people who matter</label>
+      <label class="ck"><input type="checkbox" id="c-r4" data-k>Birthdays and big days remembered without an app prompting me that morning</label>
+    </div>
+    <div class="tier t2"><h4>Strong</h4>
+      <label class="ck"><input type="checkbox" id="c-r5" data-k>One unhurried meal or call with a close friend every week</label>
+      <label class="ck"><input type="checkbox" id="c-r6" data-k>I host or organise something every month</label>
+      <label class="ck"><input type="checkbox" id="c-r7" data-k>Five relationships with people 10 years ahead of me</label>
+      <label class="ck"><input type="checkbox" id="c-r8" data-k>I help before I ask, and keep no score</label>
+      <label class="ck"><input type="checkbox" id="c-r9" data-k>I have written what I want in a life partner and what I offer</label>
+    </div>
+    <div class="tier t3"><h4>Elite</h4>
+      <label class="ck"><input type="checkbox" id="c-r10" data-k>Friendships that have lasted 10 years, still active</label>
+      <label class="ck"><input type="checkbox" id="c-r11" data-k>Mentoring at least two people younger than me</label>
+      <label class="ck"><input type="checkbox" id="c-r12" data-k>A partnership I invest in as deliberately as my career</label>
+      <label class="ck"><input type="checkbox" id="c-r13" data-k>People say they are better for knowing me</label>
+    </div>
+  </div>
+  <h3>Protocol</h3>
+  <ul>
+    <li><b>The inner five.</b> Name the five people who matter most. Each gets real time every week or fortnight, scheduled like training.</li>
+    <li><b>The move plan.</b> Each time you change city, list who you are leaving and set a recurring call before you go. Friendships fade through logistics more than through conflict.</li>
+    <li><b>Mentors.</b> Ask for one specific piece of advice, act on it, report back. That loop is how a senior person becomes invested in you.</li>
+    <li><b>Partner.</b> Who you build a life with is likely the highest-leverage decision in this manual. Choose for character, shared direction and how you handle conflict together.</li>
+    <li><b>Repair fast.</b> Apologise the same day when you are wrong. Say the appreciative thing out loud when you think it.</li>
+  </ul>
+  <div class="panel wb">
+    <h4>Workbook · people</h4>
+    <div class="fld"><label for="f-r-five">My inner five and when I last gave each real time</label><textarea id="f-r-five" data-k></textarea></div>
+    <div class="fld"><label for="f-r-owe">People I owe a call, a thank-you or an apology</label><textarea id="f-r-owe" data-k></textarea></div>
+  </div>
+</section>
+
+<section id="character" aria-labelledby="h-character">
+  <h2 id="h-character"><span class="n">11</span>Character</h2>
+  <p class="lede">What you do when it costs you and nobody is checking. Everything else in this manual amplifies whatever is here.</p>
+  <div class="tiers">
+    <div class="tier"><h4>Floor</h4>
+      <label class="ck"><input type="checkbox" id="c-h1" data-k>I do not lie, including the convenient small ones</label>
+      <label class="ck"><input type="checkbox" id="c-h2" data-k>I keep promises, or renegotiate before the deadline</label>
+      <label class="ck"><input type="checkbox" id="c-h3" data-k>I own mistakes within a day, without excuses</label>
+      <label class="ck"><input type="checkbox" id="c-h4" data-k>I do not talk about people who are not in the room in ways I would not repeat to them</label>
+    </div>
+    <div class="tier t2"><h4>Strong</h4>
+      <label class="ck"><input type="checkbox" id="c-h5" data-k>A written personal code of ten lines or fewer</label>
+      <label class="ck"><input type="checkbox" id="c-h6" data-k>I have done the right thing when it cost me money or status</label>
+      <label class="ck"><input type="checkbox" id="c-h7" data-k>Anger no longer makes my decisions</label>
+      <label class="ck"><input type="checkbox" id="c-h8" data-k>5% of my time or income goes to someone else's benefit</label>
+    </div>
+    <div class="tier t3"><h4>Elite</h4>
+      <label class="ck"><input type="checkbox" id="c-h9" data-k>My word is accepted without a contract by people who know me</label>
+      <label class="ck"><input type="checkbox" id="c-h10" data-k>I have been trusted with power and did not abuse it</label>
+      <label class="ck"><input type="checkbox" id="c-h11" data-k>My mission in section 04 serves people beyond me, and my calendar proves it</label>
+    </div>
+  </div>
+  <h3>Protocol</h3>
+  <ul>
+    <li><b>Write the code.</b> Ten lines you will not cross. Read it at every quarterly review.</li>
+    <li><b>Small promises first.</b> Stop saying "I'll try" and "let's catch up soon". Say yes with a date, or say no.</li>
+    <li><b>One courage rep a week.</b> The honest feedback, the unpopular position, the admission. Log it.</li>
+    <li><b>The power rule.</b> As you gain money, rank and strength, the test becomes how you treat people who can do nothing for you. That is the difference between Wayne and the men he fights.</li>
+    <li><b>Stay teachable.</b> Ask one person a year, "What is the thing about me that nobody tells me?" Listen without defending.</li>
+  </ul>
+  <div class="panel wb">
+    <h4>Workbook · character</h4>
+    <div class="fld"><label for="f-h-code">My code</label><textarea id="f-h-code" data-k></textarea></div>
+    <div class="fld"><label for="f-h-reps">Courage log</label><textarea id="f-h-reps" data-k></textarea></div>
+  </div>
+</section>
+
+<section id="roadmap" aria-labelledby="h-roadmap">
+  <h2 id="h-roadmap"><span class="n">12</span>Roadmap</h2>
+  <p class="lede">Ten years in five phases. Each phase has one job. Dates assume you start in November 2026 at 24.</p>
+  <div class="phase"><div class="when"><b>Foundation</b>Nov 2026 to joining day<br>age 24</div><div>
+    <p><b>Job: install the base habits while your schedule is still your own.</b></p>
+    <ul>
+      <li>Body Floor complete: 12 weeks of lifting, sleep fixed, baseline numbers recorded.</li>
+      <li>Direction written. First scorecard snapshot saved.</li>
+      <li>Weekly review running. Daily reading running.</li>
+      <li>Finish the MBA cleanly and arrive at work with one automation project already scoped.</li>
+    </ul></div></div>
+  <div class="phase"><div class="when"><b>Prove</b>First 12 months at work<br>age 24 to 25</div><div>
+    <p><b>Job: become undeniably good at the role and automate your finances.</b></p>
+    <ul>
+      <li>Craft Floor complete. First measurable win logged within 90 days.</li>
+      <li>Money Floor complete: emergency fund, health cover, 20% invested automatically.</li>
+      <li>Training survives the move to full-time work. This is where most people lose it.</li>
+      <li>Presence Floor complete. Speaking log started.</li>
+    </ul></div></div>
+  <div class="phase"><div class="when"><b>Differentiate</b>2028 to 2029<br>age 26 to 27</div><div>
+    <p><b>Job: build the spike. Be known for one thing.</b></p>
+    <ul>
+      <li>Craft at Strong. Public portfolio live. First step toward a revenue-adjacent role, inside or outside.</li>
+      <li>Body at Strong. A physical skill started.</li>
+      <li>Savings rate at 30 to 40%. Second income source earns its first rupee.</li>
+      <li>Mentors and a sponsor in place. Inner five maintained through any city change.</li>
+    </ul></div></div>
+  <div class="phase"><div class="when"><b>Leverage</b>2030 to 2032<br>age 28 to 30</div><div>
+    <p><b>Job: turn skill into ownership.</b></p>
+    <ul>
+      <li>Lead a team, a product or a P&amp;L. Or found the company if the side project has paying users.</li>
+      <li>All seven domains at Strong. Two at Elite.</li>
+      <li>Partner and family decisions made on purpose.</li>
+      <li>Start mentoring others.</li>
+    </ul></div></div>
+  <div class="phase"><div class="when"><b>Compound</b>2033 to 2036<br>age 31 to 34</div><div>
+    <p><b>Job: hold the standard and widen the mission.</b></p>
+    <ul>
+      <li>Senior leadership or a company of your own. Income from three sources.</li>
+      <li>5 to 10 years of expenses invested. Parents' plan funded.</li>
+      <li>Elite Body numbers held, not just touched once.</li>
+      <li>The mission in section 04 is visible in how you spend your weeks.</li>
+    </ul></div></div>
+  <div class="panel">
+    <h4>Reading this again in a year or three</h4>
+    <p style="margin-bottom:0">Find your phase by age. If you are behind it, do not compress two phases into one. Go back to the earliest incomplete Floor and rebuild from there. The order matters more than the dates.</p>
+  </div>
+</section>
+
+<section id="rhythm" aria-labelledby="h-rhythm">
+  <h2 id="h-rhythm"><span class="n">13</span>Rhythm</h2>
+  <p class="lede">The small set of recurring actions that keeps all of this alive. Miss everything else before you miss the weekly review.</p>
+  <h3>Daily · three non-negotiables</h3>
+  <p>Choose three actions so small you can do them on your worst day. They are the Floor of your Floor.</p>
+  <div class="panel wb">
+    <h4>Workbook · daily</h4>
+    <div class="fld"><label for="f-d-three">My three non-negotiables</label><small>Example: move for 30 minutes. One hour of deep work. In bed by a fixed time.</small><textarea id="f-d-three" data-k></textarea></div>
+    <div class="fld"><label for="f-d-min">My minimum viable day</label><small>The 15-minute version for travel, illness or chaos. Example: 20 push-ups, 5 pages, one message to someone in the inner five.</small><textarea id="f-d-min" data-k></textarea></div>
+  </div>
+  <h3>Weekly · 20 minutes, same slot</h3>
+  <ol>
+    <li>What did I do this week that the man in section 04 would do?</li>
+    <li>Where did I miss, and what in the environment caused it?</li>
+    <li>What is the one adjustment for next week?</li>
+    <li>Training sessions, deep work blocks and inner-five time: scheduled for next week?</li>
+    <li>Wins log and money: updated?</li>
+  </ol>
+  <div class="panel wb">
+    <h4>Workbook · weekly</h4>
+    <div class="fld"><label for="f-w-slot">My review slot</label><input type="text" id="f-w-slot" data-k placeholder="Sunday 7:00 pm, at my desk"></div>
+    <div class="fld"><label for="f-w-notes">Weekly notes</label><small>One dated line per week. Trim old lines each quarter.</small><textarea id="f-w-notes" data-k></textarea></div>
+  </div>
+  <h3>Monthly · 30 minutes</h3>
+  <ul>
+    <li>Body measurements and best lifts into section 05.</li>
+    <li>Savings rate into section 08.</li>
+    <li>One feedback conversation at work.</li>
+    <li>Tick any standards you have newly met.</li>
+  </ul>
+  <h3>Quarterly · 90 minutes</h3>
+  <ul>
+    <li>Rescore section 03 and save a snapshot.</li>
+    <li>Pick one focus domain for the next 90 days, usually the lowest score.</li>
+    <li>Write one outcome for it and one WOOP.</li>
+    <li>Reread your code and your anti-vision.</li>
+  </ul>
+  <div class="panel wb">
+    <h4>Workbook · this quarter</h4>
+    <div class="two">
+      <div class="fld"><label for="f-q-focus">Focus domain</label><input type="text" id="f-q-focus" data-k></div>
+      <div class="fld"><label for="f-q-out">The one measurable outcome</label><input type="text" id="f-q-out" data-k></div>
+    </div>
+    <div class="fld"><label for="f-q-woop">WOOP</label><small>Wish. Best outcome. The inner obstacle most likely to stop me. If that obstacle shows up, then I will ...</small><textarea id="f-q-woop" data-k></textarea></div>
+  </div>
+  <h3>Annual · every 14 November</h3>
+  <p>Half a day, alone, away from your desk. Read the whole manual. Rewrite section 04 if you have changed. Answer the four questions below and keep every year's answers.</p>
+  <div class="panel wb">
+    <h4>Workbook · annual reviews</h4>
+    <div class="fld"><label for="f-a-log">Year by year</label><small>For each year: what I am proud of, what I avoided, what I learned about myself, what I am changing.</small><textarea id="f-a-log" data-k style="min-height:140px"></textarea></div>
+  </div>
+  <h3>Backup</h3>
+  <p class="note">Your entries save to your Claude account when you open this page signed in, and to this browser otherwise. Once a year, copy a backup and paste it into a note you control.</p>
+  <div class="panel">
+    <div class="row" style="margin-top:0"><button type="button" id="copyBtn">Copy backup</button><button type="button" class="ghost" id="restoreBtn">Restore from pasted backup</button><span class="note" id="bkMsg"></span></div>
+    <div class="fld"><label for="bkBox">Backup text</label><textarea id="bkBox" placeholder="Paste a backup here to restore. Copying a backup also shows it here."></textarea></div>
+  </div>
+</section>
+
+<section id="breaks" aria-labelledby="h-breaks">
+  <h2 id="h-breaks"><span class="n">14</span>When it breaks</h2>
+  <p class="lede">It will. The plan for failure is part of the system.</p>
+  <h3>You missed a day</h3>
+  <p>Nothing happened. In the habit research a single missed day had no material effect.<sup><a href="#s8">8</a></sup> Do the minimum viable day tomorrow. The rule is never two in a row.</p>
+  <h3>You missed two weeks</h3>
+  <ol>
+    <li>Do not restart on Monday. Restart within the hour, with the smallest version.</li>
+    <li>Run only the three non-negotiables for seven days.</li>
+    <li>In the weekly review, write what changed in your environment. Travel, a new job and a breakup are the usual causes. Fix the environment and leave your character out of it.</li>
+  </ol>
+  <h3>You have plateaued</h3>
+  <ul>
+    <li><b>Body:</b> check sleep and food before changing the programme.</li>
+    <li><b>Craft:</b> you have probably outgrown your feedback. Find a harder problem or a tougher reviewer.</li>
+    <li><b>Everything:</b> a flat quarter after two strong ones is consolidation. Hold the Floor and wait.</li>
+  </ul>
+  <h3>You are burning out</h3>
+  <p>Signs: sleep worsening, dreading things you used to like, getting ill often, snapping at people. Drop to Floor in every domain for two weeks, protect sleep, see your inner five. If it persists, see a doctor.</p>
+  <h3>The standard has turned on you</h3>
+  <p>"Best who can ever be" is a direction. Used as a verdict on your worth, it produces the Wayne failure: a capable, joyless man. Two checks each quarter. Did I enjoy anything that had no payoff? Would the people in my inner five say I have been good to be around? If either answer is no, that is the constraint to fix next, ahead of any score.</p>
+  <h3>You compared yourself to someone</h3>
+  <p>Compare with your own snapshot from a year ago. That is the only comparison with the same starting conditions.</p>
+</section>
+
+<section id="library" aria-labelledby="h-library">
+  <h2 id="h-library"><span class="n">15</span>Library</h2>
+  <p class="lede">One or two books per domain. Read them in the quarter that domain is your focus.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Domain</th><th>Read</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><th>System</th><td>Atomic Habits, James Clear<br>Rethinking Positive Thinking, Gabriele Oettingen</td><td>Environment design and WOOP from the researcher who developed it.</td></tr>
+      <tr><th>Body</th><td>Starting Strength, Mark Rippetoe<br>Outlive, Peter Attia</td><td>Barbell technique. The case for cardio fitness and strength across a lifetime.</td></tr>
+      <tr><th>Mind</th><td>Deep Work, Cal Newport<br>Meditations, Marcus Aurelius<br>Feeling Good, David Burns</td><td>Attention. The control split at its source. The standard CBT self-help text.</td></tr>
+      <tr><th>Craft</th><td>So Good They Can't Ignore You, Cal Newport<br>The First 90 Days, Michael Watkins<br>High Output Management, Andrew Grove</td><td>Career capital. Starting a role well. How managers create output.</td></tr>
+      <tr><th>Money</th><td>The Psychology of Money, Morgan Housel<br>Let's Talk Money, Monika Halan</td><td>Behaviour first. Then a practical system written for Indian households.</td></tr>
+      <tr><th>Presence</th><td>Getting to Yes, Fisher and Ury<br>On Writing Well, William Zinsser</td><td>Principled negotiation. Clear writing, which becomes clear speaking.</td></tr>
+      <tr><th>People</th><td>The Good Life, Waldinger and Schulz<br>How to Win Friends and Influence People, Dale Carnegie</td><td>The Harvard study in full. The basics of making people feel heard.</td></tr>
+      <tr><th>Character</th><td>Man's Search for Meaning, Viktor Frankl<br>The Bhagavad Gita, any respected translation</td><td>Purpose under pressure. Action without attachment to the result.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="sources" aria-labelledby="h-sources">
+  <h2 id="h-sources"><span class="n">16</span>Sources</h2>
+  <p class="lede">Every research claim above points here. Where a finding is contested, both sides are listed.</p>
+  <ol style="font-size:14.5px">
+    <li id="s1">Morton et al. (2018). Protein supplementation and resistance-training gains, meta-analysis. British Journal of Sports Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/">PubMed</a></li>
+    <li id="s2">Bull et al. (2020). WHO guidelines on physical activity and sedentary behaviour. <a href="https://pmc.ncbi.nlm.nih.gov/articles/7719906/">Full text</a></li>
+    <li id="s3">Mandsager et al. (2018). Cardiorespiratory fitness and long-term mortality. JAMA Network Open. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6324439">Full text</a></li>
+    <li id="s4">Schoenfeld, Ogborn and Krieger (2017), weekly volume and muscle mass; Baz-Valle et al. (2022), training volumes for hypertrophy. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877">Full text of the 2022 review</a></li>
+    <li id="s5">Watson et al. (2015). Recommended amount of sleep for a healthy adult, AASM and SRS consensus. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/">Full text</a></li>
+    <li id="s6">NICE. Keep the size of your waist to less than half of your height. <a href="https://nice.org.uk/news/articles/keep-the-size-of-your-waist-to-less-than-half-of-your-height-nice--recommends">NICE</a></li>
+    <li id="s7">Kreider et al. (2017). ISSN position stand on creatine. <a href="https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0173-z">Full text</a></li>
+    <li id="s8">Lally et al. (2010). How are habits formed. European Journal of Social Psychology. <a href="https://bps.org.uk/research-digest/how-form-habit">BPS summary</a></li>
+    <li id="s9">Gollwitzer and Sheeran (2006). Implementation intentions and goal achievement, meta-analysis. <a href="https://kops.uni-konstanz.de/entities/publication/2e749bfb-8533-437c-8203-7e788c910c5f">Record</a></li>
+    <li id="s10">Sheeran, Listrom and Gollwitzer (2024), 642 tests with bias-corrected estimates. <a href="https://www.thebehavioralscientist.com/glossary/implementation-intentions">Summary</a></li>
+    <li id="s11">Wang, Wang and Gai (2021). Mental contrasting with implementation intentions, meta-analysis. <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2021.565202/full">Full text</a></li>
+    <li id="s12">Vohs et al. (2021). A multisite preregistered test of the ego-depletion effect. <a href="https://experts.umn.edu/en/publications/a-multisite-preregistered-paradigmatic-test-of-the-ego-depletion-/">Record</a></li>
+    <li id="s13">Macnamara, Hambrick and Oswald (2014). Deliberate practice and performance, meta-analysis. <a href="https://www.sciencedaily.com/releases/2014/07/140716123835.htm">Summary</a></li>
+    <li id="s14">Dunlosky et al. (2013). Improving students' learning with effective learning techniques. <a href="https://www.psychologicalscience.org/news/releases/which-study-strategies-make-the-grade.html">APS summary</a></li>
+    <li id="s15">Macnamara and Burgoyne (2023), growth mindset interventions; Tipton et al. (2023), the opposing analysis. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10495100/">Commentary covering both</a></li>
+    <li id="s16">Ryan and Deci (2000). Self-determination theory. American Psychologist. <a href="https://pubmed.ncbi.nlm.nih.gov/11392867/">PubMed</a></li>
+    <li id="s17">Bandura (1977, 1997). Self-efficacy and its four sources. <a href="https://www.simplypsychology.org/self-efficacy.html">Overview</a></li>
+    <li id="s18">Credé, Tynan and Harms (2017). Much ado about grit, meta-analysis. <a href="https://pubmed.ncbi.nlm.nih.gov/27845531/">PubMed</a></li>
+    <li id="s19">Harvard Study of Adult Development, interview with director Robert Waldinger (2023). <a href="https://news.harvard.edu/gazette/story/2023/02/work-out-daily-ok-but-how-socially-fit-are-you">Harvard Gazette</a></li>
+    <li id="s20">Killingsworth, Kahneman and Mellers (2023). Income and emotional well-being: a conflict resolved. PNAS. <a href="https://sciencedaily.com/releases/2023/03/230306163006.htm">Summary</a></li>
+    <li id="s21">Holt-Lunstad, Smith and Layton (2010). Social relationships and mortality risk, meta-analysis. PLoS Medicine. <a href="https://doaj.org/article/c9833ba608474b048444b92ae7ee48ad">Record</a></li>
+  </ol>
+  <p class="note">Strength and running benchmarks, the tier definitions, the roadmap and the money checkpoints are judgement, not research. They are marked as such where they appear.</p>
+</section>
+
+<footer>Built 14 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
+
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="opman.v1";
+  var DOMS=["body","mind","craft","money","presence","people","character"];
+  var NAMES={body:"Body",mind:"Mind",craft:"Craft",money:"Money",presence:"Presence",people:"People",character:"Character"};
+  var state={f:{},snaps:[],t:0};
+  var els=[].slice.call(document.querySelectorAll("[data-k]"));
+  function $(id){return document.getElementById(id);}
+  function setText(id,t){var e=$(id);if(e)e.textContent=t;}
+
+  function loadLocal(){
+    try{var r=localStorage.getItem(KEY);if(r){var s=JSON.parse(r);if(valid(s))state=s;}}catch(e){}
+  }
+  function saveLocal(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  function valid(s){return !!s&&typeof s==="object"&&!!s.f&&typeof s.f==="object"&&Array.isArray(s.snaps);}
+
+  function merge(a,b){
+    var older=(a.t||0)<=(b.t||0)?a:b, newer=older===a?b:a, out={f:{},snaps:[],t:newer.t||0}, k, seen={};
+    for(k in older.f){if(Object.prototype.hasOwnProperty.call(older.f,k))out.f[k]=older.f[k];}
+    for(k in newer.f){if(Object.prototype.hasOwnProperty.call(newer.f,k))out.f[k]=newer.f[k];}
+    newer.snaps.concat(older.snaps).forEach(function(s){if(s&&s.id&&!seen[s.id]){seen[s.id]=1;out.snaps.push(s);}});
+    out.snaps.sort(function(x,y){return x.id<y.id?-1:1;});
+    return out;
+  }
+
+  function apply(){
+    els.forEach(function(el){
+      var v=state.f[el.id];
+      if(el.type==="checkbox"){el.checked=!!v;}
+      else if(v!==undefined&&v!==null){el.value=v;}
+      else{el.value=el.defaultValue;}
+    });
+    renderAll();
+  }
+  function renderAll(){renderScores();renderSnaps();renderCount();renderDates();}
+
+  function scoreOf(d){var v=state.f["s-"+d];return v===undefined?null:Number(v);}
+  function renderScores(){
+    var vals=[],lowD=null,lowV=11,hi=0;
+    DOMS.forEach(function(d){
+      var v=scoreOf(d),out=document.querySelector('output[for="s-'+d+'"]');
+      if(out)out.textContent=v===null?"–":String(v);
+      if(v!==null){vals.push(v);if(v<lowV){lowV=v;lowD=d;}if(v>hi)hi=v;}
+    });
+    if(!vals.length){setText("avg","–");setText("low","–");setText("gap","–");return;}
+    var sum=vals.reduce(function(a,b){return a+b;},0);
+    setText("avg",(sum/vals.length).toFixed(1));
+    setText("low",vals.length===DOMS.length?NAMES[lowD]:"score all 7");
+    setText("gap",String(hi-lowV));
+  }
+  function today(){var d=new Date();function p(n){return n<10?"0"+n:""+n;}return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());}
+  function renderSnaps(){
+    var tb=document.querySelector("#snapTable tbody");tb.textContent="";
+    if(!state.snaps.length){
+      var tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=11;td.className="note";
+      td.textContent="No snapshots yet. Your first one is the baseline every later one is measured against.";tr.appendChild(td);tb.appendChild(tr);return;
+    }
+    state.snaps.slice().reverse().forEach(function(s){
+      var tr=document.createElement("tr");
+      function cell(t,c){var td=document.createElement("td");td.textContent=t;if(c)td.className=c;tr.appendChild(td);}
+      cell(s.d,"num");var n=0,sum=0;
+      DOMS.forEach(function(d){var v=s.s[d];cell(v==null?"–":String(v),"num");if(v!=null){n++;sum+=v;}});
+      cell(n?(sum/n).toFixed(1):"–","num");cell(s.note||"");
+      var td=document.createElement("td"),b=document.createElement("button");b.type="button";b.className="ghost sm";b.textContent="Remove";
+      b.addEventListener("click",function(){
+        if(b.dataset.armed){state.snaps=state.snaps.filter(function(x){return x.id!==s.id;});touch();renderSnaps();}
+        else{b.dataset.armed="1";b.textContent="Confirm";setTimeout(function(){delete b.dataset.armed;b.textContent="Remove";},3000);}
+      });
+      td.appendChild(b);tr.appendChild(td);tb.appendChild(tr);
+    });
+  }
+  function renderCount(){
+    var cks=els.filter(function(e){return e.type==="checkbox";}),n=cks.filter(function(e){return e.checked;}).length;
+    setText("stdCount",n+" of "+cks.length+" standards met");
+  }
+  function renderDates(){
+    var v=$("f-start").value,start=v?new Date(v+"T00:00:00"):null;
+    if(!start||isNaN(start.getTime())){setText("weekNo","Week –");setText("nextRev","–");return;}
+    var now=new Date(),wk=Math.floor((now-start)/(7*864e5))+1;
+    setText("weekNo","Week "+Math.max(1,wk));
+    var next=new Date(start.getTime());
+    while(next<=now){next.setMonth(next.getMonth()+3);}
+    setText("nextRev",next.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}));
+  }
+
+  function touch(){state.t=Date.now();saveLocal();scheduleCloud();}
+  els.forEach(function(el){
+    var ev=(el.type==="checkbox"||el.type==="date")?"change":"input";
+    el.addEventListener(ev,function(){
+      state.f[el.id]=el.type==="checkbox"?el.checked:el.value;
+      touch();
+      if(el.type==="range")renderScores();
+      else if(el.type==="checkbox")renderCount();
+      else if(el.id==="f-start")renderDates();
+    });
+    if(el.type==="range"){
+      /* A click or key press on the default position still counts as scoring it. */
+      ["click","keyup"].forEach(function(n){el.addEventListener(n,function(){
+        if(state.f[el.id]===undefined){state.f[el.id]=el.value;touch();renderScores();}
+      });});
+    }
+  });
+
+  $("snapBtn").addEventListener("click",function(){
+    var s={},any=false;DOMS.forEach(function(d){var v=scoreOf(d);s[d]=v;if(v!==null)any=true;});
+    if(!any){setText("snapMsg","Score at least one domain first.");return;}
+    var d=today(),id=d+"-"+Date.now().toString(36);
+    state.snaps.push({id:id,d:d,s:s,note:(state.f["f-snapnote"]||"").slice(0,200)});
+    touch();renderSnaps();setText("snapMsg","Snapshot saved for "+d+".");
+  });
+
+  $("copyBtn").addEventListener("click",function(){
+    var txt=JSON.stringify(state);$("bkBox").value=txt;
+    try{navigator.clipboard.writeText(txt).then(function(){setText("bkMsg","Backup copied. Paste it into a note you control.");},function(){$("bkBox").select();setText("bkMsg","Copy the selected text below.");});}
+    catch(e){$("bkBox").select();setText("bkMsg","Copy the selected text below.");}
+  });
+  $("restoreBtn").addEventListener("click",function(){
+    var b=$("restoreBtn"),s;
+    try{s=JSON.parse($("bkBox").value);}catch(e){s=null;}
+    if(!valid(s)){setText("bkMsg","That is not a backup from this manual. Paste the full text and try again.");return;}
+    if(!b.dataset.armed){b.dataset.armed="1";b.textContent="Confirm: replace everything";setText("bkMsg","This replaces all current entries.");setTimeout(function(){delete b.dataset.armed;b.textContent="Restore from pasted backup";},5000);return;}
+    delete b.dataset.armed;b.textContent="Restore from pasted backup";
+    state={f:s.f,snaps:s.snaps,t:Date.now()};saveLocal();apply();scheduleCloud();setText("bkMsg","Restored.");
+  });
+
+  /* Account storage: one private document per signed-in viewer. Browser storage stays as the fallback. */
+  var cloud={ref:null,saving:false,dirty:false,timer:null,dead:false};
+  function status(t,ok){setText("syncText",t);$("syncDot").className=ok?"dot ok":"dot";}
+  function scheduleCloud(){if(!cloud.ref||cloud.dead)return;clearTimeout(cloud.timer);cloud.timer=setTimeout(pushCloud,1500);}
+  function pushCloud(retried){
+    if(!cloud.ref||cloud.dead)return;
+    if(cloud.saving){cloud.dirty=true;return;}
+    cloud.saving=true;cloud.dirty=false;
+    cloud.ref.set({json:JSON.stringify(state),t:state.t}).then(function(){
+      cloud.saving=false;status("Saved to your Claude account",true);
+      if(cloud.dirty)pushCloud();
+    },function(e){
+      cloud.saving=false;
+      if(e&&e.code==="unavailable"&&!retried){setTimeout(function(){pushCloud(true);},1200+Math.random()*1200);return;}
+      cloud.dead=true;status("Saving in this browser only",false);
+    });
+  }
+  function initCloud(){
+    if(!(window.claude&&typeof window.claude.use==="function"))return;
+    Promise.all([window.claude.use("db"),window.claude.use("user")]).then(function(r){
+      var db=r[0],user=r[1];if(!db||!user)return null;
+      return Promise.resolve(user.id()).then(function(id){
+        if(!id)return null;
+        var ref=db.doc("data/users/"+id+"/workbook");
+        var timeout=new Promise(function(_,rej){setTimeout(function(){rej({code:"timeout"});},10000);});
+        return Promise.race([ref.get(),timeout]).then(function(snap){
+          cloud.ref=ref;
+          var remote=null;
+          if(snap&&snap.exists){try{remote=JSON.parse(snap.data().json);}catch(e){remote=null;}}
+          if(valid(remote)){
+            var localNewer=(state.t||0)>(remote.t||0);
+            state=merge(state,remote);saveLocal();apply();
+            if(localNewer)pushCloud();
+            else status("Saved to your Claude account",true);
+          }else if(state.t>0){pushCloud();}
+          else{status("Saves to your Claude account",true);}
+        });
+      });
+    }).catch(function(){status("Saving in this browser only",false);});
+  }
+
+  loadLocal();apply();initCloud();
+})();
+</script>
+</body>
+</html>
