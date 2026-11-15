@@ -2,6 +2,11 @@
 
 All notable changes to the manual. Newest first.
 
+## 2.0.1 · 2026-11-15
+
+- Myth file: three new rows. Dopamine detox and testosterone-boosting supplements are now sourced (60, 61). Waking at 5 a.m. is tied to the existing sleep sources. One item remains unsourced.
+- The live manual was republished at 2.0. It had been left on 1.2.
+
 ## 2.0.0 · 2026-11-14
 
 Third and last staged release from `docs/v2-plan.md`. A major version because two domains were added.

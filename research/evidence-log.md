@@ -67,6 +67,8 @@ Last full check: 2026-11-14.
 | 57 | Wild wolf packs are families and the "alpha" pair are the parents | solid | Myth file | [Mech 1999](https://cdnsciencepub.com/doi/10.1139/z99-099) | 2026-11-14 |
 | 58 | The 7%, 38%, 55% figures apply only to mixed messages about feelings, by the researcher's own account | solid | Myth file | [Mehrabian, quoted by Temple University](https://law.temple.edu/aer/2021/05/03/brain-lessons-the-seven-percent-delusion/) | 2026-11-14 |
 | 59 | Switching between tasks costs time on each switch, more for complex tasks | solid | Myth file | [Rubinstein 2001](https://pubmed.ncbi.nlm.nih.gov/11518143/) | 2026-11-14 |
+| 60 | Avoiding stimulation does not lower dopamine; the practice's author says the name is not literal (expert commentary, not a trial) | useful | Myth file | [Grinspoon 2020, Harvard Health](https://www.health.harvard.edu/blog/dopamine-fasting-misunderstanding-science-spawns-a-maladaptive-fad-2020022618917) | 2026-11-15 |
+| 61 | Of 50 "testosterone booster" products, 90% claimed to raise testosterone, 24.8% had supporting data, 10.1% had ingredients with data showing a decrease | solid | Myth file | [Clemesha 2020](https://www.ncbi.nlm.nih.gov/pubmed/31385468) | 2026-11-15 |
 
 ## Watch list
 
@@ -90,7 +92,7 @@ Findings most likely to move. Recheck these at each quarterly sweep.
 
 These parts of the manual are judgement or standard practice and are labelled as such in the page: the strength and running benchmarks, the tier definitions, the training programme and pull-up ladder, food protein values and sample days, sleep-hygiene steps other than timing and caffeine, the mobility routine, the preventive-health list, the pressure tools in Mind, the personality scaffolding table, the ideal-week templates, the playbooks in Craft, Money and Presence, the playbooks in People, Character, Competence and Base apart from the sentences that carry a source number, the first-response steps and road habits, the standards lists for Competence and Base, the seasons, the accountability set-up, the risk register, the curriculum, the decision frameworks, the year-one plan, the roadmap dates and exit tests, and the "years of expenses" money checkpoints.
 
-Three entries in the Myth file's "Not yet sourced" list still need sources: dopamine detox, 5 a.m. routines, and cold exposure, semen retention and testosterone supplements. Alpha hierarchy, the 93% rule and multitasking were sourced in 2.0.
+One entry in the Myth file's "Not yet sourced" list still needs a source: cold exposure and semen retention. The 5 a.m. row rests on sources 5 and 23 and makes no claim beyond them.
 
 ## Numbers used from memory of the paper, to re-read at the next sweep
 

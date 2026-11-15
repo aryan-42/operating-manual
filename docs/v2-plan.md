@@ -217,7 +217,7 @@ Still open: expected joining month, for the roadmap dates in release 1.2.
 
 ## 10. Left over after 2.0
 
-- Sources for the last three Myth file items.
+- A source for the last Myth file item (cold exposure and semen retention). Two of the three were sourced in 2.0.1.
 - A line-by-line read of the figures listed in the evidence log.
 - Confirm account saving in live use.
 - Real dates in Year one once the joining month is known.

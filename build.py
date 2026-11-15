@@ -2,8 +2,8 @@
 """Assemble index.html from src/. Run: python3 build.py"""
 import re, pathlib
 ROOT = pathlib.Path(__file__).parent
-VERSION = "2.0.0"
-UPDATED = "14 November 2026"
+VERSION = "2.0.1"
+UPDATED = "15 November 2026"
 PARTS = [
     ("A · Foundation", ["start", "standard", "principles", "myths", "change"]),
     ("B · Know yourself", ["baseline", "scorecard", "personality", "time", "direction", "assets"]),
