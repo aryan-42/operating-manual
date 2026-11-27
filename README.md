@@ -2,13 +2,13 @@
 
 A ten-year personal system across nine domains: body, mind, craft, money, presence, people, character, competence and base. Started 14 November 2026.
 
-The manual itself is one self-contained page, `index.html`, assembled from the files in `src/`. This repository is where it is maintained: every change to the content is a commit, and every research claim is tracked in `research/`.
+The manual itself is one self-contained page, `index.html`, assembled from the files in `src/`. Read it at **https://aryan-42.github.io/operating-manual/**. This repository is where it is maintained: every change to the content is a commit, and every research claim is tracked in `research/`.
 
 ## What is here
 
 | Path | What it is |
 |---|---|
-| `index.html` | The built manual. This is the file that gets published. Do not edit it by hand. |
+| `index.html` | The built manual. GitHub Pages serves this file from `main`. Do not edit it by hand. |
 | `src/sections/` | One file per section. Edit these. |
 | `src/head.html`, `src/script.js` | Styles and behaviour. |
 | `build.py` | Assembles `index.html`, numbers the sections and builds the index. Section order and version live here. |
@@ -19,7 +19,7 @@ The manual itself is one self-contained page, `index.html`, assembled from the f
 
 ## What is not here
 
-Your own entries (scores, snapshots, workbook answers) are not in this repository. They are stored with the published page under your Claude account, with the browser as a fallback. Use "Copy backup" in the Rhythm section of the manual if you want a copy of them.
+Your own entries (scores, snapshots, workbook answers) are not in this repository. They are saved in the browser you open the manual in, so each device keeps its own. Use "Copy backup" in the Rhythm section of the manual to keep a copy or move them to another device.
 
 ## How an update works
 
@@ -27,7 +27,11 @@ Your own entries (scores, snapshots, workbook answers) are not in this repositor
 2. **Evaluate.** It has to pass the intake test at the top of the inbox: is it a meta-analysis, a replication or a consensus statement, and would it change something you actually do?
 3. **Change the manual.** Edit the section file in `src/sections/`, then run `python3 build.py`. If a claim is added or changed, update `research/evidence-log.md` in the same commit.
 4. **Record it.** Add a line to `CHANGELOG.md` and bump the version.
-5. **Republish.** Publish the new `index.html` to the same Claude artifact so the live page matches the repository.
+5. **Publish.** Push to `main`. GitHub Pages updates the live page within a minute or two.
+6. **Release.** Tag the version and create a GitHub release with `index.html` attached, so every version stays downloadable:
+   ```
+   gh release create vX.Y.Z index.html --title "Operating Manual X.Y.Z" --notes "…"
+   ```
 
 A reasonable cadence is a research sweep once a quarter, timed with the quarterly review in section 13, plus ad hoc additions whenever something comes up.
 
@@ -46,4 +50,6 @@ A reasonable cadence is a research sweep once a quarter, timed with the quarterl
 
 ## Published page
 
-The live manual is a private Claude artifact titled "Aryan Operating Manual".
+The live manual is served by GitHub Pages from `index.html` on `main`: https://aryan-42.github.io/operating-manual/
+
+Each version is also attached to a [GitHub release](https://github.com/aryan-42/operating-manual/releases) as a downloadable file.
