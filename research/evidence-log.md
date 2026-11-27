@@ -9,7 +9,7 @@ Last full check: 2026-11-14.
 | # | Claim as used in the manual | Rating | Section | Source | Checked |
 |---|---|---|---|---|---|
 | 1 | Protein beyond about 1.6 g/kg/day adds no further muscle gain from lifting (49 trials, 1,863 people) | solid | Body | [Morton 2018](https://pubmed.ncbi.nlm.nih.gov/28698222/) | 2026-11-14 |
-| 2 | Adults: 150 to 300 min moderate or 75 to 150 min vigorous activity weekly, plus strength work on 2 or more days | solid | Body | [WHO 2020](https://pmc.ncbi.nlm.nih.gov/articles/7719906/) | 2026-11-14 |
+| 2 | Adults: 150 to 300 min moderate or 75 to 150 min vigorous activity weekly, plus strength work on 2 or more days | solid | Body | [WHO 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/) | 2026-11-14 |
 | 3 | Higher cardio fitness tracks with lower mortality with no upper limit; elite versus low fitness about one fifth the risk (122,007 patients, observational) | solid | Body | [Mandsager 2018](https://pmc.ncbi.nlm.nih.gov/articles/PMC6324439) | 2026-11-14 |
 | 4 | Muscle growth rises with weekly sets per muscle; 12 to 20 sets is a reasonable range when trained | useful | Body | [Baz-Valle 2022](https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877) | 2026-11-14 |
 | 5 | Adults should sleep 7 or more hours a night regularly | solid | Body | [AASM/SRS 2015](https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/) | 2026-11-14 |

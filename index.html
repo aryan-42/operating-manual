@@ -196,7 +196,7 @@ td small{margin-top:2px}
 <body>
 <div class="shell">
 <nav class="index" aria-label="Sections">
-  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v2.0.1</small></div>
+  <div class="brand">Operating Manual<small>Aryan · 24 to 34 · v2.0.2</small></div>
   <div class="find"><label class="sr" for="q">Search the manual</label><input type="search" id="q" placeholder="Search the manual" autocomplete="off"><div id="qOut" aria-live="polite"></div></div>
   <ol>
     <li class="part">A · Foundation</li>
@@ -2788,7 +2788,7 @@ td small{margin-top:2px}
     <div class="fld"><label for="f-a-log">Year by year</label><small>For each year: what I am proud of, what I avoided, what I learned about myself, what I am changing.</small><textarea id="f-a-log" data-k style="min-height:140px"></textarea></div>
   </div>
   <h3>Backup</h3>
-  <p class="note">Your entries save to your Claude account when you open this page signed in, and to this browser otherwise. Once a year, copy a backup and paste it into a note you control.</p>
+  <p class="note">Your entries save in this browser only, so each device keeps its own copy. Clearing the browser's site data erases them. Once a year, and before switching device, copy a backup and paste it into a note you control.</p>
   <div class="panel">
     <div class="row" style="margin-top:0"><button type="button" id="copyBtn">Copy backup</button><button type="button" class="ghost" id="restoreBtn">Restore from pasted backup</button><span class="note" id="bkMsg"></span></div>
     <div class="fld"><label for="bkBox">Backup text</label><textarea id="bkBox" placeholder="Paste a backup here to restore. Copying a backup also shows it here."></textarea></div>
@@ -3317,7 +3317,7 @@ td small{margin-top:2px}
   <p class="lede">Every research claim above points here. Where a finding is contested, both sides are listed.</p>
   <ol style="font-size:14.5px">
     <li id="s1">Morton et al. (2018). Protein supplementation and resistance-training gains, meta-analysis. British Journal of Sports Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/">PubMed</a></li>
-    <li id="s2">Bull et al. (2020). WHO guidelines on physical activity and sedentary behaviour. <a href="https://pmc.ncbi.nlm.nih.gov/articles/7719906/">Full text</a></li>
+    <li id="s2">Bull et al. (2020). WHO guidelines on physical activity and sedentary behaviour. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/">Full text</a></li>
     <li id="s3">Mandsager et al. (2018). Cardiorespiratory fitness and long-term mortality. JAMA Network Open. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6324439">Full text</a></li>
     <li id="s4">Schoenfeld, Ogborn and Krieger (2017), weekly volume and muscle mass; Baz-Valle et al. (2022), training volumes for hypertrophy. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877">Full text of the 2022 review</a></li>
     <li id="s5">Watson et al. (2015). Recommended amount of sleep for a healthy adult, AASM and SRS consensus. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4434546/">Full text</a></li>
@@ -3382,7 +3382,7 @@ td small{margin-top:2px}
   <p class="note">Strength and running benchmarks, the tier definitions, the training programme, food portions and protein values, the ideal-week templates, the playbooks in every domain apart from the sentences that carry a source number, the first-response steps, the seasons, the risk register, the decision frameworks, the roadmap, the curriculum and the money checkpoints are judgement or standard practice, not research findings. They are marked as such where they appear.</p>
 </section>
 
-<footer>Version 2.0.1, updated 15 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
+<footer>Version 2.0.2, updated 27 November 2026. Health, legal and financial points here are general information. See a doctor before a major change in training or diet if you have a medical condition, and a registered adviser before financial decisions.</footer>
 
 </div>
 </main>
@@ -3453,7 +3453,7 @@ td small{margin-top:2px}
     if(!vals.length){setText("avg","–");setText("low","–");setText("gap","–");return;}
     var sum=vals.reduce(function(a,b){return a+b;},0);
     setText("avg",(sum/vals.length).toFixed(1));
-    setText("low",vals.length===DOMS.length?NAMES[lowD]:"score all 7");
+    setText("low",vals.length===DOMS.length?NAMES[lowD]:"score all "+DOMS.length);
     setText("gap",String(hi-lowV));
   }
   function snapAvg(s){var n=0,sum=0;DOMS.forEach(function(d){var v=s.s[d];if(v!=null){n++;sum+=v;}});return n?sum/n:null;}

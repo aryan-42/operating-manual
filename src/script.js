@@ -62,7 +62,7 @@
     if(!vals.length){setText("avg","–");setText("low","–");setText("gap","–");return;}
     var sum=vals.reduce(function(a,b){return a+b;},0);
     setText("avg",(sum/vals.length).toFixed(1));
-    setText("low",vals.length===DOMS.length?NAMES[lowD]:"score all 7");
+    setText("low",vals.length===DOMS.length?NAMES[lowD]:"score all "+DOMS.length);
     setText("gap",String(hi-lowV));
   }
   function snapAvg(s){var n=0,sum=0;DOMS.forEach(function(d){var v=s.s[d];if(v!=null){n++;sum+=v;}});return n?sum/n:null;}

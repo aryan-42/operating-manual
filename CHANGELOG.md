@@ -2,6 +2,13 @@
 
 All notable changes to the manual. Newest first.
 
+## 2.0.2 · 2026-11-27
+
+- The live manual moved to GitHub Pages: https://aryan-42.github.io/operating-manual/. Each version is also a GitHub release with `index.html` attached.
+- Rhythm: the backup note now says entries save in the browser, one copy per device. It still said they saved to a Claude account.
+- Scorecard: with some domains unscored, the lowest-domain field said "score all 7". It now counts the nine domains.
+- Source 2 (WHO 2020): the link was missing the `PMC` prefix. Fixed in Sources and the evidence log.
+
 ## 2.0.1 · 2026-11-15
 
 - Myth file: three new rows. Dopamine detox and testosterone-boosting supplements are now sourced (60, 61). Waking at 5 a.m. is tied to the existing sleep sources. One item remains unsourced.
